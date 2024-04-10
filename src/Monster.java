@@ -15,6 +15,7 @@ public class Monster {
     //The following variables are the common attribute between all monsters
     //Lincoln Bruce
     private String name;
+    private String RoomID;
     private String description;
     private int health;
     private int attack;
@@ -25,7 +26,7 @@ public class Monster {
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
-    public Monster(String name, String description, int health, int attack, int dexterity, int speed, int expDrop, int goldDrop) {
+    public Monster(String name, String roomID, String description, int health, int attack, int dexterity, int speed, int expDrop, int goldDrop) {
         this.name = name;
         this.description = description;
         this.health = health;
@@ -44,6 +45,13 @@ public class Monster {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getRoomID() {
+        return RoomID;
+    }
+    public void setRoomID(String roomID) {
+        RoomID = roomID;
     }
 
     public String getDescription() {
@@ -112,14 +120,15 @@ public class Monster {
                 String data = myReader.nextLine();
                 String[] monsterData = data.split("-");
                 String name = monsterData[0];
-                String description = monsterData[1];
-                int health = Integer.parseInt(monsterData[2]);
-                int attack = Integer.parseInt(monsterData[3]);
-                int dexterity = Integer.parseInt(monsterData[4]);
-                int speed = Integer.parseInt(monsterData[5]);
-                int expDrop = Integer.parseInt(monsterData[6]);
-                int goldDrop = Integer.parseInt(monsterData[7]);
-                Monster monster = new Monster(name, description, health, attack, dexterity, speed, expDrop, goldDrop);
+                String roomID = monsterData[1];
+                String description = monsterData[2];
+                int health = Integer.parseInt(monsterData[3]);
+                int attack = Integer.parseInt(monsterData[4]);
+                int dexterity = Integer.parseInt(monsterData[5]);
+                int speed = Integer.parseInt(monsterData[6]);
+                int expDrop = Integer.parseInt(monsterData[7]);
+                int goldDrop = Integer.parseInt(monsterData[8]);
+                Monster monster = new Monster(name, roomID, description, health, attack, dexterity, speed, expDrop, goldDrop);
                 listOfMonsters.add(monster);
             }
         } catch (Exception e) {
