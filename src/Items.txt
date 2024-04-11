@@ -26,3 +26,4 @@ SOD0 15,Adrenaline Shot,A syringe filled with a potent concoction of stimulants 
 A1,Fire Potion,Throw this at a monster to burn them!,Use this item during combat to deal 13 damage to a monster.,Gold: 10
 A2,Resurrection Potion,Use this in a room with defeated monsters to summon an ally!,Use this item in a room with a defeated monster to summon an undead servant. The undead servant’s stats and abilities are specified in the “Raise the Dead” ability. The player may only have up to 3 undead servants. If the player chooses the school of death at the start of the game, they may have up to 6 undead servants.,Gold: 15
 A3,Unique Tree Branch,An item dropped by a tree monster.,Use this to solve the traveler’s riddle in the tavern.,Gold: 5
+hueyn
