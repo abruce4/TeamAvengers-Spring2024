@@ -1,48 +1,7 @@
-ID: Pz1
-Name: Encryption
-Description: Among the dusty bookshelves, you find a stone tablet...
-Solution: [power | Outcome: Grants the player a stat buff.]
-FailMessage: This item is only deserving to be in the hands of a studious one.
-Hint: You have learned how to do this before. Just a few days ago, the professor of your class was talking about how Caesar-Ciphers were used to encode messages.
----
-ID: Pz2
-Name: Traveler’s Riddle
-Description: Oh dear traveler, can you solve my riddle? I’m out and about in the enchanted forest. I’m always there when no one else is, yet always feel watched. What am I?
-Solutions: [alone | Outcome: Finally someone solves my riddle! | ItemDrop: 30 gold]; [tree monster item | Outcome: Oh, so that’s why I felt like I was being watched in there. | ItemDrop: 30 gold]
-FailMessage: Ha! it appears even a wizard can’t solve my riddle!
-Hint: It seems he has a solution he’s looking for, but there is another solution in the enchanted forest.
----
-ID: Pz3
-Name: Wish of the dead
-Description: You hear a whisper in the air saying ‘Oh dear traveler, I cannot let you through, not until I am able to finish my business here… Oh if only someone could help aid me in my quest…’
-Solutions: [Raise the Dead | Outcome: I didn’t expect anyone would actually help me! Thanks traveler, here’s a token of my appreciation! | ItemDrop: 20 gold]; [potion of resurrection | Outcome: I didn’t expect anyone would actually help me! Thanks traveler, here’s a token of my appreciation! | ItemDrop: 20 gold]
-FailMessage: You will regret this dear traveler...
-Hint: It appears you are hearing the wishes of the dead. It seems like they could use a helping hand in being able to physically complete their task. Magic or potions relating to the school of death may have some use.
----
-ID: Pz4
-Name: Pillars of Flame
-Description: The remaining scorching flames prevent you from examining the highlands without getting burned. If only there was a way to put the flames out.
-Solutions: [Ray of Frost | Outcome: The flames are extinguished. | ItemDrop: Blazing Ember]; [Snow Storm | Outcome: The flames are extinguished. | ItemDrop: Blazing Ember]; [Ice Shard | Outcome: The flames are extinguished. | ItemDrop: Blazing Ember]
-FailMessage: Out of frustration, you decide to examine the Scorched Highlands anyways. You make it out with a couple of burns on your body, but at least you were able to get a Blazing Ember.
-Hint: These flames can scorch even the greatest of fire mages. Perhaps you can quench the flames with magic from the school of ice, or with items.
----
-ID: Pz5
-Name: Item In Ice
-Description: Among the collection of ores, you come across a cold transparent crystal made out of ice. Inside it looks like an item you can take, if you manage to get it out of the crystal that is.
-Solutions: [Ray of Fire | Outcome: The ice melts away. | ItemDrop: Necrotic Shroud]; [Heat Wave | Outcome: The ice melts away. | ItemDrop: Necrotic Shroud]; [potion of fire | Outcome: The ice melts away. | ItemDrop: Necrotic Shroud]
-FailMessage: Even though you couldn't think of any way to get the item trapped inside this ice crystal, you were still determined to get it. You decided to smash the ice crystal with your fists, and while you got the item, your fists are starting to hurt.
-Hint: This ice crystal seems pretty hard to break. Perhaps you can melt it with magic from the school of fire, or with potions.
----
-ID: Pz6
-Name: Gossiping Fairies
-Description: Hey traveler, I noticed you’re a wizard. There was this one tale I’ve heard about, but I can’t quite seem to find a book about it. If you could find a book about it, I’ll reward you!’
-Solution: [library book | Outcome: Oh thank you traveler! Here is your reward as promised!]
-FailMessage: Oh nevermind, I guess you don’t know what I’m talking about.
-Hint: The library would be a good place to start looking for books about tales.
----
-ID: Pz7
-Name: Lost City’s Secrets
-Description: You see a pedestal in the lost city with a stone plate next to it. The engraving on it reads ‘Place the prophet's skull on the pedestal, they will guide you to the cause of the chaos in the world…’
-Solution: [Death’s Whispers Skull | Outcome: It’s the dragon on top of the mountain that’s causing the chaos to happen! Here, I’ll give you some power to help defeat him!]
-FailMessage: While you were trying to figure out how to get information from the prophet, you saw a dragon flying above shooting a fireball at you. The fireball damages you and breaks the pedestal. While you may not know from the prophet who caused the chaos, you have a good hunch that the dragon tried to cover up his tracks. It’s time to take him down!... Once you’re prepared of course!
-Hint: You may be able to find the prophet’s skull in the catacombs
+Pz1-Encryption-Among the dusty bookshelves, you find a stone tablet on the wall with the letters ‘srzhu’. Below it is a set of five wooden wheels halfway inside the wall. Each wheel appears to have the entire alphabet on them, and they can be moved. Would you like to spell anything out with the wheels?-This item is only deserving to be in the hands of a studious one.-You have learned how to do this before. Just a few days ago, the professor of your class was talking about how Caesar-Ciphers were used to encode messages.
+Pz2-Traveler’s Riddle-Oh dear traveler, can you solve my riddle? I’m out and about in the enchanted forest. I’m always there when no one else is, yet always feel watched. What am I?-Ha! it appears even a wizard can’t solve my riddle! It seems he has a solution he’s looking for, but there is another solution in the enchanted forest.
+Pz3-Wish of the dead-You hear a whisper in the air saying ‘Oh dear traveler, I cannot let you through, not until I am able to finish my business here… Oh if only someone could help aid me in my quest…’-You will regret this dear traveler...-It appears you are hearing the wishes of the dead. It seems like they could use a helping hand in being able to physically complete their task. Magic or potions relating to the school of death may have some use.
+Pz4-Pillars of Flame-The remaining scorching flames prevent you from examining the highlands without getting burned. If only there was a way to put the flames out.-Out of frustration, you decide to examine the Scorched Highlands anyways. You make it out with a couple of burns on your body, but at least you were able to get a Blazing Ember.-These flames can scorch even the greatest of fire mages. Perhaps you can quench the flames with magic from the school of ice, or with items.
+Pz5-Item In Ice-Among the collection of ores, you come across a cold transparent crystal made out of ice. Inside it looks like an item you can take, if you manage to get it out of the crystal that is.-Even though you couldn't think of any way to get the item trapped inside this ice crystal, you were still determined to get it. You decided to smash the ice crystal with your fists, and while you got the item, your fists are starting to hurt.-This ice crystal seems pretty hard to break. Perhaps you can melt it with magic from the school of fire, or with potions.
+Pz6-Gossiping Fairies-Hey traveler, I noticed you’re a wizard. There was this one tale I’ve heard about, but I can’t quite seem to find a book about it. If you could find a book about it, I’ll reward you!’-Oh nevermind, I guess you don’t know what I’m talking about.-The library would be a good place to start looking for books about tales.
+Pz7-Lost City’s Secrets-You see a pedestal in the lost city with a stone plate next to it. The engraving on it reads ‘Place the prophet's skull on the pedestal, they will guide you to the cause of the chaos in the world…’-While you were trying to figure out how to get information from the prophet, you saw a dragon flying above shooting a fireball at you. The fireball damages you and breaks the pedestal. While you may not know from the prophet who caused the chaos, you have a good hunch that the dragon tried to cover up his tracks. It’s time to take him down!... Once you’re prepared of course!-You may be able to find the prophet’s skull in the catacombs

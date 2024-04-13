@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Course: ITEC 3860 Spring 2024
  * Written: Apr 9, 2024
  *
- * This class is the common attribute of all monsters.
+ * This class represents a monster entity within a game. Each monster object encapsulates information
  */
 public class Monster {
 

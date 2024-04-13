@@ -11,40 +11,70 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Item {
-    private String itemID;
+    private int itemID;
+    private String itemType;
     private String itemName;
-    private String description;
-    private String stats;
-    private int value; // Changed "cost" to "value" to represent the item's worth
+    private String itemDescription;
+    private int itemValue;// Changed "cost" to "value" to represent the item's worth
+    private int itemRoomID;
 
     // Constructor
-    public Item(String itemID, String itemName, String description, String stats, int value) {
+    public Item(int itemID, String itemType, String itemName, String itemDescription, int itemValue, int itemRoomID) {
         this.itemID = itemID;
+        this.itemType = itemType;
         this.itemName = itemName;
-        this.description = description;
-        this.stats = stats;
-        this.value = value;
+        this.itemDescription = itemDescription;
+        this.itemValue = itemValue;
+        this.itemRoomID = itemRoomID;
     }
 
-    // Getters
-    public String getItemID() {
+    // Getters and Setters
+    public int getItemID() {
         return itemID;
+    }
+
+    public void setItemID(int itemID) {
+        this.itemID = itemID;
+    }
+
+    public String getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
     }
 
     public String getItemName() {
         return itemName;
     }
 
-    public String getDescription() {
-        return description;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    public String getStats() {
-        return stats;
+    public String getItemDescription() {
+        return itemDescription;
     }
 
-    public int getValue() {
-        return value;
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
+    }
+
+    public int getItemValue() {
+        return itemValue;
+    }
+
+    public void setItemValue(int itemValue) {
+        this.itemValue = itemValue;
+    }
+
+    public int getItemRoomID() {
+        return itemRoomID;
+    }
+
+    public void setItemRoomID(int itemRoomID) {
+        this.itemRoomID = itemRoomID;
     }
 
     // Method to read items from a file and populate the list
@@ -54,19 +84,32 @@ public class Item {
             Scanner myReader = new Scanner(myItems);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                String[] itemData = data.split(",");
-                String itemID = itemData[0];
-                String itemName = itemData[1];
-                String description = itemData[2];
-                String stats = itemData[3];
-                int value = Integer.parseInt(itemData[4]);
-                Item item = new Item(itemID, itemName, description, stats, value);
-                listOfItems.add(item);
+                String[] itemData = data.split("-");
+                int itemID = Integer.parseInt(itemData[0].trim());
+                String itemType = itemData[1].trim();
+                String itemName = itemData[2].trim();
+                String description = itemData[3].trim();
+                int value = Integer.parseInt(itemData[4].trim());
+                int itemRoomID = Integer.parseInt(itemData[5].trim());
+
+                //Lincoln Bruce
+                if (itemType.equalsIgnoreCase("decoration")) {
+                    Item item = new Item(itemID, itemType, itemName, description, value, itemRoomID);
+                    listOfItems.add(item);
+                }
+                else if () {
+
+                }
+                else if () {
+
+                }
+                else if () {
+
+                }
             }
             myReader.close();
         } catch (Exception e) {
             System.out.println("An error occurred with the items file.");
-            e.printStackTrace(); // Print the stack trace of the exception for debugging purposes
         }
     }
 }

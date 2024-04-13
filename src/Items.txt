@@ -1,29 +1,28 @@
-WC01 1,Spellbook,This book contains powerful spells. Once the player finds the spellbook, they will be granted access to learn and cast spells.,The player starts off with this item. The main purpose of this item is for decoration.,Gold: 0
-WC01 2,Wand of Elemental Mastery,Once the player finds this wand, they will have the ability to channel the forces of fire, ice, life, and death.,Equip to gain the following stat boosts: Magic +5,Gold: 10
-WC01 3,Initiate’s Cloak,This cloak is for novice wizards and will only provide slight protection against elements.,Equip to gain the following stat boosts: Defense +3, Speed +3,Gold: 20
-WC01 4,Scroll of Guidance,This scroll contains basic instructions and tips for novice adventures. It outlines the steps the player needs to take to complete the game.,When inspected, the player receives a message detailing the steps to find what they are looking for.,Gold: 0
-WC01 5,Wizard Badge,This badge is given to the user when they are accepted into the school. The main purpose of this item is for decoration.,The player starts off with this item.,Gold: 0
-SOI01 1,Ice Shard,A small shard of enchanted ice capable of inflicting minor frost damage on enemies when thrown.,Use to damage a monster in combat, dealing 7 damage and lowering the monster’s dexterity by 2.,Gold: 5
-SOI01 2,Snow Globe,A decorative globe containing the landscape of the school of ice.,This item is found in the school of ice. Its main purpose is for decoration.,Gold: 10
-SOI01 3,Winter Warmth Gloves,Perfect for when the player is in the school of ice! The gloves provide warmth and protection against extreme cold temperatures.,Equip to gain the following stat boosts: Defense +3, Speed +3,Gold: 15
-SOI01 4,Ring of Regeneration,Grants the player passive health regeneration over time, aiding in recovery during battles and exploration.,You only need this item in your inventory to take effect. Each turn you recover 3 HP.,Gold: 0
-SOI01 5,Potion of Greater Healing,This potion is very potent in healing!,When used, the player recovers half of their health.,Gold: 15
-SOF0 11,Blazing Ember,A magical ember that burns perpetually without fuel, providing light and warmth in dark environments.,You only need this item in your inventory to take effect. You gain +3 Magic and +3 Dexterity.,Gold: 0
-SOF0 12,Pyro Charm,A charm infused with the essence of flames, providing a slight boost to fire-based spell damage. (Limit to one use),When used, the player learns the spell “Flame Shield”.,Gold: 0
-SOF0 13,Engraved Vase,This vase is made of terra-cotta with fire-engraved designs. Shows you the awesomeness of the “School of Fire”.,This item is found in the school of fire. Its main purpose is for decoration.,Gold: 10
-SOF0 14,Phoenix Feather Wand,A wand crafted from a phoenix feather, enhancing the player’s magical abilities.,Equip to gain the following stat boosts: Magic +10, Dexterity +5,Gold: 25
-SOF0 15,Purification,A purifying elixir made from rare herbs and spring water. Consuming the tonic removes debuffs, toxins, and curses from the player, restoring them to full health and vigor.,Use to restore the player to max health.,Gold: 20
-SOL0 11,Renewal Leaf,A magical leaf that regenerates health, providing a small boost to health when consumed.,Use to restore 15 HP to the player.,Gold: 3
-SOL0 12,Bushy Quill,This quill once belonged to the best professor in the school of defense. Once the player finds this, they will be noticed as the elemental Einstein.,When the player has this item in their inventory, they will get a stat boost of +4 Magic and +4 Dexterity.,Gold: 0
-SOL0 13,Potion of Greater Vitality,This potion gives you health beyond your normal vitality.,Using this item gives the player 30 temporary hit points.,Gold: 30
-SOL0 14,Lockpick Set,A set of delicate tools used for picking locks. Using the lockpick set allows the player to attempt to open locked doors or chests, granting access to hidden areas or valuable treasures.,The player must use this item to enter the History vault.,Gold: 0
-SOL0 15,Broken Portable Mirror,A small, broken mirror left in the lost city. It has aged for at least a decade.,This item is found in the lost city of Eldorath. Its main purpose is for decoration.,Gold: 15
-SOD0 11,Schools of Defense Photo,This photo reveals the faces of all of the first students to join the school of defense.,This item is found in the school of death. Its main purpose is for decoration.,Gold: 10
-SOD0 12,Death’s Whispers Skull,Once this item is discovered, the player finally learns the truth of who the beast truly is.,Use for a puzzle.,Gold: 0
-SOD0 13,Necrotic Shroud,A black silk shroud that is said to have been woven from the threads of the underworld.,When you have this in your inventory, your undead servants will have +5 Dexterity and +5 Defense.,Gold: 50
-SOD0 14,Grimoire of Legends,A book containing stories and legends about death, the afterlife, and mythical creatures.,Use for a puzzle, found at the library.,Gold: 0
-SOD0 15,Adrenaline Shot,A syringe filled with a potent concoction of stimulants and adrenaline-inducing compounds. When injected, the adrenaline shot provides the player with a temporary burst of energy and heightened reflexes, increasing power for a short duration.,Use to gain +5 to all stats except health for 10 turns. The effects may be applied multiple times.,Gold: 15
-A1,Fire Potion,Throw this at a monster to burn them!,Use this item during combat to deal 13 damage to a monster.,Gold: 10
-A2,Resurrection Potion,Use this in a room with defeated monsters to summon an ally!,Use this item in a room with a defeated monster to summon an undead servant. The undead servant’s stats and abilities are specified in the “Raise the Dead” ability. The player may only have up to 3 undead servants. If the player chooses the school of death at the start of the game, they may have up to 6 undead servants.,Gold: 15
-A3,Unique Tree Branch,An item dropped by a tree monster.,Use this to solve the traveler’s riddle in the tavern.,Gold: 5
-hueyn
+1-Decoration-Spellbook-This book contains powerful spells, with it, you will be granted access to learn and cast spells.-0-0
+2-Equipable-Wand of Elemental Mastery-With this wand, you will have the ability to channel the forces of fire, ice, life, and death.-10-0-0-5-0-0-0-weapon
+3-Equipable-Initiate’s Cloak-This cloak is for novice wizards and will only provide slight protection against elements.-20-0-0-0-0-3-3-armor
+4-Decoration-Scroll of Guidance-First you should head east of the enchanted forest, but not towards the mountain. Then you shall head west of the enchanted forest. Finally, you should head south of the forest to find what you are looking for.-0-4
+5-Decoration-Wizard Badge-This badge is given to the students of the school.-0-0
+6-Throwable-Ice Shard-A small shard of enchanted ice capable of inflicting minor frost damage on enemies when thrown.-5-0-7-2
+7-Decoration-Snow Globe-A decorative globe containing the landscape of the school of ice.-10-5
+8-Equipable-Winter Warmth Gloves-Perfect for students in the school of ice! The gloves provide warmth and protection against freezing temperatures.-15-0-0-0-0-3-3-armor
+9-Decoration-Ring of Regeneration-Grants you with passive health regeneration over time, aiding in recovery during battles and exploration.-0-0
+10-Consumable-Potion of Greater Healing-This potion is very potent in healing!-15-0-0
+11-Decoration-Blazing Ember-A magical ember that burns perpetually without fuel, providing light and warmth in dark environments.-0-16
+12-Spellable-Pyro Charm-A charm infused with the essence of flames, providing a slight boost to fire-based spell damage. (Limit to one use),When used, you will learn the spell “Flame Shield”.-0-3
+13-Decoration-Engraved Vase-This vase is made of terracotta with fire-engraved designs. Shows you the awesomeness of the “School of Fire”.-10-0
+14-Equipable-Phoenix Feather Wand-A wand crafted from a phoenix feather, enhancing the player’s magical abilities.-25-0-0-10-5-0-0-weapon
+15-Consumable-Purification Tonic-A purifying elixir made from rare herbs and spring water. Consuming the tonic removes debuffs, toxins, and curses from the player, restoring them to full health and vigor.-20-7-110
+16-Consumable-Renewal Leaf-A magical leaf that regenerates health, providing a small boost to health when consumed.-3-0-15
+17-Decoration-Bushy Quill-This quill once belonged to the best professor in the school of defense. Once you find this, you will be noticed as the elemental Einstein.-0-2
+18-Consumable-Potion of Greater Vitality-This potion gives you health beyond your normal vitality.-30-0-30
+19-Decoration-Lockpick Set-A set of delicate tools used for picking locks. Using the lockpick set allows to attempt to open locked doors or chests, granting access to hidden areas or valuable treasures.-0-10
+20-Decoration-Broken Portable Mirror-A small, broken mirror left in the lost city. It has aged for at least a decade.-15-28
+21-Decoration-Schools of Defense Photo-This photo reveals the faces of all the first students to join the school of defense.-10-9
+22-Puzzle-Death’s Whispers Skull-Once this item is discovered, you finally learn the truth of whom the beast truly is.-0-30
+23-Decoration-Necrotic Shroud-A black silk shroud that is said to have been woven from the threads of the underworld.-50-26
+24-Puzzle-Grimoire of Legends-A book containing stories and legends about death, the afterlife, and mythical creatures.-0-6
+25-Decoration-Adrenaline Shot-A syringe filled with a potent concoction of stimulants and adrenaline inducing compounds. When injected, the adrenaline shot provides the player with a temporary burst of energy and heightened reflexes, increasing power for a short duration.-15-0
+26-Throwable-Fire Potion-Throw this at a monster to burn them!-10-0-13-0
+27-Decoration-Resurrection Potion-Use this in a room with defeated monsters to summon an ally!-15-0
+28-Puzzle-Unique Tree Branch-An item dropped by a tree monster.-5-0

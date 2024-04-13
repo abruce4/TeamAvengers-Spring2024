@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Removed packages(Lincoln Bruce)">
+      <change beforePath="$PROJECT_DIR$/src/Consumable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consumable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Equipable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Equipable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Throwable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Throwable.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;abruce4&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/abruce4/TeamAvengers-Spring2024.git&quot;,
+    &quot;accountId&quot;: &quot;e8178b44-5732-4f8e-8e0d-8a67283beaf5&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2dtBpXZNAPK9cS6MQMxuRKXdxd3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/linco/IdeaProjects/Individial Assignment",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src" />
+      <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src\Puzzles" />
+      <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src\Monsters" />
+      <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src\Items" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Print my name to the console Lincoln Bruce" />
+      <created>1710817678022</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710817678022</updated>
+      <workItem from="1710817679173" duration="788000" />
+      <workItem from="1712681902239" duration="12247000" />
+      <workItem from="1712753941084" duration="9200000" />
+      <workItem from="1712849759235" duration="925000" />
+      <workItem from="1712852633706" duration="2000" />
+      <workItem from="1712861400756" duration="60000" />
+      <workItem from="1712970710953" duration="19106000" />
+    </task>
+    <task id="LOCAL-00001" summary="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1712691368453</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712691368453</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Modified the Monster.java and Monsters.txt to add the room ID.(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1712785910437</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712785910437</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1712986031488</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712986031488</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1712986320424</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712986320424</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1712986418461</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712986418461</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1712986505525</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712986505525</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Removed packages(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713024557954</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713024557954</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)" />
+    <MESSAGE value="Modified the Monster.java and Monsters.txt to add the room ID.(Lincoln Bruce)" />
+    <MESSAGE value="Organized the classes and files into packages and added to the items package 2(Lincoln Bruce)" />
+    <MESSAGE value="Organized the classes and files into packages and added to the items package(Lincoln Bruce)" />
+    <MESSAGE value="Removed packages(Lincoln Bruce)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed packages(Lincoln Bruce)" />
+  </component>
+</project>
