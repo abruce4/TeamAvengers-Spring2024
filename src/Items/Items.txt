@@ -19,10 +19,10 @@
 19-Decoration-Lockpick Set-A set of delicate tools used for picking locks. Using the lockpick set allows to attempt to open locked doors or chests, granting access to hidden areas or valuable treasures.-0-10
 20-Decoration-Broken Portable Mirror-A small, broken mirror left in the lost city. It has aged for at least a decade.-15-28
 21-Decoration-Schools of Defense Photo-This photo reveals the faces of all the first students to join the school of defense.-10-9
-22-Puzzle-Death’s Whispers Skull-Once this item is discovered, you finally learn the truth of whom the beast truly is.-0-30
+22-Puzzles.Puzzle-Death’s Whispers Skull-Once this item is discovered, you finally learn the truth of whom the beast truly is.-0-30
 23-Decoration-Necrotic Shroud-A black silk shroud that is said to have been woven from the threads of the underworld.-50-26
-24-Puzzle-Grimoire of Legends-A book containing stories and legends about death, the afterlife, and mythical creatures.-0-6
+24-Puzzles.Puzzle-Grimoire of Legends-A book containing stories and legends about death, the afterlife, and mythical creatures.-0-6
 25-Decoration-Adrenaline Shot-A syringe filled with a potent concoction of stimulants and adrenaline inducing compounds. When injected, the adrenaline shot provides the player with a temporary burst of energy and heightened reflexes, increasing power for a short duration.-15-0
 26-Throwable-Fire Potion-Throw this at a monster to burn them!-10-0
 27-Decoration-Resurrection Potion-Use this in a room with defeated monsters to summon an ally!-15-0
-28-Puzzle-Unique Tree Branch-An item dropped by a tree monster.-5-0
+28-Puzzles.Puzzle-Unique Tree Branch-An item dropped by a tree monster.-5-0
