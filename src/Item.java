@@ -97,8 +97,15 @@ public class Item {
                     Item item = new Item(itemID, itemType, itemName, description, value, itemRoomID);
                     listOfItems.add(item);
                 }
-                else if () {
-
+                else if (itemType.equalsIgnoreCase("equipable")) {
+                    int addedHealth = Integer.parseInt(itemData[6].trim());
+                    int addedMagic = Integer.parseInt(itemData[7].trim());
+                    int addedDexterity = Integer.parseInt(itemData[8].trim());
+                    int addedSpeed = Integer.parseInt(itemData[9].trim());
+                    int addedDefense = Integer.parseInt(itemData[10].trim());
+                    String itemUtility = itemData[11].trim();
+                    Equipable item = new Equipable(itemID, itemType, itemName, description, value, itemRoomID, addedHealth, addedMagic, addedDexterity, addedSpeed, addedDefense, itemUtility);
+                    listOfItems.add(item);
                 }
                 else if () {
 
