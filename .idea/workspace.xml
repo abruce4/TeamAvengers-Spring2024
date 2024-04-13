@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Worked on the items inheritance(Lincoln Bruce)" />
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Worked on the items inheritance(Lincoln Bruce)">
+      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +88,7 @@
       <workItem from="1712849759235" duration="925000" />
       <workItem from="1712852633706" duration="2000" />
       <workItem from="1712861400756" duration="60000" />
-      <workItem from="1712970710953" duration="19647000" />
+      <workItem from="1712970710953" duration="25406000" />
     </task>
     <task id="LOCAL-00001" summary="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)">
       <option name="closed" value="true" />
@@ -152,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713028710598</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Worked on the items inheritance(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713050649012</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713050649012</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

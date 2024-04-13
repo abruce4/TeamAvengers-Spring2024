@@ -107,11 +107,21 @@ public class Item {
                     Equipable item = new Equipable(itemID, itemType, itemName, description, value, itemRoomID, addedHealth, addedMagic, addedDexterity, addedSpeed, addedDefense, itemUtility);
                     listOfItems.add(item);
                 }
-                else if () {
-
+                else if (itemType.equalsIgnoreCase("consumable")) {
+                    int healedHealth = Integer.parseInt(itemData[6].trim());
+                    Consumable item = new Consumable(itemID, itemType, itemName, description, value, itemRoomID, healedHealth);
+                    listOfItems.add(item);
                 }
-                else if () {
-
+                else if (itemType.equalsIgnoreCase("throwable")) {
+                    int damageDealt = Integer.parseInt(itemData[6].trim());
+                    int speedReduction = Integer.parseInt(itemData[7].trim());
+                    Throwable item = new Throwable(itemID, itemType, itemName, description, value, itemRoomID, damageDealt, speedReduction);
+                    listOfItems.add(item);
+                }
+                else if (itemType.equalsIgnoreCase("PuzzleItem")) {
+                    int puzzleID = Integer.parseInt(itemData[6].trim());
+                    PuzzleItem item = new PuzzleItem(itemID, itemType, itemName, description, value, itemRoomID, puzzleID);
+                    listOfItems.add(item);
                 }
             }
             myReader.close();
