@@ -1,5 +1,4 @@
-package Items;
-/**Class: Items.Item
+/**Class: Item
  * @author Team Avengers / Huyen Pham
  * @version 1.0
  * Course: ITEC 3860 Spring 2024

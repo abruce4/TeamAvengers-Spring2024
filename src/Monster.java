@@ -1,10 +1,8 @@
-package Monsters;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**Class: Monsters.Monster
+/**Class: Monster
  * @author Team Avengers
  * @version 1.0
  * Course: ITEC 3860 Spring 2024

@@ -2,8 +2,8 @@ Skeleton-WC8-An undead creature, deprived of its skin and made entirely of dry b
 Flamespawn-EF3-A bundle of flames that takes the shape of a large bird.-45-13-20-12-30-8
 Zombie-OS7-An undead creature that uses its bloody bones and rotten flesh to move-70-25-20-5-30-5
 Titanoboa-EF5-A giant snake that has a blade like interior process and has a high amount of palatal and marginal tooth position.-20-10-25-5-20-4
-Hydra Monsters.Monster-EF9-This creature has many heads, the middle one is venomous, and has the ability to grow back arms-120-20-30-12-70-20
-Tree Monsters.Monster-EF1-Some trees are considered to have supernatural powers and have giant roots that can grab things.-35-13-17-5
+Hydra Monster-EF9-This creature has many heads, the middle one is venomous, and has the ability to grow back arms-120-20-30-12-70-20
+Tree Monster-EF1-Some trees are considered to have supernatural powers and have giant roots that can grab things.-35-13-17-5
 Bats-OS1-A Giant creature with wings And two longer teeth by the upper side of its gum.-25-15-30-20
 Dragon-EF4-The dragon has a pair of wings, a set of horns, and a tail and is capable of breathing fire.-350-40-40-20
 Unicorn-EF6-The unicorn is a single large, pointed, spiraling horn projecting from its forehead.-40-15-25-12

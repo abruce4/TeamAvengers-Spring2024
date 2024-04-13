@@ -1,5 +1,3 @@
-package Items;
-
 public class Equipable extends Item {
 
     private int addedHealth;

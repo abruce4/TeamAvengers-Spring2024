@@ -1,9 +1,9 @@
-package Puzzles; /**Class: Puzzles.Puzzle
+/**Class: Puzzle
  * @author Team Avengers / Thuy Vy Pham
  * @version 1.0
  * Course: ITEC 3860 Spring 2024
  * Written: Apr 10, 2024
- * The Puzzles.Puzzle class represents a game puzzle, including its ID, name, description, a fail message, and a hint.
+ * The Puzzle class represents a game puzzle, including its ID, name, description, a fail message, and a hint.
  * It allows reading puzzle details from a file and managing puzzle properties.
  */
 
