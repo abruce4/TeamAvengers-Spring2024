@@ -93,6 +93,7 @@ public class Item {
                 int value = Integer.parseInt(itemData[4].trim());
                 int itemRoomID = Integer.parseInt(itemData[5].trim());
 
+                //Lincoln Bruce
                 if (itemType.equalsIgnoreCase("decoration")) {
                     Item item = new Item(itemID, itemType, itemName, description, value, itemRoomID);
                     listOfItems.add(item);
