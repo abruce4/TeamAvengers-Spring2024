@@ -1,14 +1,16 @@
+package Monsters;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**Class: Monster
+/**Class: Monsters.Monster
  * @author Team Avengers
  * @version 1.0
  * Course: ITEC 3860 Spring 2024
  * Written: Apr 9, 2024
  *
- * This class is the common attribute of all monsters.
+ * This class represents a monster entity within a game. Each monster object encapsulates information
  */
 public class Monster {
 

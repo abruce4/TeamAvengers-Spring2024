@@ -27,7 +27,7 @@ FailMessage: Out of frustration, you decide to examine the Scorched Highlands an
 Hint: These flames can scorch even the greatest of fire mages. Perhaps you can quench the flames with magic from the school of ice, or with items.
 ---
 ID: Pz5
-Name: Item In Ice
+Name: Items.Item In Ice
 Description: Among the collection of ores, you come across a cold transparent crystal made out of ice. Inside it looks like an item you can take, if you manage to get it out of the crystal that is.
 Solutions: [Ray of Fire | Outcome: The ice melts away. | ItemDrop: Necrotic Shroud]; [Heat Wave | Outcome: The ice melts away. | ItemDrop: Necrotic Shroud]; [potion of fire | Outcome: The ice melts away. | ItemDrop: Necrotic Shroud]
 FailMessage: Even though you couldn't think of any way to get the item trapped inside this ice crystal, you were still determined to get it. You decided to smash the ice crystal with your fists, and while you got the item, your fists are starting to hurt.
