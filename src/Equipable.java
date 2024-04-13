@@ -5,15 +5,17 @@ public class Equipable extends Item {
     private int addedDexterity;
     private int addedSpeed;
     private int addedDefense;
+    private String itemUtility;
 
     // Constructor
-    public Equipable(int itemID, String itemType, String itemName, String itemDescription, int itemValue, int itemRoomID, int addedHealth, int addedMagic, int addedDexterity, int addedSpeed, int addedDefense) {
+    public Equipable(int itemID, String itemType, String itemName, String itemDescription, int itemValue, int itemRoomID, int addedHealth, int addedMagic, int addedDexterity, int addedSpeed, int addedDefense, String itemUtility) {
         super(itemID, itemType, itemName, itemDescription, itemValue, itemRoomID);
         this.addedHealth = addedHealth;
         this.addedMagic = addedMagic;
         this.addedDexterity = addedDexterity;
         this.addedSpeed = addedSpeed;
         this.addedDefense = addedDefense;
+        this.itemUtility = itemUtility;
     }
 
     // Getters and Setters
@@ -56,5 +58,13 @@ public class Equipable extends Item {
 
     public void setAddedDefense(int addedDefense) {
         this.addedDefense = addedDefense;
+    }
+
+    public String getItemUtility() {
+        return itemUtility;
+    }
+
+    public void setItemUtility(String itemUtility) {
+        this.itemUtility = itemUtility;
     }
 }
