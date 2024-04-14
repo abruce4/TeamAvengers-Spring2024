@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Worked on the items inheritance(Lincoln Bruce)">
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-    </list>
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Organized the classes and files into packages and added to the items package(Lincoln Bruce)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,25 +40,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/linco/IdeaProjects/Individial Assignment",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/linco/IdeaProjects/Individial Assignment&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src" />
       <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src\Puzzles" />
       <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src\Monsters" />
       <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src\Items" />
@@ -88,7 +84,7 @@
       <workItem from="1712849759235" duration="925000" />
       <workItem from="1712852633706" duration="2000" />
       <workItem from="1712861400756" duration="60000" />
-      <workItem from="1712970710953" duration="25406000" />
+      <workItem from="1712970710953" duration="14263000" />
     </task>
     <task id="LOCAL-00001" summary="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)">
       <option name="closed" value="true" />
@@ -114,55 +110,7 @@
       <option name="project" value="LOCAL" />
       <updated>1712986031488</updated>
     </task>
-    <task id="LOCAL-00004" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1712986320424</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1712986320424</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1712986418461</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1712986418461</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1712986505525</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1712986505525</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Removed packages(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1713024557954</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1713024557954</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Worked on the items inheritance(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1713028710597</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1713028710598</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Worked on the items inheritance(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1713050649012</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1713050649012</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,10 +130,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)" />
     <MESSAGE value="Modified the Monster.java and Monsters.txt to add the room ID.(Lincoln Bruce)" />
-    <MESSAGE value="Organized the classes and files into packages and added to the items package 2(Lincoln Bruce)" />
     <MESSAGE value="Organized the classes and files into packages and added to the items package(Lincoln Bruce)" />
-    <MESSAGE value="Removed packages(Lincoln Bruce)" />
-    <MESSAGE value="Worked on the items inheritance(Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on the items inheritance(Lincoln Bruce)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Organized the classes and files into packages and added to the items package(Lincoln Bruce)" />
   </component>
 </project>
