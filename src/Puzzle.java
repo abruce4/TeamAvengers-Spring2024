@@ -67,24 +67,4 @@ public class Puzzle {
     public void setHint(String hint) {
         this.hint = hint;
     }
-
-    public static void readPuzzles(String filePath, ArrayList<Puzzle> listOfPuzzles) {
-        try {
-            File myPuzzles = new File(filePath);
-            Scanner myReader = new Scanner(myPuzzles);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                String[] puzzleData = data.split("-");
-                String puzzleID = puzzleData[0];
-                String name = puzzleData[1];
-                String description = puzzleData[2];
-                String failMessage = puzzleData[3];
-                String hint = puzzleData[4];
-                Puzzle puzzle = new Puzzle(puzzleID, name, description, failMessage, hint);
-                listOfPuzzles.add(puzzle);
-            }
-        } catch (Exception e) {
-            System.out.println("An error occurred with the puzzle file.");
-        }
-    }
 }

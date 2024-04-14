@@ -109,30 +109,4 @@ public class Monster {
     public void setGoldDrop(int goldDrop) {
         this.goldDrop = goldDrop;
     }
-
-    //Method to read monsters from the file.
-    //Lincoln Bruce
-    public static void readMonsters(String filePath, ArrayList<Monster> listOfMonsters) {
-        try {
-            File myMonsters = new File(filePath);
-            Scanner myReader = new Scanner(myMonsters);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                String[] monsterData = data.split("-");
-                String name = monsterData[0];
-                String roomID = monsterData[1];
-                String description = monsterData[2];
-                int health = Integer.parseInt(monsterData[3]);
-                int attack = Integer.parseInt(monsterData[4]);
-                int dexterity = Integer.parseInt(monsterData[5]);
-                int speed = Integer.parseInt(monsterData[6]);
-                int expDrop = Integer.parseInt(monsterData[7]);
-                int goldDrop = Integer.parseInt(monsterData[8]);
-                Monster monster = new Monster(name, roomID, description, health, attack, dexterity, speed, expDrop, goldDrop);
-                listOfMonsters.add(monster);
-            }
-        } catch (Exception e) {
-            System.out.println("An error occurred with the monsters file.");
-        }
-    }
 }
