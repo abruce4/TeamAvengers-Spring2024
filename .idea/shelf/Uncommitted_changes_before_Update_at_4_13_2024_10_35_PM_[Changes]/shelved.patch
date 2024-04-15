@@ -1,0 +1,53 @@
+Index: src/Monsters.txt
+===================================================================
+diff --git a/src/Monsters.txt b/src/Characters.txt
+rename from src/Monsters.txt
+rename to src/Characters.txt
+--- a/src/Monsters.txt	
++++ b/src/Characters.txt	
+@@ -1,20 +1,23 @@
+-Skeleton-WC8-An undead creature, deprived of its skin and made entirely of dry bones.-20-8-15-8-10-1
+-Flamespawn-EF3-A bundle of flames that takes the shape of a large bird.-45-13-20-12-30-8
+-Zombie-OS7-An undead creature that uses its bloody bones and rotten flesh to move-70-25-20-5-30-5
+-Titanoboa-EF5-A giant snake that has a blade like interior process and has a high amount of palatal and marginal tooth position.-20-10-25-5-20-4
+-Hydra Monster-EF9-This creature has many heads, the middle one is venomous, and has the ability to grow back arms-120-20-30-12-70-20
+-Tree Monster-EF1-Some trees are considered to have supernatural powers and have giant roots that can grab things.-35-13-17-5
+-Bats-OS1-A Giant creature with wings And two longer teeth by the upper side of its gum.-25-15-30-20
+-Dragon-EF4-The dragon has a pair of wings, a set of horns, and a tail and is capable of breathing fire.-350-40-40-20
+-Unicorn-EF6-The unicorn is a single large, pointed, spiraling horn projecting from its forehead.-40-15-25-12
+-Pixies-EF10-Pixie is a creature that resembles a mischievous fairy.-25-10-30-18
+-Ogre-EF2-Ogre is a large, tall, and big head, with a voracious appetite and a strong body.-50-15-15-5
+-Minotaurs-OS4-Minotaurs are creatures with the head and tail of a bull and the body of a man.-150-25-25-25
+-Slime-OS2-This is a type of slime monster which depicted as red gelatinous amoeba like space alien.-40-30-15-5
+-Young Cyclops-OS3-Human one eyed monster that looks extremely wicked or cruel.-75-20-20-15
+-Goblin-EF5-Goblin is a wandering sprite and bogeyman of sorts that is usually mischievous and often malicious.-25-9-20-8
+-Vampire-OS6-Vampire is a chaotic evil, night-prowling creature who has a powerful negative force-130-27-25-20
+-Cyclops-OS3-Cyclops is a giant one eyed creature that has a fierce view in its face.-180-33-28-20
+-Centaur-EF7-Centaur is a creature with the upper body of a human and the lower body and legs of a horse.-60-18-25-15
+-Fauns-EF9-Faun is a two footed creature with the horns, legs and tail of a goat and the head, torso and arms of a human.-40-12-20-12
+-Werewolf-OS5-Werewolf is a shape shift wolf-200-35-30-25
+\ No newline at end of file
++Monster-Skeleton-WC8-An undead creature, deprived of its skin and made entirely of dry bones.-20-8-15-8-10-1
++Monster-Flamespawn-EF3-A bundle of flames that takes the shape of a large bird.-45-13-20-12-30-8
++Monster-Zombie-OS7-An undead creature that uses its bloody bones and rotten flesh to move-70-25-20-5-30-5
++Monster-Titanoboa-EF5-A giant snake that has a blade like interior process and has a high amount of palatal and marginal tooth position.-20-10-25-5-20-4
++Monster-Hydra Monster-EF9-This creature has many heads, the middle one is venomous, and has the ability to grow back arms-120-20-30-12-70-20
++Monster-Tree Monster-EF1-Some trees are considered to have supernatural powers and have giant roots that can grab things.-35-13-17-5
++Monster-Bats-OS1-A Giant creature with wings And two longer teeth by the upper side of its gum.-25-15-30-20
++Monster-Dragon-EF4-The dragon has a pair of wings, a set of horns, and a tail and is capable of breathing fire.-350-40-40-20
++Monster-Unicorn-EF6-The unicorn is a single large, pointed, spiraling horn projecting from its forehead.-40-15-25-12
++Monster-Pixies-EF10-Pixie is a creature that resembles a mischievous fairy.-25-10-30-18
++Monster-Ogre-EF2-Ogre is a large, tall, and big head, with a voracious appetite and a strong body.-50-15-15-5
++Monster-Minotaurs-OS4-Minotaurs are creatures with the head and tail of a bull and the body of a man.-150-25-25-25
++Monster-Slime-OS2-This is a type of slime monster which depicted as red gelatinous amoeba like space alien.-40-30-15-5
++Monster-Young Cyclops-OS3-Human one eyed monster that looks extremely wicked or cruel.-75-20-20-15
++Monster-Goblin-EF5-Goblin is a wandering sprite and bogeyman of sorts that is usually mischievous and often malicious.-25-9-20-8
++Monster-Vampire-OS6-Vampire is a chaotic evil, night-prowling creature who has a powerful negative force-130-27-25-20
++Monster-Cyclops-OS3-Cyclops is a giant one eyed creature that has a fierce view in its face.-180-33-28-20
++Monster-Centaur-EF7-Centaur is a creature with the upper body of a human and the lower body and legs of a horse.-60-18-25-15
++Monster-Fauns-EF9-Faun is a two footed creature with the horns, legs and tail of a goat and the head, torso and arms of a human.-40-12-20-12
++Monster-Werewolf-OS5-Werewolf is a shape shift wolf-200-35-30-25
++Player-Alex-5-School of Ice most prestigious student-25-10-10-7
++Player-Destiny-7-School of Fire most prestigious student-25-10-10-7
++Player-Nazmun-9-School of Death most prestigious student-25-10-10-7
+\ No newline at end of file

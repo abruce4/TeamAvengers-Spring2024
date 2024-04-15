@@ -123,6 +123,12 @@ public class Character {
                     Monster character = new Monster(characterType, name, roomID, description, health, attack, dexterity, speed, expDrop, goldDrop);
                     listOfCharacters.add(character);
                 }
+                else if (characterType.equalsIgnoreCase("player")) {
+                    int mana = Integer.parseInt(characterData[8]);
+                    int defense = Integer.parseInt(characterData[9]);
+                    MainCharacter character = new MainCharacter(characterType, name, roomID, description, health, attack, dexterity, speed, mana, defense);
+                    listOfCharacters.add(character);
+                }
             }
         } catch (Exception e) {
             System.out.println("An error occurred with the monsters file.");

@@ -18,3 +18,6 @@ Monster-Cyclops-OS3-Cyclops is a giant one eyed creature that has a fierce view 
 Monster-Centaur-EF7-Centaur is a creature with the upper body of a human and the lower body and legs of a horse.-60-18-25-15-50-15
 Monster-Fauns-EF9-Faun is a two footed creature with the horns, legs and tail of a goat and the head, torso and arms of a human.-40-12-20-12-25-10
 Monster-Werewolf-OS5-Werewolf is a shape shift wolf-200-35-30-25-150-50
+Player-Alex-1-School of Ice best student-25-10-10-7-20-5
+Player-Destiny-2-School of Fire best student-25-10-10-7-20-5
+PLayer-Nazmun-3-School of Death best students-25-10-10-7-20-5
