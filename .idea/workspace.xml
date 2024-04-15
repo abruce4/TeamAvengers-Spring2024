@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Finished working on items for now, waiting to test(Lincoln Bruce)">
-      <change afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monsters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters.txt" afterDir="false" />
-    </list>
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Create Spells.java class by Thuy Vy" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/linco/IdeaProjects/Individial Assignment",
     "node.js.detected.package.eslint": "true",
@@ -173,7 +169,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713052494677</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Edit Map class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713149512830</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713149512830</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Create Spells.java class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713150718405</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713150718405</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +210,8 @@
     <MESSAGE value="Removed packages(Lincoln Bruce)" />
     <MESSAGE value="Worked on the items inheritance(Lincoln Bruce)" />
     <MESSAGE value="Finished working on items for now, waiting to test(Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished working on items for now, waiting to test(Lincoln Bruce)" />
+    <MESSAGE value="Edit Map class by Thuy Vy" />
+    <MESSAGE value="Create Spells.java class by Thuy Vy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Spells.java class by Thuy Vy" />
   </component>
 </project>

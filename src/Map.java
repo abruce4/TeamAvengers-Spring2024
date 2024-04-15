@@ -9,21 +9,25 @@ public class Map {
     private static ArrayList<Puzzle> listOfPuzzles;
     private static ArrayList<Monster> listOfMonsters;
     private static ArrayList<Rooms> listOfRooms;
+    private static ArrayList<Spells> listOfSpells;
 
     public Map() throws FileNotFoundException {
         listOfItems = new ArrayList<>();
         listOfPuzzles = new ArrayList<>();
         listOfMonsters = new ArrayList<>();
         listOfRooms = new ArrayList<>();
+        listOfSpells = new ArrayList<>();
 
+        readRooms("Rooms.txt");
         readItems("Items.txt");
         readPuzzles("puzzles.txt");
         readMonsters("Monsters.txt");
 
+
     }
+
     //Read rooms from file
-    public static void readRooms(String filePath)
-    {
+    public static void readRooms(String filePath) {
 
     }
 
@@ -47,8 +51,7 @@ public class Map {
                 if (itemType.equalsIgnoreCase("decoration")) {
                     Item item = new Item(itemID, itemType, itemName, description, value, itemRoomID);
                     listOfItems.add(item);
-                }
-                else if (itemType.equalsIgnoreCase("equipable")) {
+                } else if (itemType.equalsIgnoreCase("equipable")) {
                     int addedHealth = Integer.parseInt(itemData[6].trim());
                     int addedMagic = Integer.parseInt(itemData[7].trim());
                     int addedDexterity = Integer.parseInt(itemData[8].trim());
@@ -57,19 +60,16 @@ public class Map {
                     String itemUtility = itemData[11].trim();
                     Equipable item = new Equipable(itemID, itemType, itemName, description, value, itemRoomID, addedHealth, addedMagic, addedDexterity, addedSpeed, addedDefense, itemUtility);
                     listOfItems.add(item);
-                }
-                else if (itemType.equalsIgnoreCase("consumable")) {
+                } else if (itemType.equalsIgnoreCase("consumable")) {
                     int healedHealth = Integer.parseInt(itemData[6].trim());
                     Consumable item = new Consumable(itemID, itemType, itemName, description, value, itemRoomID, healedHealth);
                     listOfItems.add(item);
-                }
-                else if (itemType.equalsIgnoreCase("throwable")) {
+                } else if (itemType.equalsIgnoreCase("throwable")) {
                     int damageDealt = Integer.parseInt(itemData[6].trim());
                     int speedReduction = Integer.parseInt(itemData[7].trim());
                     Throwable item = new Throwable(itemID, itemType, itemName, description, value, itemRoomID, damageDealt, speedReduction);
                     listOfItems.add(item);
-                }
-                else if (itemType.equalsIgnoreCase("PuzzleItem")) {
+                } else if (itemType.equalsIgnoreCase("PuzzleItem")) {
                     int puzzleID = Integer.parseInt(itemData[6].trim());
                     PuzzleItem item = new PuzzleItem(itemID, itemType, itemName, description, value, itemRoomID, puzzleID);
                     listOfItems.add(item);
@@ -126,6 +126,26 @@ public class Map {
             }
         } catch (Exception e) {
             System.out.println("An error occurred with the monsters file.");
+        }
+    }
+
+    //Read Spells from file
+    //Thuy Vy Pham
+    public static void readSpells(String filePath) throws FileNotFoundException {
+        try{
+            File mySpells = new File(filePath);
+            Scanner myReader = new Scanner(mySpells);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] spellData = data.split("-");
+                String spellID = spellData[0];
+                String name = spellData[1];
+                String description = spellData[2];
+                Spells spells = new Spells(spellID, name, description);
+                listOfSpells.add(spells);
+            }
+        } catch(Exception e){
+            System.out.println("An error occurred with the spell file.");
         }
     }
 }
