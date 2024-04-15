@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**Class: Puzzle
  * @author Team Avengers / Thuy Vy Pham
  * @version 1.0
@@ -42,30 +44,47 @@ public class Puzzle {
     public void setHint(String hint) { this.hint = hint; }
     public boolean isSolved() { return isSolved; }
     public int getAttemptsLeft() { return attemptsLeft; }
+    //check if current room has puzzle
 
-    // Attempt to solve the puzzle with the given answer
+    //Attempts to solve the puzzle
     public boolean attemptSolve(String playerInput) {
-        if (playerInput.equalsIgnoreCase("eot") || playerInput.equalsIgnoreCase("Eye of Truth")) {
-            System.out.println(getHint());
-            return false;
-        }
-        if (attemptsLeft <= 0) {
-            System.out.println("The wheels no longer budge.");
-            return false;
-        }
-
         if (playerInput.equalsIgnoreCase(solution)) {
             isSolved = true;
-            System.out.println("Correct! Puzzle solved.");
+            System.out.println("Correct! You have solved the puzzle.");
             return true;
         } else {
             attemptsLeft--;
-            System.out.println("Incorrect. Try again. Attempts left: " + attemptsLeft);
-            if (attemptsLeft == 0) {
+            if (attemptsLeft > 0) {
+                System.out.println("Incorrect solution. Please try again. Attempts left: " + attemptsLeft);
+            } else {
                 System.out.println(failMessage);
             }
             return false;
         }
     }
+    public void interactWithPuzzle() {
+        Scanner scanner = new Scanner(System.in);
+        while (!isSolved && attemptsLeft > 0) {
+            System.out.println(getDescription());
+            System.out.println("Enter 'solve' to attempt to solve the puzzle, 'eot' for a hint:");
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("solve")) {
+                System.out.println("Enter your solution:");
+                String solution = scanner.nextLine();
+                if (!attemptSolve(solution)) {
+                    continue;
+                }
+                break; // Exit if solved
+            } else if (input.equalsIgnoreCase("eot") || input.equalsIgnoreCase("Eye of Truth")) {
+                System.out.println(getHint());
+            } else {
+                System.out.println("Invalid command. Please type 'solve' or 'eot'.");
+            }
+        }
 
+        if (!isSolved) {
+            System.out.println(getFailMessage());
+        }
+    }
 }
+

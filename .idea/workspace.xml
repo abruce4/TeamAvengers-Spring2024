@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Add readSpells method by Thuy Vy" />
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Update Puzzle Class by Thuy Vy" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713151663291</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Update Puzzle Class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713155214441</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713155214441</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +229,7 @@
     <MESSAGE value="Edit Map class by Thuy Vy" />
     <MESSAGE value="Create Spells.java class by Thuy Vy" />
     <MESSAGE value="Add readSpells method by Thuy Vy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add readSpells method by Thuy Vy" />
+    <MESSAGE value="Update Puzzle Class by Thuy Vy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Puzzle Class by Thuy Vy" />
   </component>
 </project>
