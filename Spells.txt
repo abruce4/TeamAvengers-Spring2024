@@ -4,5 +4,5 @@ NC003-Merge the Dead-Outside of battle, you can merge 4 undead creatures under y
 NC004-Loyal Servants-Your undead creatures will always take the damage for you, shielding you from any attacks.
 NC005-Master of the Dead-You can now cast "Raise the dead" during a battle due to your experience as a necromancer.
 FC001-Ray of Fire-This will definitely scorch monsters in your path during combat.
-FC002-Flame Shiled-You cast an aura of fire around you. Now whenever an enemy attacks you, they'll take damage in return.
+FC002-Flame Shield-You cast an aura of fire around you. Now whenever an enemy attacks you, they'll take damage in return.
 FC003- Heat Wave-You begin to create heat waves while raising the temperature of the area. Your enemy's defense is lowered while your defense is raised.
