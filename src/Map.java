@@ -3,19 +3,28 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//Thuy Vy Pham
 public class Map {
     private static ArrayList<Item> listOfItems;
     private static ArrayList<Puzzle> listOfPuzzles;
     private static ArrayList<Monster> listOfMonsters;
+    private static ArrayList<Rooms> listOfRooms;
 
     public Map() throws FileNotFoundException {
         listOfItems = new ArrayList<>();
         listOfPuzzles = new ArrayList<>();
         listOfMonsters = new ArrayList<>();
+        listOfRooms = new ArrayList<>();
 
         readItems("Items.txt");
         readPuzzles("puzzles.txt");
         readMonsters("Monsters.txt");
+
+    }
+    //Read rooms from file
+    public static void readRooms(String filePath)
+    {
+
     }
 
     // Read items from file
