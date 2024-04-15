@@ -4,8 +4,8 @@ public class Throwable extends Item{
     private int speedReduction;
 
     // Constructor
-    public Throwable(int itemID, String itemType, String itemName, String itemDescription, int itemValue, int itemRoomID, int damageDealt, int speedReduction) {
-        super(itemID, itemType, itemName, itemDescription, itemValue, itemRoomID);
+    public Throwable(String itemID, String itemType, String itemName, String itemDescription, int itemValue, int damageDealt, int speedReduction) {
+        super(itemID, itemType, itemName, itemDescription, itemValue);
         this.damageDealt = damageDealt;
         this.speedReduction = speedReduction;
     }

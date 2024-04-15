@@ -8,8 +8,8 @@ public class Equipable extends Item {
     private String itemUtility;
 
     // Constructor
-    public Equipable(int itemID, String itemType, String itemName, String itemDescription, int itemValue, int itemRoomID, int addedHealth, int addedMagic, int addedDexterity, int addedSpeed, int addedDefense, String itemUtility) {
-        super(itemID, itemType, itemName, itemDescription, itemValue, itemRoomID);
+    public Equipable(String itemID, String itemType, String itemName, String itemDescription, int itemValue, int addedHealth, int addedMagic, int addedDexterity, int addedSpeed, int addedDefense, String itemUtility) {
+        super(itemID, itemType, itemName, itemDescription, itemValue);
         this.addedHealth = addedHealth;
         this.addedMagic = addedMagic;
         this.addedDexterity = addedDexterity;

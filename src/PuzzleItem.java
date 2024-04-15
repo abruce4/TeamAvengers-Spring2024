@@ -3,8 +3,8 @@ public class PuzzleItem extends Item{
     private int puzzleID;
 
     // Constructor
-    public PuzzleItem(int itemID, String itemType, String itemName, String itemDescription, int itemValue, int itemRoomID, int puzzleID) {
-        super(itemID, itemType, itemName, itemDescription, itemValue, itemRoomID);
+    public PuzzleItem(String itemID, String itemType, String itemName, String itemDescription, int itemValue, int puzzleID) {
+        super(itemID, itemType, itemName, itemDescription, itemValue);
         this.puzzleID = puzzleID;
     }
 

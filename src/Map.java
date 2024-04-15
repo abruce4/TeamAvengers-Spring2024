@@ -40,7 +40,7 @@ public class Map {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 String[] itemData = data.split("-");
-                int itemID = Integer.parseInt(itemData[0].trim());
+                String itemID = itemData[0].trim();
                 String itemType = itemData[1].trim();
                 String itemName = itemData[2].trim();
                 String description = itemData[3].trim();
@@ -49,7 +49,7 @@ public class Map {
 
                 //Lincoln Bruce
                 if (itemType.equalsIgnoreCase("decoration")) {
-                    Item item = new Item(itemID, itemType, itemName, description, value, itemRoomID);
+                    Item item = new Item(itemID, itemType, itemName, description, value);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("equipable")) {
                     int addedHealth = Integer.parseInt(itemData[6].trim());
@@ -58,20 +58,20 @@ public class Map {
                     int addedSpeed = Integer.parseInt(itemData[9].trim());
                     int addedDefense = Integer.parseInt(itemData[10].trim());
                     String itemUtility = itemData[11].trim();
-                    Equipable item = new Equipable(itemID, itemType, itemName, description, value, itemRoomID, addedHealth, addedMagic, addedDexterity, addedSpeed, addedDefense, itemUtility);
+                    Equipable item = new Equipable(itemID, itemType, itemName, description, value, addedHealth, addedMagic, addedDexterity, addedSpeed, addedDefense, itemUtility);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("consumable")) {
                     int healedHealth = Integer.parseInt(itemData[6].trim());
-                    Consumable item = new Consumable(itemID, itemType, itemName, description, value, itemRoomID, healedHealth);
+                    Consumable item = new Consumable(itemID, itemType, itemName, description, value, healedHealth);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("throwable")) {
                     int damageDealt = Integer.parseInt(itemData[6].trim());
                     int speedReduction = Integer.parseInt(itemData[7].trim());
-                    Throwable item = new Throwable(itemID, itemType, itemName, description, value, itemRoomID, damageDealt, speedReduction);
+                    Throwable item = new Throwable(itemID, itemType, itemName, description, value, damageDealt, speedReduction);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("PuzzleItem")) {
                     int puzzleID = Integer.parseInt(itemData[6].trim());
-                    PuzzleItem item = new PuzzleItem(itemID, itemType, itemName, description, value, itemRoomID, puzzleID);
+                    PuzzleItem item = new PuzzleItem(itemID, itemType, itemName, description, value, puzzleID);
                     listOfItems.add(item);
                 }
             }

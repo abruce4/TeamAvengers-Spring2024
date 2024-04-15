@@ -3,8 +3,8 @@ public class Consumable extends Item {
     private int healedHealth;
 
     // Constructor
-    public Consumable(int itemID, String itemType, String itemName, String itemDescription, int itemValue, int itemRoomID, int healedHealth) {
-        super(itemID, itemType, itemName, itemDescription, itemValue, itemRoomID);
+    public Consumable(String itemID, String itemType, String itemName, String itemDescription, int itemValue, int healedHealth) {
+        super(itemID, itemType, itemName, itemDescription, itemValue);
         this.healedHealth = healedHealth;
     }
 
