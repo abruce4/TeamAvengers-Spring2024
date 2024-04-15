@@ -107,7 +107,7 @@ public class Map {
     // Read monsters from file
     // Lincoln Bruce
     public static void readCharacters(String filePath) {
-        try{
+        try {
             File myCharacters = new File(filePath);
             Scanner myReader = new Scanner(myCharacters);
             while (myReader.hasNextLine()) {
@@ -115,23 +115,23 @@ public class Map {
                 String[] characterData = data.split("-");
                 String characterType = characterData[0];
                 String name = characterData[1];
-                int roomID = Integer.parseInt(characterData[2]);
-                String description = characterData[3];
-                int health = Integer.parseInt(characterData[4]);
-                int attack = Integer.parseInt(characterData[5]);
-                int dexterity = Integer.parseInt(characterData[6]);
-                int speed = Integer.parseInt(characterData[7]);
+                String description = characterData[2];
+                int health = Integer.parseInt(characterData[3]);
+                int attack = Integer.parseInt(characterData[4]);
+                int dexterity = Integer.parseInt(characterData[5]);
+                int speed = Integer.parseInt(characterData[6]);
 
                 if (characterType.equalsIgnoreCase("monster")) {
-                    int expDrop = Integer.parseInt(characterData[8]);
-                    int goldDrop = Integer.parseInt(characterData[9]);
-                    Monster character = new Monster(characterType, name, roomID, description, health, attack, dexterity, speed, expDrop, goldDrop);
+                    int expDrop = Integer.parseInt(characterData[7]);
+                    int goldDrop = Integer.parseInt(characterData[8]);
+                    String monsterID = characterData[9];
+                    Monster character = new Monster(characterType, name, description, health, attack, dexterity, speed, expDrop, goldDrop, monsterID);
                     listOfCharacters.add(character);
                 }
                 else if (characterType.equalsIgnoreCase("player")) {
-                    int mana = Integer.parseInt(characterData[8]);
-                    int defense = Integer.parseInt(characterData[9]);
-                    MainCharacter character = new MainCharacter(characterType, name, roomID, description, health, attack, dexterity, speed, mana, defense);
+                    int mana = Integer.parseInt(characterData[7]);
+                    int defense = Integer.parseInt(characterData[8]);
+                    MainCharacter character = new MainCharacter(characterType, name, description, health, attack, dexterity, speed, mana, defense);
                     listOfCharacters.add(character);
                 }
             }

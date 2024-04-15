@@ -5,8 +5,8 @@ public class MainCharacter extends Character{
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
-    public MainCharacter(String characterType, String name, int roomID, String description, int health, int attack, int dexterity, int speed, int mana, int defense) {
-        super(characterType, name, roomID, description, health, attack, dexterity, speed);
+    public MainCharacter(String characterType, String name, String description, int health, int attack, int dexterity, int speed, int mana, int defense) {
+        super(characterType, name, description, health, attack, dexterity, speed);
         this.mana = mana;
         this.defense = defense;
     }
