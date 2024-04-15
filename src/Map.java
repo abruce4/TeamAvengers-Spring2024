@@ -93,9 +93,10 @@ public class Map {
                 String puzzleID = puzzleData[0];
                 String name = puzzleData[1];
                 String description = puzzleData[2];
-                String failMessage = puzzleData[3];
-                String hint = puzzleData[4];
-                Puzzle puzzle = new Puzzle(puzzleID, name, description, failMessage, hint);
+                String solution = puzzleData[3]; // Assuming this is where the solution is defined.
+                String failMessage = puzzleData[4];
+                String hint = puzzleData[5];
+                Puzzle puzzle = new Puzzle(puzzleID, name, description, solution, failMessage, hint);
                 listOfPuzzles.add(puzzle);
             }
         } catch (Exception e) {
