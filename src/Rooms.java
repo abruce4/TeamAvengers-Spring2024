@@ -1,15 +1,16 @@
 import java.util.ArrayList;
 
 public class Rooms{
-    public String roomID;
+    public int roomID;
     public String roomName;
     public String description;
     public ArrayList<Integer> roomExits;
     public ArrayList<String> monstersIncluded;
     public String puzzleIncluded;
     public ArrayList<String> itemsIncluded;
+    public boolean hasBeenVisited;
 
-    public Rooms(String roomID, String roomName, String description, ArrayList<Integer> roomExits, ArrayList<String> monstersIncluded, String puzzleIncluded, ArrayList<String> itemsIncluded){
+    public Rooms(int roomID, String roomName, String description, ArrayList<Integer> roomExits, ArrayList<String> monstersIncluded, ArrayList<String> itemsIncluded,String puzzleIncluded, boolean hasBeenVisited){
         this.roomID = roomID;
         this.roomName = roomName;
         this.description = description;
@@ -17,9 +18,10 @@ public class Rooms{
         this.monstersIncluded = monstersIncluded;
         this.puzzleIncluded = puzzleIncluded;
         this.itemsIncluded = itemsIncluded;
+        this.hasBeenVisited = hasBeenVisited;
     }
 
-    public void setRoomID(String roomID){
+    public void setRoomID(int roomID){
         this.roomID = roomID;
     }
 
@@ -43,8 +45,10 @@ public class Rooms{
         this.puzzleIncluded = puzzleIncluded;
     }
     public void setItemsIncluded(ArrayList<String> itemsIncluded){this.itemsIncluded = itemsIncluded;}
+    public void setHasBeenVisited(boolean hasBeenVisited){this.hasBeenVisited = hasBeenVisited;}
+    public boolean getHasBeenVisited(){return hasBeenVisited;}
 
-    public String getRoomID(){
+    public int getRoomID(){
         return roomID;
     }
 
