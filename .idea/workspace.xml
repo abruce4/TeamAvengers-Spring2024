@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Monsters.txt update(Lincoln Bruce)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Changed ID to string update(Lincoln Bruce)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -219,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713188957789</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Changed ID to string update(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713201281833</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713201281833</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +255,7 @@
     <MESSAGE value="Add readSpells method by Thuy Vy" />
     <MESSAGE value="Update Puzzle Class by Thuy Vy" />
     <MESSAGE value="Monsters.txt update(Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Monsters.txt update(Lincoln Bruce)" />
+    <MESSAGE value="Changed ID to string update(Lincoln Bruce)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed ID to string update(Lincoln Bruce)" />
   </component>
 </project>

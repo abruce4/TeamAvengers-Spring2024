@@ -99,9 +99,9 @@ public class Character {
         this.speed = speed;
     }
 
-    //Method to read monsters from the file.
+    //Method to read character from the file.
     //Lincoln Bruce
-    public static void readMonsters(String filePath, ArrayList<Character> listOfCharacters) {
+    public static void readCharacters(String filePath, ArrayList<Character> listOfCharacters) {
         try {
             File myCharacters = new File(filePath);
             Scanner myReader = new Scanner(myCharacters);
