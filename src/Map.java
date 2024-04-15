@@ -7,21 +7,21 @@ import java.util.Scanner;
 public class Map {
     private static ArrayList<Item> listOfItems;
     private static ArrayList<Puzzle> listOfPuzzles;
-    private static ArrayList<Monster> listOfMonsters;
+    private static ArrayList<Character> listOfCharacters;
     private static ArrayList<Rooms> listOfRooms;
     private static ArrayList<Spells> listOfSpells;
 
     public Map() throws FileNotFoundException {
         listOfItems = new ArrayList<>();
         listOfPuzzles = new ArrayList<>();
-        listOfMonsters = new ArrayList<>();
+        listOfCharacters = new ArrayList<>();
         listOfRooms = new ArrayList<>();
         listOfSpells = new ArrayList<>();
 
         readRooms("Rooms.txt");
         readItems("Items.txt");
         readPuzzles("puzzles.txt");
-        readMonsters("Monsters.txt");
+        readCharacters("Character.txt");
 
 
     }
@@ -40,7 +40,7 @@ public class Map {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 String[] itemData = data.split("-");
-                int itemID = Integer.parseInt(itemData[0].trim());
+                String itemID = itemData[0].trim();
                 String itemType = itemData[1].trim();
                 String itemName = itemData[2].trim();
                 String description = itemData[3].trim();
@@ -49,7 +49,7 @@ public class Map {
 
                 //Lincoln Bruce
                 if (itemType.equalsIgnoreCase("decoration")) {
-                    Item item = new Item(itemID, itemType, itemName, description, value, itemRoomID);
+                    Item item = new Item(itemID, itemType, itemName, description, value);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("equipable")) {
                     int addedHealth = Integer.parseInt(itemData[6].trim());
@@ -58,20 +58,20 @@ public class Map {
                     int addedSpeed = Integer.parseInt(itemData[9].trim());
                     int addedDefense = Integer.parseInt(itemData[10].trim());
                     String itemUtility = itemData[11].trim();
-                    Equipable item = new Equipable(itemID, itemType, itemName, description, value, itemRoomID, addedHealth, addedMagic, addedDexterity, addedSpeed, addedDefense, itemUtility);
+                    Equipable item = new Equipable(itemID, itemType, itemName, description, value, addedHealth, addedMagic, addedDexterity, addedSpeed, addedDefense, itemUtility);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("consumable")) {
                     int healedHealth = Integer.parseInt(itemData[6].trim());
-                    Consumable item = new Consumable(itemID, itemType, itemName, description, value, itemRoomID, healedHealth);
+                    Consumable item = new Consumable(itemID, itemType, itemName, description, value, healedHealth);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("throwable")) {
                     int damageDealt = Integer.parseInt(itemData[6].trim());
                     int speedReduction = Integer.parseInt(itemData[7].trim());
-                    Throwable item = new Throwable(itemID, itemType, itemName, description, value, itemRoomID, damageDealt, speedReduction);
+                    Throwable item = new Throwable(itemID, itemType, itemName, description, value, damageDealt, speedReduction);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("PuzzleItem")) {
                     int puzzleID = Integer.parseInt(itemData[6].trim());
-                    PuzzleItem item = new PuzzleItem(itemID, itemType, itemName, description, value, itemRoomID, puzzleID);
+                    PuzzleItem item = new PuzzleItem(itemID, itemType, itemName, description, value, puzzleID);
                     listOfItems.add(item);
                 }
             }
@@ -106,24 +106,34 @@ public class Map {
 
     // Read monsters from file
     // Lincoln Bruce
-    public static void readMonsters(String filePath) {
+    public static void readCharacters(String filePath) {
         try {
-            File myMonsters = new File(filePath);
-            Scanner myReader = new Scanner(myMonsters);
+            File myCharacters = new File(filePath);
+            Scanner myReader = new Scanner(myCharacters);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                String[] monsterData = data.split("-");
-                String name = monsterData[0];
-                String roomID = monsterData[1];
-                String description = monsterData[2];
-                int health = Integer.parseInt(monsterData[3]);
-                int attack = Integer.parseInt(monsterData[4]);
-                int dexterity = Integer.parseInt(monsterData[5]);
-                int speed = Integer.parseInt(monsterData[6]);
-                int expDrop = Integer.parseInt(monsterData[7]);
-                int goldDrop = Integer.parseInt(monsterData[8]);
-                Monster monster = new Monster(name, roomID, description, health, attack, dexterity, speed, expDrop, goldDrop);
-                listOfMonsters.add(monster);
+                String[] characterData = data.split("-");
+                String characterType = characterData[0];
+                String name = characterData[1];
+                String description = characterData[2];
+                int health = Integer.parseInt(characterData[3]);
+                int attack = Integer.parseInt(characterData[4]);
+                int dexterity = Integer.parseInt(characterData[5]);
+                int speed = Integer.parseInt(characterData[6]);
+
+                if (characterType.equalsIgnoreCase("monster")) {
+                    int expDrop = Integer.parseInt(characterData[7]);
+                    int goldDrop = Integer.parseInt(characterData[8]);
+                    String monsterID = characterData[9];
+                    Monster character = new Monster(characterType, name, description, health, attack, dexterity, speed, expDrop, goldDrop, monsterID);
+                    listOfCharacters.add(character);
+                }
+                else if (characterType.equalsIgnoreCase("player")) {
+                    int mana = Integer.parseInt(characterData[7]);
+                    int defense = Integer.parseInt(characterData[8]);
+                    MainCharacter character = new MainCharacter(characterType, name, description, health, attack, dexterity, speed, mana, defense);
+                    listOfCharacters.add(character);
+                }
             }
         } catch (Exception e) {
             System.out.println("An error occurred with the monsters file.");

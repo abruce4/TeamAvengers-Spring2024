@@ -2,12 +2,14 @@ public class Monster extends Character{
 
     private int expDrop;
     private int goldDrop;
+    private String monsterID;
 
     //Constructor and Initialization of attributes
-    public Monster(String characterType, String name, int roomID, String description, int health, int attack, int dexterity, int speed, int expDrop, int goldDrop) {
-        super(characterType, name, roomID, description, health, attack, dexterity, speed);
+    public Monster(String characterType, String name, String description, int health, int attack, int dexterity, int speed, int expDrop, int goldDrop, String monsterID) {
+        super(characterType, name,description, health, attack, dexterity, speed);
         this.expDrop = expDrop;
         this.goldDrop = goldDrop;
+        this.monsterID = monsterID;
     }
 
     //Getters and Setters
@@ -23,5 +25,12 @@ public class Monster extends Character{
     }
     public void setGoldDrop(int goldDrop) {
         this.goldDrop = goldDrop;
+    }
+
+    public String getMonsterID() {
+        return monsterID;
+    }
+    public void setMonsterID(String monsterID) {
+        this.monsterID = monsterID;
     }
 }

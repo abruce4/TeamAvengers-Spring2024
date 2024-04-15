@@ -16,7 +16,6 @@ public class Character {
     //Lincoln Bruce
     private String characterType;
     private String name;
-    private int RoomID;
     private String description;
     private int health;
     private int attack;
@@ -25,10 +24,9 @@ public class Character {
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
-    public Character(String characterType, String name, int roomID, String description, int health, int attack, int dexterity, int speed) {
+    public Character(String characterType, String name, String description, int health, int attack, int dexterity, int speed) {
         this.characterType = characterType;
         this.name = name;
-        this.RoomID = roomID;
         this.description = description;
         this.health = health;
         this.attack = attack;
@@ -50,13 +48,6 @@ public class Character {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getRoomID() {
-        return RoomID;
-    }
-    public void setRoomID(int roomID) {
-        RoomID = roomID;
     }
 
     public String getDescription() {
@@ -99,39 +90,4 @@ public class Character {
         this.speed = speed;
     }
 
-    //Method to read monsters from the file.
-    //Lincoln Bruce
-    public static void readMonsters(String filePath, ArrayList<Character> listOfCharacters) {
-        try {
-            File myCharacters = new File(filePath);
-            Scanner myReader = new Scanner(myCharacters);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                String[] characterData = data.split("-");
-                String characterType = characterData[0];
-                String name = characterData[1];
-                int roomID = Integer.parseInt(characterData[2]);
-                String description = characterData[3];
-                int health = Integer.parseInt(characterData[4]);
-                int attack = Integer.parseInt(characterData[5]);
-                int dexterity = Integer.parseInt(characterData[6]);
-                int speed = Integer.parseInt(characterData[7]);
-
-                if (characterType.equalsIgnoreCase("monster")) {
-                    int expDrop = Integer.parseInt(characterData[8]);
-                    int goldDrop = Integer.parseInt(characterData[9]);
-                    Monster character = new Monster(characterType, name, roomID, description, health, attack, dexterity, speed, expDrop, goldDrop);
-                    listOfCharacters.add(character);
-                }
-                else if (characterType.equalsIgnoreCase("player")) {
-                    int mana = Integer.parseInt(characterData[8]);
-                    int defense = Integer.parseInt(characterData[9]);
-                    MainCharacter character = new MainCharacter(characterType, name, roomID, description, health, attack, dexterity, speed, mana, defense);
-                    listOfCharacters.add(character);
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("An error occurred with the monsters file.");
-        }
-    }
 }
