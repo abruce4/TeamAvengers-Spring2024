@@ -16,7 +16,7 @@ public class Character {
     //Lincoln Bruce
     private String characterType;
     private String name;
-    private String RoomID;
+    private int RoomID;
     private String description;
     private int health;
     private int attack;
@@ -25,7 +25,7 @@ public class Character {
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
-    public Character(String characterType, String name, String roomID, String description, int health, int attack, int dexterity, int speed) {
+    public Character(String characterType, String name, int roomID, String description, int health, int attack, int dexterity, int speed) {
         this.characterType = characterType;
         this.name = name;
         this.RoomID = roomID;
@@ -52,10 +52,10 @@ public class Character {
         this.name = name;
     }
 
-    public String getRoomID() {
+    public int getRoomID() {
         return RoomID;
     }
-    public void setRoomID(String roomID) {
+    public void setRoomID(int roomID) {
         RoomID = roomID;
     }
 
@@ -110,7 +110,7 @@ public class Character {
                 String[] characterData = data.split("-");
                 String characterType = characterData[0];
                 String name = characterData[1];
-                String roomID = characterData[2];
+                int roomID = Integer.parseInt(characterData[2]);
                 String description = characterData[3];
                 int health = Integer.parseInt(characterData[4]);
                 int attack = Integer.parseInt(characterData[5]);
