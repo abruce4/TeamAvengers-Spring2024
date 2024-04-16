@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Create Player class and pickup() method by Thuy Vy">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamAvengers-Spring2024" beforeDir="false" afterPath="$PROJECT_DIR$/TeamAvengers-Spring2024" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713245317370</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Method to inspect an item in the current room (Huyen Pham)">
+      <option name="closed" value="true" />
+      <created>1713247838478</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713247838479</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,6 +306,7 @@
     <MESSAGE value="Changed character method(Lincoln Bruce)" />
     <MESSAGE value="Add getRoom() method by Thuy Vy" />
     <MESSAGE value="Create Player class and pickup() method by Thuy Vy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Player class and pickup() method by Thuy Vy" />
+    <MESSAGE value="Method to inspect an item in the current room (Huyen Pham)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Method to inspect an item in the current room (Huyen Pham)" />
   </component>
 </project>
