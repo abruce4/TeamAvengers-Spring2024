@@ -54,5 +54,19 @@ public class Player {
         }
         System.out.println("You don't have " + itemName + " in your inventory.");
     }
-}
+
     // Method to inspect an item in the current room (
+    public void inspectItem(String itemName) {
+        ArrayList<Item> itemsInRoom = currentRoom.getItems();
+        for (Item item : itemsInRoom) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                System.out.println("Inspecting: " + itemName);
+                System.out.println("Description: " + item.getItemDescription());
+                System.out.println("Type: " + item.getItemType());
+                System.out.println("Value: " + item.getItemValue());
+                return;
+            }
+        }
+        System.out.println("Item '" + itemName + "' not found in this room.");
+    }
+}
