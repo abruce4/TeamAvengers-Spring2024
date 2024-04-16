@@ -47,4 +47,20 @@ public class Player
         }
         System.out.println("There is no " + itemName + " in this room.");
     }
+
+    //Method to drop an item
+    public void drop(String itemName)
+    {
+        for (Item item : inventory)
+        {
+            if (item.getItemName().equalsIgnoreCase(itemName))
+            {
+                inventory.remove(item);
+                currentRoom.addItem(item);
+                System.out.println(itemName + " has been dropped successfully from the player inventory and placed in " + currentRoom.getDescription());
+                return;
+            }
+        }
+        System.out.println("You don't have " + itemName + " in your inventory.");
+    }
 }
