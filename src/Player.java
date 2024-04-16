@@ -57,8 +57,7 @@ public class Player {
 
     // Method to inspect an item in the current room (
     public void inspectItem(String itemName) {
-        ArrayList<Item> itemsInRoom = currentRoom.getItems();
-        for (Item item : itemsInRoom) {
+        for (Item item : inventory) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
                 System.out.println("Inspecting: " + itemName);
                 System.out.println("Description: " + item.getItemDescription());
