@@ -24,6 +24,22 @@ public class Map {
 
 
     }
+    //Thuy Vy Pham
+    public Map(ArrayList<Rooms> rooms)
+    {
+        listOfRooms = rooms;
+    }
+    public Rooms getRoom(int roomID)
+    {
+        for (Rooms room : listOfRooms)
+        {
+            if (room.getRoomID() == roomID)
+            {
+                return room;
+            }
+        }
+        return null;
+    }
 
     //Read rooms from file
     public ArrayList<Rooms> readRooms(String filePath) {
@@ -206,4 +222,6 @@ public class Map {
             System.out.println("An error occurred with the spell file.");
         }
     }
+
+
 }
