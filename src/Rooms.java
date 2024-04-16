@@ -9,6 +9,7 @@ public class Rooms{
     public String puzzleIncluded;
     public ArrayList<String> itemsIncluded;
     public boolean hasBeenVisited;
+    private ArrayList<Item> items;
 
     public Rooms(int roomID, String roomName, String description, ArrayList<Integer> roomExits, ArrayList<String> monstersIncluded, ArrayList<String> itemsIncluded,String puzzleIncluded, boolean hasBeenVisited){
         this.roomID = roomID;
@@ -75,5 +76,10 @@ public class Rooms{
     public String getPuzzleIncluded(){
         return puzzleIncluded;
     }
+    public void addItem(Item item) {items.add(item);}
+
+    public void removeItem(Item item) {items.remove(item);}
+
+    public ArrayList<Item> getItems() {return items;}
 
 }//end rooms class
