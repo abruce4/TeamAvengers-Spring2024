@@ -4,12 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="added the look command that for now will display the item IDs. Changed the navigation system to use if statements instead of switch case and renamed it to checkCommand.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="rearranged the roomParsing to make it less confusing.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/EmptyClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/EmptyClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Items.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Items.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Character.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Consumable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Equipable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/MainCharacter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Monster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/PuzzleItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Rooms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Spells.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Throwable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/puzzles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/puzzles.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consumable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Consumable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Equipable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Equipable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rooms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/MainCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Puzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Puzzle/Puzzle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PuzzleItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Puzzle/PuzzleItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Room/Rooms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Spells.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Spells.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Throwable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Throwable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713297229242</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="rearranged the roomParsing to make it less confusing.">
+      <option name="closed" value="true" />
+      <created>1713301801831</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713301801831</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +339,8 @@
     <MESSAGE value="Add getRoom() method by Thuy Vy" />
     <MESSAGE value="Create Player class and pickup() method by Thuy Vy" />
     <MESSAGE value="added the look command that for now will display the item IDs. Changed the navigation system to use if statements instead of switch case and renamed it to checkCommand." />
-    <option name="LAST_COMMIT_MESSAGE" value="added the look command that for now will display the item IDs. Changed the navigation system to use if statements instead of switch case and renamed it to checkCommand." />
+    <MESSAGE value="rearranged the roomParsing to make it less confusing." />
+    <option name="LAST_COMMIT_MESSAGE" value="rearranged the roomParsing to make it less confusing." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

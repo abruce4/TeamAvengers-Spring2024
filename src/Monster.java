@@ -1,4 +1,6 @@
-public class Monster extends Character{
+import Characters.Character;
+
+public class Monster extends Character {
 
     private int expDrop;
     private int goldDrop;

@@ -1,3 +1,6 @@
+import Items.Item;
+import Room.Rooms;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -66,6 +69,6 @@ public class Player {
                 return;
             }
         }
-        System.out.println("Item '" + itemName + "' not found in this room.");
+        System.out.println("Items.Item '" + itemName + "' not found in this room.");
     }
 }

@@ -1,6 +1,11 @@
+package Characters;
+
+import Items.Item;
+import Items.Spells;
+
 import java.util.ArrayList;
 
-public class MainCharacter extends Character{
+public class MainCharacter extends Character {
 
     private int mana;
     private int defense;

@@ -1,4 +1,8 @@
-public class PuzzleItem extends Item{
+package Puzzle;
+
+import Items.Item;
+
+public class PuzzleItem extends Item {
 
     private int puzzleID;
 

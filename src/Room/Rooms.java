@@ -1,9 +1,11 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
+package Room;
 
-public class Rooms{
+import Items.Item;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Rooms implements Serializable {
     public int roomID;
     public String roomName;
     public String description;

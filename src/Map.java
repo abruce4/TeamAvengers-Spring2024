@@ -1,10 +1,19 @@
+import Characters.Character;
+import Characters.MainCharacter;
+import Items.*;
+import Items.Throwable;
+import Puzzle.Puzzle;
+import Room.Rooms;
+import Puzzle.PuzzleItem;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 //Thuy Vy Pham
-public class Map {
+public class Map implements Serializable {
     private static ArrayList<Item> listOfItems;
     private static ArrayList<Puzzle> listOfPuzzles;
     private static ArrayList<Character> listOfCharacters;
@@ -14,13 +23,13 @@ public class Map {
     public Map() throws FileNotFoundException {
 //        listOfItems = new ArrayList<>();
 //        listOfPuzzles = new ArrayList<>();
-//        listOfCharacters = new ArrayList<>();
+        listOfCharacters = new ArrayList<>();
         listOfRooms = new ArrayList<>();
 //        listOfSpells = new ArrayList<>();
 
 //        readItems("Items.txt");
 //        readPuzzles("puzzles.txt");
-//        readCharacters("Character.txt");
+//        readCharacters("Characters.Character.txt");
 
 
     }
@@ -132,7 +141,7 @@ public class Map {
                     int speedReduction = Integer.parseInt(itemData[7].trim());
                     Throwable item = new Throwable(itemID, itemType, itemName, description, value, damageDealt, speedReduction);
                     listOfItems.add(item);
-                } else if (itemType.equalsIgnoreCase("PuzzleItem")) {
+                } else if (itemType.equalsIgnoreCase("Puzzle.PuzzleItem")) {
                     int puzzleID = Integer.parseInt(itemData[6].trim());
                     PuzzleItem item = new PuzzleItem(itemID, itemType, itemName, description, value, puzzleID);
                     listOfItems.add(item);
@@ -203,7 +212,7 @@ public class Map {
         }
     }
 
-    //Read Spells from file
+    //Read Items.Spells from file
     //Thuy Vy Pham
     public static void readSpells(String filePath) throws FileNotFoundException {
         try{

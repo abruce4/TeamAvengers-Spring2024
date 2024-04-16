@@ -1,4 +1,8 @@
-public class Throwable extends Item{
+package Items;
+
+import Items.Item;
+
+public class Throwable extends Item {
 
     private int damageDealt;
     private int speedReduction;
