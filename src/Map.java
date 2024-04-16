@@ -12,15 +12,15 @@ public class Map {
     private static ArrayList<Spells> listOfSpells;
 
     public Map() throws FileNotFoundException {
-        listOfItems = new ArrayList<>();
-        listOfPuzzles = new ArrayList<>();
-        listOfCharacters = new ArrayList<>();
+//        listOfItems = new ArrayList<>();
+//        listOfPuzzles = new ArrayList<>();
+//        listOfCharacters = new ArrayList<>();
         listOfRooms = new ArrayList<>();
-        listOfSpells = new ArrayList<>();
+//        listOfSpells = new ArrayList<>();
 
-        readItems("Items.txt");
-        readPuzzles("puzzles.txt");
-        readCharacters("Character.txt");
+//        readItems("Items.txt");
+//        readPuzzles("puzzles.txt");
+//        readCharacters("Character.txt");
 
 
     }
