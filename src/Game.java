@@ -24,9 +24,9 @@ public class Game {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        Game game = new Game();
+    Game game = new Game();
         game.RunGame();
-    }
+}
 
     public void RunGame() {
         System.out.println("Press q at any time if you wish to quit or y to continue");
