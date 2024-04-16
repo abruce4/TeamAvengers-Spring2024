@@ -1,0 +1,50 @@
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+public class Player
+{
+    private Rooms currentRoom;
+    private Map map;
+    private ArrayList<Item> inventory;
+
+    //Thuy Vy Pham
+    public Player() throws FileNotFoundException
+    {
+        map = new Map();
+        currentRoom = map.getRoom(1);
+        inventory = new ArrayList<>();
+    }
+    public Rooms getCurrentRoom()
+    {
+        return currentRoom;
+    }
+
+    public void inventory()
+    {
+        if (inventory.isEmpty())
+        {
+            System.out.println("You didn't pick up any items yet.");
+        } else
+        {
+            System.out.println("Inventory:");
+            for (Item item : inventory) {
+                System.out.println("- " + item.getItemName());
+            }
+        }
+    }
+    //Method to pick up an item
+    public void pickup(String itemName)
+    {
+        for (Item item : currentRoom.getItems())
+        {
+            if (item.getItemName().equalsIgnoreCase(itemName))
+            {
+                inventory.add(item);
+                currentRoom.removeItem(item);
+                System.out.println(itemName + " has been picked up from the room and successfully added to the player inventory.");
+                return;
+            }
+        }
+        System.out.println("There is no " + itemName + " in this room.");
+    }
+}
