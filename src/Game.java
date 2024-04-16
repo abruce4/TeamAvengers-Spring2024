@@ -8,12 +8,18 @@ public class Game {
     private MainCharacter mainCharacter;
     private boolean gameOver;
     private Scanner scanner;
+    private ArrayList<Rooms> rooms;
+    private int currentRoom;
+
 
     public Game() throws FileNotFoundException {
         map = new Map(); // Initialize the game map
         mainCharacter = null; // Initialize the main character
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
+        rooms = new ArrayList<>();
+        rooms = (map.readRooms("Rooms.txt"));// read the arrayList and enter the file path
+        currentRoom = 0;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -41,7 +47,7 @@ public class Game {
     }
 
     private void displayLocation() {
-        Rooms room = map.getRoomById(mainCharacter.getRoomID());
+        Rooms room = rooms.get(currentRoom);
         System.out.println("You are in " + room.getRoomName() + ".");
         System.out.println(room.getDescription());
         System.out.println("Available actions: look, north, south, east, west, items, status, quit");
@@ -70,6 +76,20 @@ public class Game {
             default:
                 System.out.println("Invalid action. Type 'help' for available actions.");
                 break;
+        }
+    }
+
+    public int exitIndex(String command, Rooms rooms){
+        ArrayList<Integer> connects = rooms.roomExits;
+        switch(command){
+            case("north"):
+                return connects.get(0) - 1;
+            case("East"):
+                return  connects.get(1) -1;
+            case("South"):
+                return connects.get(2) - 1;
+            case("west"):
+                return  connects.get(3) -1;
         }
     }
 
