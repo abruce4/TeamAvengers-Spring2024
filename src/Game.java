@@ -15,11 +15,12 @@ public class Game {
 
     public Game() throws FileNotFoundException {
         map = new Map(); // Initialize the game map
+        RoomParsing roomParsing = new RoomParsing();
         mainCharacter = null; // Initialize the main character
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         rooms = new ArrayList<>();
-        rooms = (map.readRooms("Rooms.txt"));// read the arrayList and enter the file path
+        rooms = (roomParsing.readRooms("Rooms.txt"));// read the arrayList and enter the file path
         currentRoom = 0;
     }
 
@@ -39,7 +40,7 @@ public class Game {
             System.out.println("Please enter a navigation command north,east,south,west to move around");
             scan = new Scanner(System.in);
             command = scan.nextLine();
-            currentRoom = exitIndex(command, currentRooms);
+            currentRoom = checkCommand(command, currentRooms);
             currentRooms = rooms.get(currentRoom);
             if(currentRoom == -1){
                 System.out.println("You cannot go in this direction");
@@ -102,21 +103,39 @@ public class Game {
 //        }
 //    }
 
-    public int exitIndex(String command, Rooms rooms) {
+    public int checkCommand(String command, Rooms rooms) {
         ArrayList<Integer> connects = rooms.roomExits;
-        switch (command) {
-            case ("north"):
-                return connects.get(0) - 1;
-            case ("east"):
-                return connects.get(1) - 1;
-            case ("south"):
-                return connects.get(2) - 1;
-            case ("west"):
-                return connects.get(3) - 1;
-            default:
-                return  -1;
+        if(command.equalsIgnoreCase("north")) {
+            return connects.get(0) - 1;
         }
+        if(command.equalsIgnoreCase("east")) {
+            return connects.get(1) - 1;
+        }
+        if(command.equalsIgnoreCase("south")) {
+            return connects.get(2) - 1;
+        }
+        if(command.equalsIgnoreCase("west")) {
+            return connects.get(3) - 1;
+        }
+        if(command.equalsIgnoreCase("look")){
+            displayItems(rooms);
+            return currentRoom;
+        }
+        return -1;
     }
+
+    public void displayItems(Rooms rooms){
+        if(rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")){
+            System.out.println("There are no items in this room");
+        }
+        else {
+            System.out.print("Items in this room: ");
+            for (String str: rooms.itemsIncluded){
+                System.out.print(str + ",");
+            }
+            System.out.println();
+        }
+    }//end displayItems
 }
 //    private void lookAround() {
 //        Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());

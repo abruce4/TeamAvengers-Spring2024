@@ -1,4 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Rooms{
     public int roomID;
@@ -10,6 +13,7 @@ public class Rooms{
     public ArrayList<String> itemsIncluded;
     public boolean hasBeenVisited;
     private ArrayList<Item> items;
+    private static ArrayList<Rooms> listOfRooms;
 
     public Rooms(int roomID, String roomName, String description, ArrayList<Integer> roomExits, ArrayList<String> monstersIncluded, ArrayList<String> itemsIncluded,String puzzleIncluded, boolean hasBeenVisited){
         this.roomID = roomID;
@@ -81,5 +85,7 @@ public class Rooms{
     public void removeItem(Item item) {items.remove(item);}
 
     public ArrayList<Item> getItems() {return items;}
+
+
 
 }//end rooms class
