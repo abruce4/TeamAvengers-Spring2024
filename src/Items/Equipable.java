@@ -1,3 +1,7 @@
+package Items;
+
+import Items.Item;
+
 public class Equipable extends Item {
 
     private int addedHealth;

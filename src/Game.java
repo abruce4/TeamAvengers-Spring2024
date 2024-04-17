@@ -1,32 +1,29 @@
-import java.io.FileNotFoundException;
+import Characters.MainCharacter;
+import Room.*;
+import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Random;
 
-public class Game {
+public class Game implements Serializable {
     private Map map;
-    private MainCharacter mainCharacter;
+    private ArrayList<MainCharacter> mainCharacter;
     private boolean gameOver;
-    private Scanner scanner;
+    private transient Scanner scanner;
     private ArrayList<Rooms> rooms;
-    private Scanner scan;
+    private transient Scanner scan;
     private int currentRoom;
 
 
     public Game() throws FileNotFoundException {
         map = new Map(); // Initialize the game map
-        mainCharacter = null; // Initialize the main character
+        RoomParsing roomParsing = new RoomParsing();
+        //mainCharacter = (map.readCharacters("Characters.txt")); // Initialize the main character
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         rooms = new ArrayList<>();
-        rooms = (map.readRooms("Rooms.txt"));// read the arrayList and enter the file path
+        rooms = (roomParsing.readRooms("Rooms.txt"));// read the arrayList and enter the file path
         currentRoom = 0;
     }
-
-    public static void main(String[] args) throws FileNotFoundException {
-    Game game = new Game();
-        game.RunGame();
-}
 
     public void RunGame() {
         System.out.println("Press q at any time if you wish to quit or y to continue");
@@ -35,17 +32,18 @@ public class Game {
         currentRooms.setHasBeenVisited(true);
         System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
         String command = scan.next();
-        while (true) { //set a condition in which the player can exit the game when wanted and by doing this the save/load automatically gets executed
+        while (!command.equalsIgnoreCase("save")) { //set a condition in which the player can exit the game when wanted and by doing this the save/load automatically gets executed
             System.out.println("Please enter a navigation command north,east,south,west to move around");
             scan = new Scanner(System.in);
             command = scan.nextLine();
-            currentRoom = exitIndex(command, currentRooms);
-            currentRooms = rooms.get(currentRoom);
+            currentRoom = checkCommand(command, currentRooms);
             if(currentRoom == -1){
                 System.out.println("You cannot go in this direction");
                 continue;
             }
+            currentRooms = rooms.get(currentRoom);
             System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
+            currentRooms.setHasBeenVisited(true);
         }
     }
 
@@ -64,13 +62,13 @@ public class Game {
 //        System.out.println("Create your character:");
 //        System.out.print("Enter character name: ");
 //        String player = scanner.nextLine();
-//        mainCharacter = new MainCharacter(player, "alex", 10, "School of Ice best student", 10, 100, 20, 5, 12, 6); // Adjust attributes as needed
-//        System.out.println("Character creation successful!");
+//        mainCharacter = new Characters.MainCharacter(player, "alex", 10, "School of Ice best student", 10, 100, 20, 5, 12, 6); // Adjust attributes as needed
+//        System.out.println("Characters.Character creation successful!");
 //    }
 
 //
 //    private void displayLocation() {
-//        Rooms room = rooms.get(currentRoom);
+//        Room.Rooms room = rooms.get(currentRoom);
 //        System.out.println("You are in " + room.getRoomName() + ".");
 //        System.out.println(room.getDescription());
 //        System.out.println("Available actions: look, north, south, east, west, items, status, quit");
@@ -102,24 +100,49 @@ public class Game {
 //        }
 //    }
 
-    public int exitIndex(String command, Rooms rooms) {
+    public int checkCommand(String command, Rooms rooms) {
         ArrayList<Integer> connects = rooms.roomExits;
-        switch (command) {
-            case ("north"):
-                return connects.get(0) - 1;
-            case ("east"):
-                return connects.get(1) - 1;
-            case ("south"):
-                return connects.get(2) - 1;
-            case ("west"):
-                return connects.get(3) - 1;
-            default:
-                return  -1;
+        if(command.equalsIgnoreCase("north")) {
+            return connects.get(0) - 1;
         }
+        if(command.equalsIgnoreCase("east")) {
+            return connects.get(1) - 1;
+        }
+        if(command.equalsIgnoreCase("south")) {
+            return connects.get(2) - 1;
+        }
+        if(command.equalsIgnoreCase("west")) {
+            return connects.get(3) - 1;
+        }
+        if(command.equalsIgnoreCase("look")){
+            displayItems(rooms);
+            return currentRoom;
+        }
+        if(command.equalsIgnoreCase("stats")){
+            displayStatus();
+            return currentRoom;
+        }
+        if(command.equalsIgnoreCase("save")){
+            return currentRoom;
+        }
+        return -1;
     }
-}
+
+    public void displayItems(Rooms rooms){
+        if(rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")){
+            System.out.println("There are no items in this room");
+        }
+        else {
+            System.out.print("Items in this room: ");
+            for (String str: rooms.itemsIncluded){
+                System.out.print(str + ",");
+            }
+            System.out.println();
+        }
+    }//end displayItems
+
 //    private void lookAround() {
-//        Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
+//        Room.Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
 //        ArrayList<String> objects = currentRoom.getObjects();
 //        if (objects.isEmpty()) {
 //            System.out.println("There is nothing here to interact with.");
@@ -146,7 +169,7 @@ public class Game {
 //    }
 //
 //    private void movePlayer(String direction) {
-//        Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
+//        Room.Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
 //        int nextRoomID = currentRoom.getExit(direction);
 //        if (nextRoomID != -1) {
 //            mainCharacter.setRoomID(nextRoomID);
@@ -194,26 +217,27 @@ public class Game {
 //
 //    private void displayInventory() {
 //        System.out.println("Inventory:");
-//        ArrayList<Item> inventory = mainCharacter.getInventory();
+//        ArrayList<Items.Item> inventory = mainCharacter.getInventory();
 //        if (inventory.isEmpty()) {
 //            System.out.println("Your inventory is empty.");
 //        } else {
-//            for (Item item : inventory) {
+//            for (Items.Item item : inventory) {
 //                System.out.println("- " + item.getItemName());
 //            }
 //        }
 //    }
 //
-//    private void displayStatus() {
-//        System.out.println("Status:");
-//        System.out.println("Name: " + mainCharacter.getName());
-//        System.out.println("Health: " + mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
-//        System.out.println("Attack: " + mainCharacter.getAttack());
-//        System.out.println("Defense: " + mainCharacter.getDefense());
-//        System.out.println("Speed: " + mainCharacter.getSpeed());
-//        System.out.println("Gold: " + mainCharacter.getGold());
-//        System.out.println("Experience: " + mainCharacter.getExperience());
-//    }
+    private void displayStatus() {
+        System.out.println("Status:");
+        System.out.println("Name: " + mainCharacter.get(0).getName());
+        System.out.println("Health: " + mainCharacter.get(0).getHealth() + "/" + mainCharacter.get(0).getHealth());
+        System.out.println("Attack: " + mainCharacter.get(0).getAttack());
+        System.out.println("Defense: " + mainCharacter.get(0).getDefense());
+        System.out.println("Speed: " + mainCharacter.get(0).getSpeed());
+        System.out.println("Gold: " + mainCharacter.get(0).getPlayerCoins());
+        //System.out.println("Experience: " + mainCharacter.get);
+    }
+}
 //
 //    private void quitGame() {
 //        gameOver = true;

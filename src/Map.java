@@ -1,10 +1,19 @@
+import Characters.Character;
+import Characters.MainCharacter;
+import Items.*;
+import Items.Throwable;
+import Puzzle.Puzzle;
+import Room.Rooms;
+import Puzzle.PuzzleItem;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 //Thuy Vy Pham
-public class Map {
+public class Map implements Serializable {
     private static ArrayList<Item> listOfItems;
     private static ArrayList<Puzzle> listOfPuzzles;
     private static ArrayList<Character> listOfCharacters;
@@ -12,15 +21,15 @@ public class Map {
     private static ArrayList<Spells> listOfSpells;
 
     public Map() throws FileNotFoundException {
-        listOfItems = new ArrayList<>();
+//        listOfItems = new ArrayList<>();
 //        listOfPuzzles = new ArrayList<>();
         listOfCharacters = new ArrayList<>();
         listOfRooms = new ArrayList<>();
 //        listOfSpells = new ArrayList<>();
 
-        readItems("Items.txt");
+//        readItems("Items.txt");
 //        readPuzzles("puzzles.txt");
-        readCharacters("Character.txt");
+//        readCharacters("Characters.Character.txt");
 
 
     }
@@ -132,7 +141,7 @@ public class Map {
                     int speedReduction = Integer.parseInt(itemData[7].trim());
                     Throwable item = new Throwable(itemID, itemType, itemName, description, value, damageDealt, speedReduction);
                     listOfItems.add(item);
-                } else if (itemType.equalsIgnoreCase("PuzzleItem")) {
+                } else if (itemType.equalsIgnoreCase("Puzzle.PuzzleItem")) {
                     int puzzleID = Integer.parseInt(itemData[6].trim());
                     PuzzleItem item = new PuzzleItem(itemID, itemType, itemName, description, value, puzzleID);
                     listOfItems.add(item);
@@ -144,28 +153,28 @@ public class Map {
         }
     }
 
-//    // Read puzzles from file
-//    // Thuy Vy Pham
-//    public static void readPuzzles(String filePath) {
-//        try {
-//            File myPuzzles = new File(filePath);
-//            Scanner myReader = new Scanner(myPuzzles);
-//            while (myReader.hasNextLine()) {
-//                String data = myReader.nextLine();
-//                String[] puzzleData = data.split("-");
-//                String puzzleID = puzzleData[0];
-//                String name = puzzleData[1];
-//                String description = puzzleData[2];
-//                String solution = puzzleData[3]; // Assuming this is where the solution is defined.
-//                String failMessage = puzzleData[4];
-//                String hint = puzzleData[5];
-//                Puzzle puzzle = new Puzzle(puzzleID, name, description, solution, failMessage, hint);
-//                listOfPuzzles.add(puzzle);
-//            }
-//        } catch (Exception e) {
-//            System.out.println("An error occurred with the puzzle file.");
-//        }
-//    }
+    // Read puzzles from file
+    // Thuy Vy Pham
+    public static void readPuzzles(String filePath) {
+        try {
+            File myPuzzles = new File(filePath);
+            Scanner myReader = new Scanner(myPuzzles);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] puzzleData = data.split("-");
+                String puzzleID = puzzleData[0];
+                String name = puzzleData[1];
+                String description = puzzleData[2];
+                String solution = puzzleData[3]; // Assuming this is where the solution is defined.
+                String failMessage = puzzleData[4];
+                String hint = puzzleData[5];
+                Puzzle puzzle = new Puzzle(puzzleID, name, description, solution, failMessage, hint);
+                listOfPuzzles.add(puzzle);
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred with the puzzle file.");
+        }
+    }
 
     // Read monsters from file
     // Lincoln Bruce
@@ -203,36 +212,25 @@ public class Map {
         }
     }
 
-//    //Read Spells from file
-//    //Thuy Vy Pham
-//    public static void readSpells(String filePath) throws FileNotFoundException {
-//        try{
-//            File mySpells = new File(filePath);
-//            Scanner myReader = new Scanner(mySpells);
-//            while (myReader.hasNextLine()) {
-//                String data = myReader.nextLine();
-//                String[] spellData = data.split("-");
-//                String spellID = spellData[0];
-//                String name = spellData[1];
-//                String description = spellData[2];
-//                Spells spells = new Spells(spellID, name, description);
-//                listOfSpells.add(spells);
-//            }
-//        } catch(Exception e){
-//            System.out.println("An error occurred with the spell file.");
-//        }
-//    }
-
-    //Method to populate the room with items
-    //Lincoln Bruce
-    public void populateRoomWithItems(ArrayList<Rooms> listOfRooms, ArrayList<Item> listOfItems) {
-        for (Rooms room : listOfRooms) {
-            for (Item item : listOfItems) {
-                if (room.getItemsIncluded().contains(item.getItemID())) {
-                    room.getRoomInventory().add(item);
-                }
+    //Read Items.Spells from file
+    //Thuy Vy Pham
+    public static void readSpells(String filePath) throws FileNotFoundException {
+        try{
+            File mySpells = new File(filePath);
+            Scanner myReader = new Scanner(mySpells);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] spellData = data.split("-");
+                String spellID = spellData[0];
+                String name = spellData[1];
+                String description = spellData[2];
+                Spells spells = new Spells(spellID, name, description);
+                listOfSpells.add(spells);
             }
+        } catch(Exception e){
+            System.out.println("An error occurred with the spell file.");
         }
     }
+
 
 }

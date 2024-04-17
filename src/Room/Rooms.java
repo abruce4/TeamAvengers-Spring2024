@@ -1,6 +1,11 @@
+package Room;
+
+import Items.Item;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Rooms{
+public class Rooms implements Serializable {
     public int roomID;
     public String roomName;
     public String description;
@@ -9,7 +14,8 @@ public class Rooms{
     public String puzzleIncluded;
     public ArrayList<String> itemsIncluded;
     public boolean hasBeenVisited;
-    private ArrayList<Item> roomInventory;
+    private ArrayList<Item> items;
+    private static ArrayList<Rooms> listOfRooms;
 
     public Rooms(int roomID, String roomName, String description, ArrayList<Integer> roomExits, ArrayList<String> monstersIncluded, ArrayList<String> itemsIncluded,String puzzleIncluded, boolean hasBeenVisited){
         this.roomID = roomID;
@@ -20,7 +26,6 @@ public class Rooms{
         this.puzzleIncluded = puzzleIncluded;
         this.itemsIncluded = itemsIncluded;
         this.hasBeenVisited = hasBeenVisited;
-        this.roomInventory = new ArrayList<>();
     }
 
     public void setRoomID(int roomID){
@@ -77,13 +82,12 @@ public class Rooms{
     public String getPuzzleIncluded(){
         return puzzleIncluded;
     }
+    public void addItem(Item item) {items.add(item);}
 
-    public void addItem(Item item) {roomInventory.add(item);}
+    public void removeItem(Item item) {items.remove(item);}
 
-    public void removeItem(Item item) {roomInventory.remove(item);}
+    public ArrayList<Item> getItems() {return items;}
 
-    public ArrayList<Item> getRoomInventory() {return roomInventory;}
 
-    public void setRoomInventory(ArrayList<Item> roomInventory) {this.roomInventory = roomInventory;}
 
 }//end rooms class
