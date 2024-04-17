@@ -14,6 +14,8 @@ public class Game implements Serializable {
 
     private int currentRoom = 0;
     private transient Scanner scan;
+    private boolean gameOver;
+    private transient Scanner scanner;
 
     // File paths for game elements
     private static final String ITEMS_FILE_PATH = "src/Items.txt";
@@ -30,12 +32,6 @@ public class Game implements Serializable {
     private static final ArrayList<Rooms> listOfRooms = new ArrayList<>();
     private static final ArrayList<Spells> listOfSpells = new ArrayList<>();
     private static final ArrayList<Player> listOfPlayers = new ArrayList<>();
-
-    public static void main(String[] args) {
-        loadGameElements();
-        Game game = new Game();
-        game.RunGame();
-    }
 
     //Method to load game elements
     private static void loadGameElements() {
@@ -59,24 +55,14 @@ public class Game implements Serializable {
         }
     }
 
-//    private Map map;
-//    private ArrayList<MainCharacter> mainCharacter;
-//    private boolean gameOver;
-//    private transient Scanner scanner;
-//    private ArrayList<Rooms> rooms;
-//    private transient Scanner scan;
-//    private int currentRoom;
 
-
-//    public Game() {
-//        map = new Map();// Initialize the game map
-//        RoomParsing roomParsing = new RoomParsing();
-//        gameOver = false; // Game over flag
-//        scanner = new Scanner(System.in); // Scanner for user input
-//        rooms = new ArrayList<>();
-//        rooms = (roomParsing.readRooms("Rooms.txt"));// read the arrayList and enter the file path
-//        currentRoom = 0;
-//    }
+    public Game() {
+        loadGameElements();// Initialize the game map
+        RoomParsing roomParsing = new RoomParsing();
+        gameOver = false; // Game over flag
+        scanner = new Scanner(System.in); // Scanner for user input
+        currentRoom = 0;
+    }
 
     public void RunGame() {
         System.out.println("Press q at any time if you wish to quit or y to continue");
