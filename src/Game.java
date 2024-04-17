@@ -25,7 +25,6 @@ public class Game implements Serializable {
     private static final String MONSTERS_FILE_PATH = "src/Monsters.txt";
     private static final String ROOMS_FILE_PATH = "src/Rooms.txt";
     private static final String SPELLS_FILE_PATH = "src/Spells.txt";
-    private static final String PLAYER_FILE_PATH = "src/Players.txt";
 
     // ArrayList to store game elements
     //Ginette Wilson
@@ -34,7 +33,6 @@ public class Game implements Serializable {
     private static final ArrayList<Monster> listOfMonsters = new ArrayList<>();
     private static final ArrayList<Rooms> listOfRooms = new ArrayList<>();
     private static final ArrayList<Spells> listOfSpells = new ArrayList<>();
-    private static final ArrayList<Player> listOfPlayers = new ArrayList<>();
 
     //Ginette Wilson
     public Game() {
@@ -43,6 +41,7 @@ public class Game implements Serializable {
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
+       // Player mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
     }
 
     //Method to load game elements
@@ -53,7 +52,6 @@ public class Game implements Serializable {
         Monster.readMonsters(MONSTERS_FILE_PATH, listOfMonsters);
         Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
         Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
-        Player.readPlayers(PLAYER_FILE_PATH, listOfPlayers);
         addItemsToRoom(listOfItems, listOfRooms);
     }
 
@@ -68,23 +66,6 @@ public class Game implements Serializable {
             }
         }
     }
-
-//    //Method to choose character
-//    //Lincoln Bruce
-//    public void chooseCharacter() {
-//        System.out.println("Choose your character: ");
-//        System.out.println(listOfPlayers);
-//        Scanner scanner = new Scanner(System.in);
-//        String scanner1 = scanner.nextLine();
-//
-//        for (Player player : listOfPlayers) {
-//            if (player.getName().equalsIgnoreCase(scanner1)) {
-//                System.out.println("You have chosen " + player.getName());
-//                Player player1 = listOfPlayers.get(pl)
-//                break;
-//            }
-//        }
-//    }
 
     //Method to run the game
     //Kenny Amador
