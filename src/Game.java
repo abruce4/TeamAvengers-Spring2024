@@ -36,6 +36,15 @@ public class Game implements Serializable {
     private static final ArrayList<Spells> listOfSpells = new ArrayList<>();
     private static final ArrayList<Player> listOfPlayers = new ArrayList<>();
 
+    //Ginette Wilson
+    public Game() {
+        loadGameElements();// Initialize the game map
+        RoomParsing roomParsing = new RoomParsing();
+        gameOver = false; // Game over flag
+        scanner = new Scanner(System.in); // Scanner for user input
+        currentRoom = 0;
+    }
+
     //Method to load game elements
     //Ginette Wilson
     private static void loadGameElements() {
@@ -60,14 +69,22 @@ public class Game implements Serializable {
         }
     }
 
-    //Ginette Wilson
-    public Game() {
-        loadGameElements();// Initialize the game map
-        RoomParsing roomParsing = new RoomParsing();
-        gameOver = false; // Game over flag
-        scanner = new Scanner(System.in); // Scanner for user input
-        currentRoom = 0;
-    }
+//    //Method to choose character
+//    //Lincoln Bruce
+//    public void chooseCharacter() {
+//        System.out.println("Choose your character: ");
+//        System.out.println(listOfPlayers);
+//        Scanner scanner = new Scanner(System.in);
+//        String scanner1 = scanner.nextLine();
+//
+//        for (Player player : listOfPlayers) {
+//            if (player.getName().equalsIgnoreCase(scanner1)) {
+//                System.out.println("You have chosen " + player.getName());
+//                Player player1 = listOfPlayers.get(pl)
+//                break;
+//            }
+//        }
+//    }
 
     //Method to run the game
     //Kenny Amador
@@ -154,6 +171,7 @@ public class Game implements Serializable {
         if (command.equalsIgnoreCase("save")) {
             return currentRoom;
         }
+
         return -1;
     }
 
