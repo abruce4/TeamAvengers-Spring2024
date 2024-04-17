@@ -86,25 +86,6 @@ public class Game implements Serializable {
         }
     }
 
-//    public void play() {
-//        // Welcome message and game setup
-//        System.out.println("Welcome to Arcane Realms!");
-//        createCharacter();
-//        while (!gameOver) {
-//            displayLocation();
-//            String userInput = scanner.nextLine().toLowerCase(); // Convert input to lowercase for case-insensitivity
-//            handleInput(userInput);
-//        }
-//    }
-
-//    private void createCharacter() {
-//        System.out.println("Create your character:");
-//        System.out.print("Enter character name: ");
-//        String player = scanner.nextLine();
-//        mainCharacter = new MainCharacter(player, "alex", 10, "School of Ice best student", 10, 100, 20, 5, 12, 6); // Adjust attributes as needed
-//        System.out.println("Character creation successful!");
-//    }
-
 //
 //    private void displayLocation() {
 //        Rooms room = rooms.get(currentRoom);

@@ -1,8 +1,19 @@
 import java.io.*;
 import java.util.Scanner;
 
+/**Class: Main
+ * @author Team Avengers / Kenny Amador
+ * @version 1.0
+ * Course: ITEC 3860 Spring 2024
+ * Written: Apr 10, 2024
+ * This class is the main class that runs the game and saves/load the game
+ */
+
 public class main {
+
+    //Kenny Amador
     public static void main(String[] args) throws FileNotFoundException {
+
         File f = new File("save.bin"); // this is the save/load feature that I was able to do with the help of ACE
         Game game;
         Scanner scan = new Scanner(System.in);
