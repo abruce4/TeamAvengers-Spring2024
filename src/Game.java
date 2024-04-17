@@ -33,12 +33,6 @@ public class Game implements Serializable {
 
     public static void main(String[] args) {
         loadGameElements();
-        System.out.println(listOfMonsters);
-        System.out.println(listOfItems);
-        System.out.println(listOfPuzzles);
-        System.out.println(listOfRooms);
-        System.out.println(listOfPlayers);
-        System.out.println(listOfRooms.get(6).getRoomInventory());
         Game game = new Game();
         game.RunGame();
     }
