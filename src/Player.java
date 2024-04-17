@@ -15,8 +15,6 @@ public class Player {
 
     //Player attributes
     //Lincoln Bruce
-    private String name;
-    private String description;
     private int health;
     private int attack;
     private int dexterity;
@@ -30,9 +28,7 @@ public class Player {
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
-    public Player(String name, String description, int health, int attack, int dexterity, int speed, int mana, int defense) {
-        this.name = name;
-        this.description = description;
+    public Player(int health, int attack, int dexterity, int speed, int mana, int defense,Rooms currentRoom) {
         this.health = health;
         this.attack = attack;
         this.dexterity = dexterity;
@@ -40,28 +36,13 @@ public class Player {
         this.mana = mana;
         this.defense = defense;
         this.playerCoins = 0;
+        this.currentRoom = currentRoom;
         this.PlayerInventory = new ArrayList<>();
         this.PlayerSpells = new ArrayList<>();
     }
 
     //Getters and Setters
     //Lincoln Bruce
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int getHealth() {
         return health;
     }
@@ -142,36 +123,6 @@ public class Player {
         PlayerSpells = playerSpells;
     }
 
-    //ToString method
-    @Override
-    public String toString() {
-        return name;
-    }
-
-    //Method to read the player file
-    //Lincoln Bruce
-    public static void readPlayers(String filePath, ArrayList<Player> listOfPlayers) {
-        try {
-            File file = new File(filePath);
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                String data = scanner.nextLine();
-                String[] playerData = data.split("-");
-                String name = playerData[0];
-                String description = playerData[1];
-                int health = Integer.parseInt(playerData[2]);
-                int attack = Integer.parseInt(playerData[3]);
-                int dexterity = Integer.parseInt(playerData[4]);
-                int speed = Integer.parseInt(playerData[5]);
-                int mana = Integer.parseInt(playerData[6]);
-                int defense = Integer.parseInt(playerData[7]);
-                listOfPlayers.add(new Player(name, description, health, attack, dexterity, speed, mana, defense));
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred with the player file.");
-        }
-    }
 
     //Method to display the player inventory
     //Thuy Vy
@@ -229,4 +180,5 @@ public class Player {
         }
         System.out.println(itemName + " not found in your inventory.");
     }
+
 }
