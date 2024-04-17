@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Changed main back to run method(Lincoln Bruce)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="added display stats and moved mainCharacter to game constructor to simplify the runGame method">
       <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -388,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713378830609</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="added display stats and moved mainCharacter to game constructor to simplify the runGame method">
+      <option name="closed" value="true" />
+      <created>1713395158569</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1713395158569</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +434,8 @@
     <MESSAGE value="Changed the map class to only create the map and put all parsing back into their respective classes (Lincoln Bruce)" />
     <MESSAGE value="rearanged most of the stuff for more clarification, will continue and explain tomorrow(Lincoln Bruce)" />
     <MESSAGE value="Changed main back to run method(Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed main back to run method(Lincoln Bruce)" />
+    <MESSAGE value="added display stats and moved mainCharacter to game constructor to simplify the runGame method" />
+    <option name="LAST_COMMIT_MESSAGE" value="added display stats and moved mainCharacter to game constructor to simplify the runGame method" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

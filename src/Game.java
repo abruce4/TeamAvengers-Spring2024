@@ -89,8 +89,14 @@ public class Game implements Serializable {
                 continue;
             }
             currentRooms = listOfRooms.get(currentRoom);
+            checkRoom(currentRooms);
             System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
             currentRooms.setHasBeenVisited(true);
+        }
+    }
+    public void checkRoom(Rooms rooms){
+        if (rooms.getHasBeenVisited() == true) {
+            System.out.println("You have been here before");
         }
     }
 
