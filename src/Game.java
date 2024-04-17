@@ -21,6 +21,7 @@ public class Game implements Serializable {
     private static final String MONSTERS_FILE_PATH = "src/Monsters.txt";
     private static final String ROOMS_FILE_PATH = "src/Rooms.txt";
     private static final String SPELLS_FILE_PATH = "src/Spells.txt";
+    private static final String PLAYER_FILE_PATH = "src/Players.txt";
 
     // ArrayList to store game elements
     private static final ArrayList<Item> listOfItems = new ArrayList<>();
@@ -28,6 +29,7 @@ public class Game implements Serializable {
     private static final ArrayList<Monster> listOfMonsters = new ArrayList<>();
     private static final ArrayList<Rooms> listOfRooms = new ArrayList<>();
     private static final ArrayList<Spells> listOfSpells = new ArrayList<>();
+    private static final ArrayList<Player> listOfPlayers = new ArrayList<>();
 
     public static void main(String[] args) {
         loadGameElements();
@@ -35,6 +37,7 @@ public class Game implements Serializable {
         System.out.println(listOfItems);
         System.out.println(listOfPuzzles);
         System.out.println(listOfRooms);
+        System.out.println(listOfPlayers);
         System.out.println(listOfRooms.get(6).getRoomInventory());
         Game game = new Game();
         game.RunGame();
@@ -47,6 +50,7 @@ public class Game implements Serializable {
         Monster.readMonsters(MONSTERS_FILE_PATH, listOfMonsters);
         Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
         Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
+        Player.readPlayers(PLAYER_FILE_PATH, listOfPlayers);
         addItemsToRoom(listOfItems, listOfRooms);
     }
 
@@ -92,7 +96,7 @@ public class Game implements Serializable {
             scan = new Scanner(System.in);
             command = scan.nextLine();
             currentRoom = checkCommand(command, currentRooms);
-            if(currentRoom == -1){
+            if (currentRoom == -1) {
                 System.out.println("You cannot go in this direction");
                 continue;
             }
@@ -157,39 +161,38 @@ public class Game implements Serializable {
 
     public int checkCommand(String command, Rooms rooms) {
         ArrayList<Integer> connects = rooms.roomExits;
-        if(command.equalsIgnoreCase("north")) {
+        if (command.equalsIgnoreCase("north")) {
             return connects.get(0) - 1;
         }
-        if(command.equalsIgnoreCase("east")) {
+        if (command.equalsIgnoreCase("east")) {
             return connects.get(1) - 1;
         }
-        if(command.equalsIgnoreCase("south")) {
+        if (command.equalsIgnoreCase("south")) {
             return connects.get(2) - 1;
         }
-        if(command.equalsIgnoreCase("west")) {
+        if (command.equalsIgnoreCase("west")) {
             return connects.get(3) - 1;
         }
-        if(command.equalsIgnoreCase("look")){
+        if (command.equalsIgnoreCase("look")) {
             displayItems(rooms);
             return currentRoom;
         }
-        if(command.equalsIgnoreCase("stats")){
-            displayStatus();
-            return currentRoom;
-        }
-        if(command.equalsIgnoreCase("save")){
+//        if (command.equalsIgnoreCase("stats")) {
+//            displayStatus();
+//            return currentRoom;
+//        }
+        if (command.equalsIgnoreCase("save")) {
             return currentRoom;
         }
         return -1;
     }
 
-    public void displayItems(Rooms rooms){
-        if(rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")){
+    public void displayItems(Rooms rooms) {
+        if (rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")) {
             System.out.println("There are no items in this room");
-        }
-        else {
+        } else {
             System.out.print("Items in this room: ");
-            for (String str: rooms.itemsIncluded){
+            for (String str : rooms.itemsIncluded) {
                 System.out.print(str + ",");
             }
             System.out.println();
@@ -282,20 +285,10 @@ public class Game implements Serializable {
 //        }
 //    }
 //
-    private void displayStatus() {
-        System.out.println("Status:");
-        System.out.println("Name: " + mainCharacter.get(0).getName());
-        System.out.println("Health: " + mainCharacter.get(0).getHealth() + "/" + mainCharacter.get(0).getHealth());
-        System.out.println("Attack: " + mainCharacter.get(0).getAttack());
-        System.out.println("Defense: " + mainCharacter.get(0).getDefense());
-        System.out.println("Speed: " + mainCharacter.get(0).getSpeed());
-        System.out.println("Gold: " + mainCharacter.get(0).getPlayerCoins());
-        //System.out.println("Experience: " + mainCharacter.get);
-    }
-}
 //
 //    private void quitGame() {
 //        gameOver = true;
 //        System.out.println("Thank you for playing Arcane Realms! Goodbye.");
 //    }
 //}
+}

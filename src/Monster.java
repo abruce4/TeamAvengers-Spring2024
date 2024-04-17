@@ -143,7 +143,6 @@ public class Monster {
             }
         } catch (Exception e) {
             System.out.println("An error occurred with the characters file.");
-            e.printStackTrace();
         }
     }
 }

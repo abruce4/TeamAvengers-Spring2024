@@ -1,4 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
 
@@ -32,8 +35,6 @@ public class Player {
     }
 
     //Getters and Setters
-
-
     public String getName() {
         return name;
     }
@@ -130,12 +131,44 @@ public class Player {
         PlayerSpells = playerSpells;
     }
 
+    //ToString method
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    //Method to read the player file
+    public static void readPlayers(String filePath, ArrayList<Player> listOfPlayers) {
+        try {
+            File file = new File(filePath);
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String data = scanner.nextLine();
+                String[] playerData = data.split("-");
+                String name = playerData[0];
+                String description = playerData[1];
+                int health = Integer.parseInt(playerData[2]);
+                int attack = Integer.parseInt(playerData[3]);
+                int dexterity = Integer.parseInt(playerData[4]);
+                int speed = Integer.parseInt(playerData[5]);
+                int mana = Integer.parseInt(playerData[6]);
+                int defense = Integer.parseInt(playerData[7]);
+                listOfPlayers.add(new Player(name, description, health, attack, dexterity, speed, mana, defense));
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred with the player file.");
+        }
+    }
+
+    //Method to display the player inventory
+    //Thuy Vy
     public void inventory() {
-        if (inventory.isEmpty()) {
+        if (getPlayerInventory().isEmpty()) {
             System.out.println("You didn't pick up any items yet.");
         } else {
             System.out.println("Inventory:");
-            for (Item item : inventory) {
+            for (Item item : getPlayerInventory()) {
                 System.out.println("- " + item.getItemName());
             }
         }
@@ -143,10 +176,11 @@ public class Player {
 
 
     //Method to pick up an item
+    //Thuy Vy
     public void pickup(String itemName) {
         for (Item item : currentRoom.getRoomInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
-                inventory.add(item);
+                getPlayerInventory().add(item);
                 currentRoom.removeItem(item);
                 System.out.println(itemName + " has been picked up from the room and successfully added to the player inventory.");
                 return;
@@ -156,10 +190,11 @@ public class Player {
     }
 
     //Method to drop an item
+    //Thuy Vy
     public void drop(String itemName) {
-        for (Item item : inventory) {
+        for (Item item : getPlayerInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
-                inventory.remove(item);
+                getPlayerInventory().remove(item);
                 currentRoom.addItem(item);
                 System.out.println(itemName + " has been dropped successfully from the player inventory and placed in " + currentRoom.getDescription());
                 return;
@@ -168,9 +203,10 @@ public class Player {
         System.out.println("You don't have " + itemName + " in your inventory.");
     }
 
-    // Method to inspect an item in the current room (
+    // Method to inspect an item in the current room
+    //Huyen Pham
     public void inspectItem(String itemName) {
-        for (Item item : inventory) {
+        for (Item item : getPlayerInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
                 System.out.println("Inspecting: " + itemName);
                 System.out.println("Description: " + item.getItemDescription());
@@ -179,6 +215,6 @@ public class Player {
                 return;
             }
         }
-        System.out.println("Item '" + itemName + "' not found in this room.");
+        System.out.println(itemName + " not found in your inventory.");
     }
 }
