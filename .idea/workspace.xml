@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Changed main back to run method(Lincoln Bruce)">
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="fixed the loading feature.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/puzzles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Puzzles.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -334,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713357003356</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fixed the loading feature.">
+      <option name="closed" value="true" />
+      <created>1713358933463</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1713358933463</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,7 +386,9 @@
     <MESSAGE value="Changed the map class to only create the map and put all parsing back into their respective classes (Lincoln Bruce)" />
     <MESSAGE value="rearanged most of the stuff for more clarification, will continue and explain tomorrow(Lincoln Bruce)" />
     <MESSAGE value="Changed main back to run method(Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed main back to run method(Lincoln Bruce)" />
+    <MESSAGE value="fixed the issue with the loading feature." />
+    <MESSAGE value="fixed the loading feature." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the loading feature." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

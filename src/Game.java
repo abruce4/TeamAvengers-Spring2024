@@ -162,8 +162,8 @@ public class Game implements Serializable {
             System.out.println("There are no items in this room");
         } else {
             System.out.print("Items in this room: ");
-            for (String str : rooms.itemsIncluded) {
-                System.out.print(str + ",");
+            for (Item item : rooms.getRoomInventory()) {
+                System.out.print(item + ",");
             }
             System.out.println();
         }
