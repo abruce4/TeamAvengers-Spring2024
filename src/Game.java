@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class Game implements Serializable {
 
-    private int currentRoom = 0;
+    private int currentRoom;
     private transient Scanner scan;
     private boolean gameOver;
     private transient Scanner scanner;
