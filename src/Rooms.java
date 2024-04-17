@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class Rooms implements Serializable {
 
     //The following variables are the common attribute between all rooms
+    //Kenny Amador
     public int roomID;
     public String roomName;
     public String description;
@@ -26,6 +27,7 @@ public class Rooms implements Serializable {
     private ArrayList<Item> roomInventory;
 
     //Constructor and Initialization of attributes
+    //Kenny Amador
     public Rooms(int roomID, String roomName, String description, ArrayList<Integer> roomExits, ArrayList<String> monstersIncluded, ArrayList<String> itemsIncluded,String puzzleIncluded, boolean hasBeenVisited){
         this.roomID = roomID;
         this.roomName = roomName;
@@ -39,6 +41,7 @@ public class Rooms implements Serializable {
     }
 
     //Getters and Setters
+    //Kenny Amador
     public void setRoomID(int roomID){
         this.roomID = roomID;
     }
@@ -112,6 +115,7 @@ public class Rooms implements Serializable {
     }
 
     //Method to read the room file
+    //Kenny Amador
         public static void readRooms(String filePath, ArrayList<Rooms> listOfRooms) {
             Scanner infile;
             try{
