@@ -1,8 +1,3 @@
-package Characters;
-
-import Items.Item;
-import Items.Spells;
-
 import java.util.ArrayList;
 
 public class MainCharacter extends Character {
@@ -12,6 +7,7 @@ public class MainCharacter extends Character {
     private ArrayList<Item> PlayerInventory;
     private ArrayList<Spells> PlayerSpells;
     private int playerCoins;
+    private Rooms currentRoom;
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
@@ -60,4 +56,23 @@ public class MainCharacter extends Character {
     public void setPlayerCoins(int playerCoins) {
         this.playerCoins = playerCoins;
     }
+
+
+    //Method to display the player's inventory
+    //Thuy Vy
+    public void displayInventory() {
+        if (getPlayerInventory().isEmpty()) {
+            System.out.println("You didn't pick up any items yet.");
+        } else {
+            System.out.println("Inventory:");
+            for (Item item : getPlayerInventory()) {
+                System.out.println("- " + item.getItemName());
+            }
+        }
+    }
+
+    //Method to pick up an item
+    //Thuy Vy
+
+
 }

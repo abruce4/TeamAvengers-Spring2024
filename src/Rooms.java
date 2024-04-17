@@ -1,6 +1,3 @@
-package Room;
-import Items.Item;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
@@ -108,6 +105,11 @@ public class Rooms implements Serializable {
 
     public void setRoomInventory(ArrayList<Item> roomInventory) {this.roomInventory = roomInventory;}
 
+    //toString method
+    @Override
+    public String toString(){
+        return roomName;
+    }
 
     //Method to read the room file
         public static void readRooms(String filePath, ArrayList<Rooms> listOfRooms) {

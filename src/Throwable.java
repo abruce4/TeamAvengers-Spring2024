@@ -1,7 +1,3 @@
-package Items;
-
-import Items.Item;
-
 public class Throwable extends Item {
 
     private int damageDealt;

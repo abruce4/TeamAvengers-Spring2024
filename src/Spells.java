@@ -1,5 +1,3 @@
-package Items;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -36,7 +34,7 @@ public class Spells
         this.description = description;
     }
 
-    //Read Items.Spells from file
+    //Read Spells from file
     //Thuy Vy Pham
     public static void readSpells(String filePath, ArrayList<Spells> listOfSpells) {
         try{

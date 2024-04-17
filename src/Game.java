@@ -1,5 +1,3 @@
-import Characters.MainCharacter;
-import Room.*;
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -13,29 +11,79 @@ import java.util.ArrayList;
  */
 
 public class Game implements Serializable {
-    private Map map;
-    private ArrayList<MainCharacter> mainCharacter;
-    private boolean gameOver;
-    private transient Scanner scanner;
-    private ArrayList<Rooms> rooms;
+
+    private int currentRoom = 0;
     private transient Scanner scan;
-    private int currentRoom;
 
+    // File paths for game elements
+    private static final String ITEMS_FILE_PATH = "src/Items.txt";
+    private static final String PUZZLES_FILE_PATH = "src/Puzzles.txt";
+    private static final String MONSTERS_FILE_PATH = "src/Monsters.txt";
+    private static final String ROOMS_FILE_PATH = "src/Rooms.txt";
+    private static final String SPELLS_FILE_PATH = "src/Spells.txt";
 
-    public Game() throws FileNotFoundException {
-        map = new Map(); // Initialize the game map
-        RoomParsing roomParsing = new RoomParsing();
-        gameOver = false; // Game over flag
-        scanner = new Scanner(System.in); // Scanner for user input
-        rooms = new ArrayList<>();
-        rooms = (roomParsing.readRooms("Rooms.txt"));// read the arrayList and enter the file path
-        currentRoom = 0;
+    // ArrayList to store game elements
+    private static final ArrayList<Item> listOfItems = new ArrayList<>();
+    private static final ArrayList<Puzzle> listOfPuzzles = new ArrayList<>();
+    private static final ArrayList<Monster> listOfMonsters = new ArrayList<>();
+    private static final ArrayList<Rooms> listOfRooms = new ArrayList<>();
+    private static final ArrayList<Spells> listOfSpells = new ArrayList<>();
+
+    public static void main(String[] args) {
+        loadGameElements();
+        System.out.println(listOfMonsters);
+        System.out.println(listOfItems);
+        System.out.println(listOfPuzzles);
+        System.out.println(listOfRooms);
+        System.out.println(listOfRooms.get(6).getRoomInventory());
+        Game game = new Game();
+        game.RunGame();
     }
+
+    //Method to load game elements
+    private static void loadGameElements() {
+        Item.readItems(ITEMS_FILE_PATH, listOfItems);
+        Puzzle.readPuzzles(PUZZLES_FILE_PATH, listOfPuzzles);
+        Monster.readMonsters(MONSTERS_FILE_PATH, listOfMonsters);
+        Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
+        Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
+        addItemsToRoom(listOfItems, listOfRooms);
+    }
+
+    //Method to add items to the room
+    public static void addItemsToRoom(ArrayList<Item> listOfItems, ArrayList<Rooms> listOfRooms) {
+        for (Rooms room : listOfRooms) {
+            for (Item item : listOfItems) {
+                if (room.getItemsIncluded().contains(item.getItemID())) {
+                    room.getRoomInventory().add(item);
+                }
+            }
+        }
+    }
+
+//    private Map map;
+//    private ArrayList<MainCharacter> mainCharacter;
+//    private boolean gameOver;
+//    private transient Scanner scanner;
+//    private ArrayList<Rooms> rooms;
+//    private transient Scanner scan;
+//    private int currentRoom;
+
+
+//    public Game() {
+//        map = new Map();// Initialize the game map
+//        RoomParsing roomParsing = new RoomParsing();
+//        gameOver = false; // Game over flag
+//        scanner = new Scanner(System.in); // Scanner for user input
+//        rooms = new ArrayList<>();
+//        rooms = (roomParsing.readRooms("Rooms.txt"));// read the arrayList and enter the file path
+//        currentRoom = 0;
+//    }
 
     public void RunGame() {
         System.out.println("Press q at any time if you wish to quit or y to continue");
         scan = new Scanner(System.in);
-        Rooms currentRooms = rooms.get(currentRoom);
+        Rooms currentRooms = listOfRooms.get(currentRoom);
         currentRooms.setHasBeenVisited(true);
         System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
         String command = scan.next();
@@ -48,7 +96,7 @@ public class Game implements Serializable {
                 System.out.println("You cannot go in this direction");
                 continue;
             }
-            currentRooms = rooms.get(currentRoom);
+            currentRooms = listOfRooms.get(currentRoom);
             System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
             currentRooms.setHasBeenVisited(true);
         }
@@ -69,13 +117,13 @@ public class Game implements Serializable {
 //        System.out.println("Create your character:");
 //        System.out.print("Enter character name: ");
 //        String player = scanner.nextLine();
-//        mainCharacter = new Characters.MainCharacter(player, "alex", 10, "School of Ice best student", 10, 100, 20, 5, 12, 6); // Adjust attributes as needed
-//        System.out.println("Characters.Character creation successful!");
+//        mainCharacter = new MainCharacter(player, "alex", 10, "School of Ice best student", 10, 100, 20, 5, 12, 6); // Adjust attributes as needed
+//        System.out.println("Character creation successful!");
 //    }
 
 //
 //    private void displayLocation() {
-//        Room.Rooms room = rooms.get(currentRoom);
+//        Rooms room = rooms.get(currentRoom);
 //        System.out.println("You are in " + room.getRoomName() + ".");
 //        System.out.println(room.getDescription());
 //        System.out.println("Available actions: look, north, south, east, west, items, status, quit");
@@ -149,7 +197,7 @@ public class Game implements Serializable {
     }//end displayItems
 
 //    private void lookAround() {
-//        Room.Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
+//        Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
 //        ArrayList<String> objects = currentRoom.getObjects();
 //        if (objects.isEmpty()) {
 //            System.out.println("There is nothing here to interact with.");
@@ -165,10 +213,10 @@ public class Game implements Serializable {
 //        }
 //
 //        // Check for monsters
-//        ArrayList<Characters.Monster> monsters = currentRoom.getMonsters();
+//        ArrayList<Monster> monsters = currentRoom.getMonsters();
 //        if (!monsters.isEmpty()) {
 //            System.out.println("You see monsters in the room!");
-//            for (Characters.Monster monster : monsters) {
+//            for (Monster monster : monsters) {
 //                System.out.println("A " + monster.getName() + " appears!");
 //                startCombat(monster);
 //            }
@@ -176,7 +224,7 @@ public class Game implements Serializable {
 //    }
 //
 //    private void movePlayer(String direction) {
-//        Room.Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
+//        Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
 //        int nextRoomID = currentRoom.getExit(direction);
 //        if (nextRoomID != -1) {
 //            mainCharacter.setRoomID(nextRoomID);
@@ -186,7 +234,7 @@ public class Game implements Serializable {
 //        }
 //    }
 //
-//    private void startCombat(Characters.Monster monster) {
+//    private void startCombat(Monster monster) {
 //        while (mainCharacter.getHealth() > 0 && monster.getHealth() > 0) {
 //            // Player's turn
 //            int playerDamage = calculateDamage(mainCharacter.getAttack(), monster.getDefense());
@@ -199,7 +247,7 @@ public class Game implements Serializable {
 //                return;
 //            }
 //
-//            // Characters.Monster's turn
+//            // Monster's turn
 //            int monsterDamage = calculateDamage(monster.getAttack(), mainCharacter.getDefense());
 //            mainCharacter.takeDamage(monsterDamage);
 //            System.out.println("The " + monster.getName() + " deals " + monsterDamage + " damage to you.");
@@ -224,11 +272,11 @@ public class Game implements Serializable {
 //
 //    private void displayInventory() {
 //        System.out.println("Inventory:");
-//        ArrayList<Items.Item> inventory = mainCharacter.getInventory();
+//        ArrayList<Item> inventory = mainCharacter.getInventory();
 //        if (inventory.isEmpty()) {
 //            System.out.println("Your inventory is empty.");
 //        } else {
-//            for (Items.Item item : inventory) {
+//            for (Item item : inventory) {
 //                System.out.println("- " + item.getItemName());
 //            }
 //        }
