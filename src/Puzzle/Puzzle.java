@@ -1,5 +1,7 @@
 package Puzzle;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**Class: Puzzle.Puzzle
@@ -47,6 +49,29 @@ public class Puzzle {
     public boolean isSolved() { return isSolved; }
     public int getAttemptsLeft() { return attemptsLeft; }
     //check if current room has puzzle
+
+    //Method to read puzzle details from a file
+    // Thuy Vy Pham
+    public static void readPuzzles(String filePath, ArrayList<Puzzle> listOfPuzzles) {
+        try {
+            File myPuzzles = new File(filePath);
+            Scanner myReader = new Scanner(myPuzzles);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] puzzleData = data.split("-");
+                String puzzleID = puzzleData[0];
+                String name = puzzleData[1];
+                String description = puzzleData[2];
+                String solution = puzzleData[3]; // Assuming this is where the solution is defined.
+                String failMessage = puzzleData[4];
+                String hint = puzzleData[5];
+                Puzzle puzzle = new Puzzle(puzzleID, name, description, solution, failMessage, hint);
+                listOfPuzzles.add(puzzle);
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred with the puzzle file.");
+        }
+    }
 
     //Attempts to solve the puzzle
     public boolean attemptSolve(String playerInput) {

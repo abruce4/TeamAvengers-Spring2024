@@ -4,13 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**Class: Monster
- * @author Team Avengers
+/**Class: Character
+ * @author Team Avengers / Lincoln Bruce
  * @version 1.0
  * Course: ITEC 3860 Spring 2024
  * Written: Apr 9, 2024
  *
- * This class represents a monster entity within a game. Each monster object encapsulates information
+ * This class is the parent class for all characters in the game
  */
 public class Character {
 
@@ -92,4 +92,38 @@ public class Character {
         this.speed = speed;
     }
 
+    //Method to read characters from file
+    public static void readCharacters(String filePath, ArrayList<Character> listOfCharacters) {
+        try {
+            File myCharacters = new File(filePath);
+            Scanner myReader = new Scanner(myCharacters);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] characterData = data.split("-");
+                String characterType = characterData[0];
+                String name = characterData[1];
+                String description = characterData[2];
+                int health = Integer.parseInt(characterData[3]);
+                int attack = Integer.parseInt(characterData[4]);
+                int dexterity = Integer.parseInt(characterData[5]);
+                int speed = Integer.parseInt(characterData[6]);
+
+                if (characterType.equalsIgnoreCase("monster")) {
+                    int expDrop = Integer.parseInt(characterData[7]);
+                    int goldDrop = Integer.parseInt(characterData[8]);
+                    String monsterID = characterData[9];
+                    Monster character = new Monster(characterType, name, description, health, attack, dexterity, speed, expDrop, goldDrop, monsterID);
+                    listOfCharacters.add(character);
+                }
+                else if (characterType.equalsIgnoreCase("player")) {
+                    int mana = Integer.parseInt(characterData[7]);
+                    int defense = Integer.parseInt(characterData[8]);
+                    MainCharacter character = new MainCharacter(characterType, name, description, health, attack, dexterity, speed, mana, defense);
+                    listOfCharacters.add(character);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred with the characters file.");
+        }
+    }
 }

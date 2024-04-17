@@ -4,6 +4,14 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**Class: Game
+ * @author Team Avengers / Ginette Wilson
+ * @version 1.0
+ * Course: ITEC 3860 Spring 2024
+ * Written: Apr 10, 2024
+ * This class handles the game logic and user input
+ */
+
 public class Game implements Serializable {
     private Map map;
     private ArrayList<MainCharacter> mainCharacter;
@@ -158,10 +166,10 @@ public class Game implements Serializable {
 //        }
 //
 //        // Check for monsters
-//        ArrayList<Monster> monsters = currentRoom.getMonsters();
+//        ArrayList<Characters.Monster> monsters = currentRoom.getMonsters();
 //        if (!monsters.isEmpty()) {
 //            System.out.println("You see monsters in the room!");
-//            for (Monster monster : monsters) {
+//            for (Characters.Monster monster : monsters) {
 //                System.out.println("A " + monster.getName() + " appears!");
 //                startCombat(monster);
 //            }
@@ -179,7 +187,7 @@ public class Game implements Serializable {
 //        }
 //    }
 //
-//    private void startCombat(Monster monster) {
+//    private void startCombat(Characters.Monster monster) {
 //        while (mainCharacter.getHealth() > 0 && monster.getHealth() > 0) {
 //            // Player's turn
 //            int playerDamage = calculateDamage(mainCharacter.getAttack(), monster.getDefense());
@@ -192,7 +200,7 @@ public class Game implements Serializable {
 //                return;
 //            }
 //
-//            // Monster's turn
+//            // Characters.Monster's turn
 //            int monsterDamage = calculateDamage(monster.getAttack(), mainCharacter.getDefense());
 //            mainCharacter.takeDamage(monsterDamage);
 //            System.out.println("The " + monster.getName() + " deals " + monsterDamage + " damage to you.");

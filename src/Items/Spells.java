@@ -1,5 +1,9 @@
 package Items;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 //Thuy Vy Pham
 public class Spells
 {
@@ -30,6 +34,26 @@ public class Spells
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    //Read Items.Spells from file
+    //Thuy Vy Pham
+    public static void readSpells(String filePath, ArrayList<Spells> listOfSpells) {
+        try{
+            File mySpells = new File(filePath);
+            Scanner myReader = new Scanner(mySpells);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] spellData = data.split("-");
+                String spellID = spellData[0];
+                String name = spellData[1];
+                String description = spellData[2];
+                Spells spells = new Spells(spellID, name, description);
+                listOfSpells.add(spells);
+            }
+        } catch(Exception e){
+            System.out.println("An error occurred with the spell file.");
+        }
     }
 }
 

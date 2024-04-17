@@ -1,4 +1,4 @@
-import Characters.Character;
+package Characters;
 
 public class Monster extends Character {
 

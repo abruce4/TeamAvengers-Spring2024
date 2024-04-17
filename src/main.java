@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) throws FileNotFoundException {
-        File f = new File("save.bin"); // this is the save/load feature that i was able to do with the help of ACE
+        File f = new File("save.bin"); // this is the save/load feature that I was able to do with the help of ACE
         Game game;
         Scanner scan = new Scanner(System.in);
         System.out.println("Would you like to load up the game?");
