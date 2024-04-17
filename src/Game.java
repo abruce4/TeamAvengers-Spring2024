@@ -17,6 +17,7 @@ public class Game implements Serializable {
     private transient Scanner scan;
     private boolean gameOver;
     private transient Scanner scanner;
+    private Player mainCharacter;
 
     // File paths for game elements
     //Ginette Wilson
@@ -42,6 +43,7 @@ public class Game implements Serializable {
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
+        mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
     }
 
     //Method to load game elements
@@ -70,7 +72,7 @@ public class Game implements Serializable {
     //Method to run the game
     //Kenny Amador
     public void RunGame() {
-        Player mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
+        //Player mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
         System.out.println("Press q at any time if you wish to quit or y to continue");
         scan = new Scanner(System.in);
         Rooms currentRooms = listOfRooms.get(currentRoom);
@@ -129,6 +131,10 @@ public class Game implements Serializable {
             System.out.println("Which item would you like to drop?");
             command = scan.nextLine();
             drop(command, mainCharacter, rooms);
+            return currentRoom;
+        }
+        if(command.equalsIgnoreCase("stats")){
+            displayStats();
             return currentRoom;
         }
         if (command.equalsIgnoreCase("save")) {
@@ -195,6 +201,14 @@ public class Game implements Serializable {
         System.out.println("There is no " + itemName + " in this room.");
     }
 
-
-
+    public void displayStats(){
+        System.out.println("~~~~~~~~~~");
+        System.out.println("Health: " + mainCharacter.getHealth());
+        System.out.println("Attack: " + mainCharacter.getAttack());
+        System.out.println("Dexterity: " + mainCharacter.getDexterity());
+        System.out.println("Speed: " + mainCharacter.getSpeed());
+        System.out.println("Mana: " + mainCharacter.getMana());
+        System.out.println("Defense: " + mainCharacter.getDefense());
+        System.out.println("~~~~~~~~~~");
+    }
 }//end Game
