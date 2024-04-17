@@ -3,9 +3,18 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**Class: Player
+ * @author Team Avengers / Lincoln Bruce
+ * @version 1.0
+ * Course: ITEC 3860 Spring 2024
+ * Written: Apr 9, 2024
+ * This class represents a player entity within a game. Each player object encapsulates information
+ */
+
 public class Player {
 
     //Player attributes
+    //Lincoln Bruce
     private String name;
     private String description;
     private int health;
@@ -20,6 +29,7 @@ public class Player {
     private ArrayList<Spells> PlayerSpells;
 
     //Constructor and Initialization of attributes
+    //Lincoln Bruce
     public Player(String name, String description, int health, int attack, int dexterity, int speed, int mana, int defense) {
         this.name = name;
         this.description = description;
@@ -35,6 +45,7 @@ public class Player {
     }
 
     //Getters and Setters
+    //Lincoln Bruce
     public String getName() {
         return name;
     }
@@ -138,6 +149,7 @@ public class Player {
     }
 
     //Method to read the player file
+    //Lincoln Bruce
     public static void readPlayers(String filePath, ArrayList<Player> listOfPlayers) {
         try {
             File file = new File(filePath);

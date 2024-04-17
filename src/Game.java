@@ -12,12 +12,14 @@ import java.util.ArrayList;
 
 public class Game implements Serializable {
 
-    private int currentRoom;
+
+    private int currentRoom = 0;
     private transient Scanner scan;
     private boolean gameOver;
     private transient Scanner scanner;
 
     // File paths for game elements
+    //Ginette Wilson
     private static final String ITEMS_FILE_PATH = "src/Items.txt";
     private static final String PUZZLES_FILE_PATH = "src/Puzzles.txt";
     private static final String MONSTERS_FILE_PATH = "src/Monsters.txt";
@@ -26,6 +28,7 @@ public class Game implements Serializable {
     private static final String PLAYER_FILE_PATH = "src/Players.txt";
 
     // ArrayList to store game elements
+    //Ginette Wilson
     private static final ArrayList<Item> listOfItems = new ArrayList<>();
     private static final ArrayList<Puzzle> listOfPuzzles = new ArrayList<>();
     private static final ArrayList<Monster> listOfMonsters = new ArrayList<>();
@@ -34,6 +37,7 @@ public class Game implements Serializable {
     private static final ArrayList<Player> listOfPlayers = new ArrayList<>();
 
     //Method to load game elements
+    //Ginette Wilson
     private static void loadGameElements() {
         Item.readItems(ITEMS_FILE_PATH, listOfItems);
         Puzzle.readPuzzles(PUZZLES_FILE_PATH, listOfPuzzles);
@@ -45,6 +49,7 @@ public class Game implements Serializable {
     }
 
     //Method to add items to the room
+    //Lincoln Bruce
     public static void addItemsToRoom(ArrayList<Item> listOfItems, ArrayList<Rooms> listOfRooms) {
         for (Rooms room : listOfRooms) {
             for (Item item : listOfItems) {
@@ -55,7 +60,7 @@ public class Game implements Serializable {
         }
     }
 
-
+    //Ginette Wilson
     public Game() {
         loadGameElements();// Initialize the game map
         RoomParsing roomParsing = new RoomParsing();
@@ -64,6 +69,8 @@ public class Game implements Serializable {
         currentRoom = 0;
     }
 
+    //Method to run the game
+    //Kenny Amador
     public void RunGame() {
         System.out.println("Press q at any time if you wish to quit or y to continue");
         scan = new Scanner(System.in);
@@ -85,25 +92,6 @@ public class Game implements Serializable {
             currentRooms.setHasBeenVisited(true);
         }
     }
-
-//    public void play() {
-//        // Welcome message and game setup
-//        System.out.println("Welcome to Arcane Realms!");
-//        createCharacter();
-//        while (!gameOver) {
-//            displayLocation();
-//            String userInput = scanner.nextLine().toLowerCase(); // Convert input to lowercase for case-insensitivity
-//            handleInput(userInput);
-//        }
-//    }
-
-//    private void createCharacter() {
-//        System.out.println("Create your character:");
-//        System.out.print("Enter character name: ");
-//        String player = scanner.nextLine();
-//        mainCharacter = new MainCharacter(player, "alex", 10, "School of Ice best student", 10, 100, 20, 5, 12, 6); // Adjust attributes as needed
-//        System.out.println("Character creation successful!");
-//    }
 
 //
 //    private void displayLocation() {
@@ -139,6 +127,8 @@ public class Game implements Serializable {
 //        }
 //    }
 
+    //Method to check the command
+    //Kenny Amador
     public int checkCommand(String command, Rooms rooms) {
         ArrayList<Integer> connects = rooms.roomExits;
         if (command.equalsIgnoreCase("north")) {

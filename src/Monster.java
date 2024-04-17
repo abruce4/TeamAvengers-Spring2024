@@ -7,7 +7,6 @@ import java.util.Scanner;
  * @version 1.0
  * Course: ITEC 3860 Spring 2024
  * Written: Apr 9, 2024
- *
  * This class represents a monster entity within a game. Each monster object encapsulates information
  */
 public class Monster {
@@ -120,6 +119,7 @@ public class Monster {
     }
 
     //Method to read characters from file
+    //Lincoln Bruce
     public static void readMonsters(String filePath, ArrayList<Monster> listOfMonsters) {
         try {
             File myCharacters = new File(filePath);
