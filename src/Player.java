@@ -138,47 +138,5 @@ public class Player {
     }
 
 
-    //Method to pick up an item
-    //Thuy Vy
-    public void pickup(String itemName) {
-        for (Item item : currentRoom.getRoomInventory()) {
-            if (item.getItemName().equalsIgnoreCase(itemName)) {
-                getPlayerInventory().add(item);
-                currentRoom.removeItem(item);
-                System.out.println(itemName + " has been picked up from the room and successfully added to the player inventory.");
-                return;
-            }
-        }
-        System.out.println("There is no " + itemName + " in this room.");
-    }
-
-    //Method to drop an item
-    //Thuy Vy
-    public void drop(String itemName) {
-        for (Item item : getPlayerInventory()) {
-            if (item.getItemName().equalsIgnoreCase(itemName)) {
-                getPlayerInventory().remove(item);
-                currentRoom.addItem(item);
-                System.out.println(itemName + " has been dropped successfully from the player inventory and placed in " + currentRoom.getDescription());
-                return;
-            }
-        }
-        System.out.println("You don't have " + itemName + " in your inventory.");
-    }
-
-    // Method to inspect an item in the current room
-    //Huyen Pham
-    public void inspectItem(String itemName) {
-        for (Item item : getPlayerInventory()) {
-            if (item.getItemName().equalsIgnoreCase(itemName)) {
-                System.out.println("Inspecting: " + itemName);
-                System.out.println("Description: " + item.getItemDescription());
-                System.out.println("Type: " + item.getItemType());
-                System.out.println("Value: " + item.getItemValue());
-                return;
-            }
-        }
-        System.out.println(itemName + " not found in your inventory.");
-    }
 
 }
