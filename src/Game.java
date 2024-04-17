@@ -25,7 +25,6 @@ public class Game implements Serializable {
     public Game() throws FileNotFoundException {
         map = new Map(); // Initialize the game map
         RoomParsing roomParsing = new RoomParsing();
-        //mainCharacter = (map.readCharacters("Characters.txt")); // Initialize the main character
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         rooms = new ArrayList<>();
