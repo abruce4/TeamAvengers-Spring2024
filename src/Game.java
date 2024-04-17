@@ -38,10 +38,10 @@ public class Game implements Serializable {
     public Game() {
         loadGameElements();// Initialize the game map
         RoomParsing roomParsing = new RoomParsing();
+        System.out.println(listOfRooms.get(1).getRoomInventory());
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
-       // Player mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
     }
 
     //Method to load game elements
@@ -70,6 +70,7 @@ public class Game implements Serializable {
     //Method to run the game
     //Kenny Amador
     public void RunGame() {
+        Player mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
         System.out.println("Press q at any time if you wish to quit or y to continue");
         scan = new Scanner(System.in);
         Rooms currentRooms = listOfRooms.get(currentRoom);
@@ -80,7 +81,7 @@ public class Game implements Serializable {
             System.out.println("Please enter a navigation command north,east,south,west to move around");
             scan = new Scanner(System.in);
             command = scan.nextLine();
-            currentRoom = checkCommand(command, currentRooms);
+            currentRoom = checkCommand(command, currentRooms, mainCharacter);
             if (currentRoom == -1) {
                 System.out.println("You cannot go in this direction");
                 continue;
@@ -91,43 +92,10 @@ public class Game implements Serializable {
         }
     }
 
-//
-//    private void displayLocation() {
-//        Rooms room = rooms.get(currentRoom);
-//        System.out.println("You are in " + room.getRoomName() + ".");
-//        System.out.println(room.getDescription());
-//        System.out.println("Available actions: look, north, south, east, west, items, status, quit");
-//    }
-
-//    private void handleInput(String userInput) {
-//        switch (userInput) {
-//            case "look":
-//                lookAround();
-//                break;
-//            case "items":
-//                displayInventory();
-//                break;
-//            case "status":
-//                displayStatus();
-//                break;
-//            case "north":
-//            case "south":
-//            case "east":
-//            case "west":
-//                movePlayer(userInput);
-//                break;
-//            case "quit":
-//                quitGame();
-//                break;
-//            default:
-//                System.out.println("Invalid action. Type 'help' for available actions.");
-//                break;
-//        }
-//    }
 
     //Method to check the command
     //Kenny Amador
-    public int checkCommand(String command, Rooms rooms) {
+    public int checkCommand(String command, Rooms rooms, Player mainCharacter) {
         ArrayList<Integer> connects = rooms.roomExits;
         if (command.equalsIgnoreCase("north")) {
             return connects.get(0) - 1;
@@ -145,10 +113,24 @@ public class Game implements Serializable {
             displayItems(rooms);
             return currentRoom;
         }
-//        if (command.equalsIgnoreCase("stats")) {
-//            displayStatus();
-//            return currentRoom;
-//        }
+        if (command.equalsIgnoreCase("inspect")) {
+            System.out.println("Which item would you like to inspect?");
+            command = scan.nextLine();
+            inspectItem(command, mainCharacter);
+            return currentRoom;
+        }
+        if (command.equalsIgnoreCase("pickup")) {
+            System.out.println("Which item would you like to pick up?");
+            command = scan.nextLine();
+            pickup(command, mainCharacter, rooms);
+            return currentRoom;
+        }
+        if (command.equalsIgnoreCase("drop")) {
+            System.out.println("Which item would you like to drop?");
+            command = scan.nextLine();
+            drop(command, mainCharacter, rooms);
+            return currentRoom;
+        }
         if (command.equalsIgnoreCase("save")) {
             return currentRoom;
         }
@@ -156,6 +138,8 @@ public class Game implements Serializable {
         return -1;
     }
 
+    //Method to display items in the room
+    //Kenny Amador
     public void displayItems(Rooms rooms) {
         if (rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")) {
             System.out.println("There are no items in this room");
@@ -168,96 +152,49 @@ public class Game implements Serializable {
         }
     }//end displayItems
 
-//    private void lookAround() {
-//        Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
-//        ArrayList<String> objects = currentRoom.getObjects();
-//        if (objects.isEmpty()) {
-//            System.out.println("There is nothing here to interact with.");
-//        } else {
-//            System.out.print("There is ");
-//            for (int i = 0; i < objects.size(); i++) {
-//                System.out.print(objects.get(i));
-//                if (i < objects.size() - 1) {
-//                    System.out.print(", ");
-//                }
-//            }
-//            System.out.println(" in the room.");
-//        }
-//
-//        // Check for monsters
-//        ArrayList<Monster> monsters = currentRoom.getMonsters();
-//        if (!monsters.isEmpty()) {
-//            System.out.println("You see monsters in the room!");
-//            for (Monster monster : monsters) {
-//                System.out.println("A " + monster.getName() + " appears!");
-//                startCombat(monster);
-//            }
-//        }
-//    }
-//
-//    private void movePlayer(String direction) {
-//        Rooms currentRoom = map.getRoomById(mainCharacter.getRoomID());
-//        int nextRoomID = currentRoom.getExit(direction);
-//        if (nextRoomID != -1) {
-//            mainCharacter.setRoomID(nextRoomID);
-//            displayLocation();
-//        } else {
-//            System.out.println("You cannot move in that direction.");
-//        }
-//    }
-//
-//    private void startCombat(Monster monster) {
-//        while (mainCharacter.getHealth() > 0 && monster.getHealth() > 0) {
-//            // Player's turn
-//            int playerDamage = calculateDamage(mainCharacter.getAttack(), monster.getDefense());
-//            monster.takeDamage(playerDamage);
-//            System.out.println("You deal " + playerDamage + " damage to the " + monster.getName() + ".");
-//
-//            // Check if the monster is defeated
-//            if (monster.getHealth() <= 0) {
-//                System.out.println("You defeated the " + monster.getName() + "!");
-//                return;
-//            }
-//
-//            // Monster's turn
-//            int monsterDamage = calculateDamage(monster.getAttack(), mainCharacter.getDefense());
-//            mainCharacter.takeDamage(monsterDamage);
-//            System.out.println("The " + monster.getName() + " deals " + monsterDamage + " damage to you.");
-//
-//            // Check if the player is defeated
-//            if (mainCharacter.getHealth() <= 0) {
-//                gameOver = true;
-//                System.out.println("You were defeated by the " + monster.getName() + ". Game over!");
-//                return;
-//            }
-//        }
-//    }
-//
-//    private int calculateDamage(int attackerAttack, int defenderDefense) {
-//        Random rand = new Random();
-//        int damage = attackerAttack - defenderDefense;
-//        // Add randomness to damage calculation
-//        int randomModifier = rand.nextInt(5) - 2; // Random value between -2 and 2
-//        damage += randomModifier;
-//        return Math.max(damage, 0); // Damage cannot be negative
-//    }
-//
-//    private void displayInventory() {
-//        System.out.println("Inventory:");
-//        ArrayList<Item> inventory = mainCharacter.getInventory();
-//        if (inventory.isEmpty()) {
-//            System.out.println("Your inventory is empty.");
-//        } else {
-//            for (Item item : inventory) {
-//                System.out.println("- " + item.getItemName());
-//            }
-//        }
-//    }
-//
-//
-//    private void quitGame() {
-//        gameOver = true;
-//        System.out.println("Thank you for playing Arcane Realms! Goodbye.");
-//    }
-//}
-}
+    // Method to inspect an item in the current room
+    //Huyen Pham
+    public void inspectItem(String itemName, Player mainCharacter) {
+        for (Item item : mainCharacter.getPlayerInventory()) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                System.out.println("Inspecting: " + itemName);
+                System.out.println("Description: " + item.getItemDescription());
+                System.out.println("Type: " + item.getItemType());
+                System.out.println("Value: " + item.getItemValue());
+                return;
+            }
+        }
+        System.out.println(itemName + " is not in your inventory.");
+    }//end inspectItem
+
+    //Method to drop an item
+    //Thuy Vy
+    public void drop(String itemName, Player mainCharacter, Rooms currentRoom) {
+        for (Item item : mainCharacter.getPlayerInventory()) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                mainCharacter.getPlayerInventory().remove(item);
+                currentRoom.getRoomInventory().add(item);
+                System.out.println(itemName + " has been dropped from your inventory.");
+                return;
+            }
+        }
+        System.out.println("You don't have " + itemName + " in your inventory.");
+    }//end drop
+
+    //Method to pick up an item
+    //Thuy Vy
+    public void pickup(String itemName, Player mainCharacter, Rooms currentRoom) {
+        for (Item item : currentRoom.getRoomInventory()) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                mainCharacter.getPlayerInventory().add(item);
+                currentRoom.getRoomInventory().remove(item);
+                System.out.println(itemName + " has been added to your inventory.");
+                return;
+            }
+        }
+        System.out.println("There is no " + itemName + " in this room.");
+    }
+
+
+
+}//end Game
