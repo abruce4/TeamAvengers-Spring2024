@@ -195,6 +195,14 @@ public class Game implements Serializable {
             drop(command, mainCharacter, rooms);
             return currentRoom;
         }
+        if (command.equalsIgnoreCase("consume")) {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Which item would you like to consume?");
+            command = scan.nextLine();
+            consume(command, mainCharacter);
+            return currentRoom;
+
+        }
         if (command.equalsIgnoreCase("equip")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to equip?");
@@ -408,8 +416,9 @@ public void consume(String itemName, Player player) {
                     if (action.equalsIgnoreCase("attack")) {
                         dealDamage(monster);
                         dealDamage2(monster);
-//                    } else if (action.equalsIgnoreCase("consume")) {
-//                        mainCharacter.consume();
+                    } else if (action.equalsIgnoreCase("consume")) {
+                        String item = scanner.nextLine();
+                        consume(item, mainCharacter);
                     } else if (action.equalsIgnoreCase("escape")) {
                         mainCharacter.escape(currentRoom, mainCharacter.getInBattle());
                     }
