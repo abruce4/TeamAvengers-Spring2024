@@ -31,10 +31,6 @@ public class Player {
     private int AvoidRate;
     private boolean inBattle;
     private int playerLevel;
-
-
-    //Constructor and Initialization of attributes
-    //Lincoln Bruce
     public Player(int health, int magic, int dexterity, int speed, int mana, int defense, Rooms currentRoom) {
         this.health = health;
         this.magic = magic;
