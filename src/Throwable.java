@@ -1,22 +1,22 @@
 public class Throwable extends Item {
 
     private int damageDealt;
-    private int speedReduction;
+    private int dexReduction;
 
     // Constructor
-    public Throwable(String itemID, String itemType, String itemName, String itemDescription, int itemValue, int damageDealt, int speedReduction) {
+    public Throwable(String itemID, String itemType, String itemName, String itemDescription, int itemValue, int damageDealt, int dexReduction) {
         super(itemID, itemType, itemName, itemDescription, itemValue);
         this.damageDealt = damageDealt;
-        this.speedReduction = speedReduction;
+        this.dexReduction = dexReduction;
     }
 
     // Getters and Setters
     public int getSpeedReduction() {
-        return speedReduction;
+        return dexReduction;
     }
 
     public void setSpeedReduction(int speedReduction) {
-        this.speedReduction = speedReduction;
+        this.dexReduction = speedReduction;
     }
 
     public int getDamageDealt() {

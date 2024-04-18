@@ -108,8 +108,8 @@ public class Item {
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("throwable")) {
                     int damageDealt = Integer.parseInt(itemData[5].trim());
-                    int speedReduction = Integer.parseInt(itemData[6].trim());
-                    Throwable item = new Throwable(itemID, itemType, itemName, description, value, damageDealt, speedReduction);
+                    int dexReduction = Integer.parseInt(itemData[6].trim());
+                    Throwable item = new Throwable(itemID, itemType, itemName, description, value, damageDealt, dexReduction);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("PuzzleItem")) {
                     int puzzleID = Integer.parseInt(itemData[5].trim());
