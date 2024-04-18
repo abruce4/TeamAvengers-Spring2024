@@ -22,6 +22,8 @@ public class Monster {
     private int expDrop;
     private int goldDrop;
     private String monsterID;
+    private int hitRate;
+    private int AvoidRate;
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
@@ -35,6 +37,8 @@ public class Monster {
         this.expDrop = expDrop;
         this.goldDrop = goldDrop;
         this.monsterID = monsterID;
+        this.hitRate = 4 * dexterity;
+        this.AvoidRate = 4 * speed;
 
     }
 
@@ -110,6 +114,22 @@ public class Monster {
 
     public void setMonsterID(String monsterID) {
         this.monsterID = monsterID;
+    }
+
+    public int getHitRate() {
+        return hitRate;
+    }
+
+    public void setHitRate(int hitRate) {
+        this.hitRate = hitRate;
+    }
+
+    public int getAvoidRate() {
+        return AvoidRate;
+    }
+
+    public void setAvoidRate(int AvoidRate) {
+        this.AvoidRate = AvoidRate;
     }
 
     //toString method

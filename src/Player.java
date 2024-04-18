@@ -16,7 +16,7 @@ public class Player {
     //Player attributes
     //Lincoln Bruce
     private int health;
-    private int attack;
+    private int magic;
     private int dexterity;
     private int speed;
     private int mana;
@@ -26,14 +26,15 @@ public class Player {
     private ArrayList<Item> PlayerInventory;
     private ArrayList<Spells> PlayerSpells;
     private Equipable equippedItem;
-    private int magic;
+    private int hitRate;
+    private int AvoidRate;
 
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
-    public Player(int health, int attack, int dexterity, int speed, int mana, int defense, Rooms currentRoom) {
+    public Player(int health, int magic, int dexterity, int speed, int mana, int defense, Rooms currentRoom) {
         this.health = health;
-        this.attack = attack;
+        this.magic = magic;
         this.dexterity = dexterity;
         this.speed = speed;
         this.mana = mana;
@@ -42,6 +43,9 @@ public class Player {
         this.currentRoom = currentRoom;
         this.PlayerInventory = new ArrayList<>();
         this.PlayerSpells = new ArrayList<>();
+        this.equippedItem = null;
+        this.hitRate = 80;
+        this.AvoidRate = 4 * speed;
     }
 
     //Getters and Setters
@@ -54,12 +58,12 @@ public class Player {
         this.health = health;
     }
 
-    public int getAttack() {
-        return attack;
+    public int getMagic() {
+        return magic;
     }
 
-    public void setAttack(int attack) {
-        this.attack = attack;
+    public void setMagic(int magic) {
+        this.magic = magic;
     }
 
     public int getDexterity() {
@@ -124,6 +128,30 @@ public class Player {
 
     public void setPlayerSpells(ArrayList<Spells> playerSpells) {
         PlayerSpells = playerSpells;
+    }
+
+    public Equipable getEquippedItem() {
+        return equippedItem;
+    }
+
+    public void setEquippedItem(Equipable equippedItem) {
+        this.equippedItem = equippedItem;
+    }
+
+    public int getHitRate() {
+        return hitRate;
+    }
+
+    public void setHitRate(int hitRate) {
+        this.hitRate = hitRate;
+    }
+
+    public int getAvoidRate() {
+        return AvoidRate;
+    }
+
+    public void setAvoidRate(int AvoidRate) {
+        this.AvoidRate = AvoidRate;
     }
 
 

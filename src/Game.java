@@ -39,7 +39,7 @@ public class Game implements Serializable {
     public Game() {
         loadGameElements();// Initialize the game map
         RoomParsing roomParsing = new RoomParsing();
-        System.out.println(listOfRooms.get(1).getRoomInventory());
+        System.out.println(listOfRooms.get(10).getRoomInventory());
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
@@ -221,11 +221,20 @@ public class Game implements Serializable {
     public void displayStats(){
         System.out.println("~~~~~~~~~~");
         System.out.println("Health: " + mainCharacter.getHealth());
-        System.out.println("Attack: " + mainCharacter.getAttack());
+        System.out.println("Magic: " + mainCharacter.getMagic());
         System.out.println("Dexterity: " + mainCharacter.getDexterity());
         System.out.println("Speed: " + mainCharacter.getSpeed());
         System.out.println("Mana: " + mainCharacter.getMana());
         System.out.println("Defense: " + mainCharacter.getDefense());
         System.out.println("~~~~~~~~~~");
     }
+
+    // Method to check who attack first
+
+    // Method for player to attack a monster
+
+    //Method for monster to attack player
+
+
+
 }//end Game
