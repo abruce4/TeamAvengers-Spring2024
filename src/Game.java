@@ -342,6 +342,29 @@ public class Game implements Serializable {
             System.out.println("Room " + roomName + " not found or hasn't been visited yet.");
         }
     }
+//method to use healing items
+    //Ginette
+public void consume(String itemName, Player player) {
+    for (Item item : player.getPlayerInventory()) {
+        if (item.getItemName().equalsIgnoreCase(itemName)) {
+            if (item instanceof Consumable) {
+                Consumable consumable = (Consumable) item;
+                int healedHealth = consumable.getHealedHealth();
+                // Remove item from inventory
+                player.getPlayerInventory().remove(item);
+                System.out.println(itemName + " has been used.");
+                // Recover player's health
+                player.setHealth(player.getHealth() + healedHealth);
+                System.out.println("You have been healed for " + healedHealth + " HP. Current HP: " + player.getHealth());
+                return;
+            } else {
+                System.out.println(itemName + " is not a healing item.");
+                return;
+            }
+        }
+    }
+    System.out.println(itemName + " not found in inventory.");
+}
 
 
 
