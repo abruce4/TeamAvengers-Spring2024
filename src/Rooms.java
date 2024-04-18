@@ -26,6 +26,7 @@ public class Rooms implements Serializable {
     public boolean hasBeenVisited;
     private ArrayList<Item> roomInventory;
     private boolean shop;
+    private ArrayList<Monster> roomMonsters;
 
     //Constructor and Initialization of attributes
     //Kenny Amador
@@ -40,6 +41,7 @@ public class Rooms implements Serializable {
         this.hasBeenVisited = hasBeenVisited;
         this.roomInventory = new ArrayList<>();
         this.shop = shop;
+        this.roomMonsters = new ArrayList<>();
     }
 
     //Getters and Setters
@@ -103,13 +105,13 @@ public class Rooms implements Serializable {
         return puzzleIncluded;
     }
 
-    public void addItem(Item item) {roomInventory.add(item);}
-
-    public void removeItem(Item item) {roomInventory.remove(item);}
-
     public ArrayList<Item> getRoomInventory() {return roomInventory;}
 
     public void setRoomInventory(ArrayList<Item> roomInventory) {this.roomInventory = roomInventory;}
+
+    public ArrayList<Monster> getRoomMonsters() {return roomMonsters;}
+
+    public void setRoomMonsters(ArrayList<Monster> roomMonsters) {this.roomMonsters = roomMonsters;}
 
     //toString method
     @Override
