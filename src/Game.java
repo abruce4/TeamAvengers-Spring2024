@@ -211,9 +211,7 @@ public class Game implements Serializable {
             return currentRoom;
         }
         if (command.equalsIgnoreCase("examine")) {
-            System.out.println("Which monster would you like to examine?");
-            String monsterName = scanner.nextLine();
-            mainCharacter.examine(monsterName);
+            examine(rooms);
             return currentRoom;
         }
 
@@ -235,6 +233,21 @@ public class Game implements Serializable {
 
         return -1;
     }
+
+
+    //Method to print monster stats
+    //Ginette Wilson
+    public void examine(Rooms currentRoom) {
+        for (Monster monster : currentRoom.getRoomMonsters()) {
+            System.out.println("Name: " + monster.getName());
+            System.out.println("Description: " + monster.getDescription());
+            System.out.println("Health Points: " + monster.getHealth());
+            System.out.println("Attack Damage: " + monster.getAttack());
+            System.out.println("Dexterity: " + monster.getDexterity());
+            System.out.println("Speed: " + monster.getSpeed());
+        }
+    }
+
 
     //Method to display items in the room
     //Kenny Amador
