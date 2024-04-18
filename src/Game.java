@@ -208,6 +208,13 @@ public class Game implements Serializable {
         if (command.equalsIgnoreCase("save")) {
             return currentRoom;
         }
+        if (command.equalsIgnoreCase("examine")) {
+            System.out.println("Which monster would you like to examine?");
+            String monsterName = scanner.nextLine();
+            mainCharacter.examine(monsterName);
+            return currentRoom;
+        }
+
 
         if (command.equalsIgnoreCase("teleport")) {
             System.out.println("Where would you like to teleport to?");
