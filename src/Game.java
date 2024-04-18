@@ -230,6 +230,13 @@ public class Game implements Serializable {
             helpCommand();
             return currentRoom;
         }
+        if (command.equalsIgnoreCase("attack")) {
+            System.out.println("Which monster would you like to attack?");
+            command = scan.nextLine();
+            attackMonster(command, mainCharacter, rooms);
+            return currentRoom;
+
+        }
 
         return -1;
     }
@@ -356,19 +363,50 @@ public class Game implements Serializable {
         System.out.println("~~~~~~~~~~");
     }
 
-    // Method to check who attack first
-
     // Method for player to attack a monster
-    public void attackMonster() {
-
+    public void attackMonster(String monsterName, Player mainCharacter, Rooms currentRoom) {
+        for (Monster monster : currentRoom.getRoomMonsters()) {
+            if (monster.getName().equalsIgnoreCase(monsterName)) {
+                mainCharacter.setInBattle(true);
+                System.out.println("You are now in battle with " + monsterName);
+                while (mainCharacter.getInBattle() && monster.getHealth() > 0) {
+                    System.out.println("Choose an action: attack, consume, or escape");
+                    String action = scanner.nextLine();
+                    if (action.equalsIgnoreCase("attack")) {
+                        dealDamage(monster);
+                        dealDamage2(monster);
+//                    } else if (action.equalsIgnoreCase("consume")) {
+//                        mainCharacter.consume();
+                    } else if (action.equalsIgnoreCase("escape")) {
+                        mainCharacter.escape(currentRoom, mainCharacter.getInBattle());
+                    }
+                }
+            }
+        }
     }
 
-    // Method for player to attack a monster
-
-    //Method for monster to attack player
-    public void attackPlayer() {
-
+    // Method for the player to deal damage to a monster
+    public void dealDamage(Monster monster) {
+        mainCharacter.setHitRate((4*mainCharacter.getDexterity()+mainCharacter.getBaseHitRate())-monster.getAvoidRate());
+        if (mainCharacter.getHitRate() > 50) {
+            monster.setHealth(monster.getHealth() - mainCharacter.getMagic());
+            System.out.println("You dealt " + mainCharacter.getMagic() + " damage to the monster.");
+        } else {
+            System.out.println("You missed the monster.");
+        }
     }
+
+    //Method for the monster to deal damage to the player
+    public void dealDamage2(Monster monster) {
+        monster.setHitRate((4*monster.getDexterity())-mainCharacter.getAvoidRate());
+        if (monster.getHitRate() > 50) {
+            mainCharacter.setHealth(mainCharacter.getHealth() - monster.getAttack());
+            System.out.println("The monster dealt " + monster.getAttack() + " damage to you.");
+        } else {
+            System.out.println("The monster missed you.");
+        }
+    }
+
 
     //help command
     public void helpCommand(){

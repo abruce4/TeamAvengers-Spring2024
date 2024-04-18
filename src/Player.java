@@ -26,8 +26,11 @@ public class Player {
     private ArrayList<Item> PlayerInventory;
     private ArrayList<Spells> PlayerSpells;
     private Equipable equippedItem;
+    private int baseHitRate;
     private int hitRate;
     private int AvoidRate;
+    private boolean inBattle;
+    private int playerLevel;
 
 
     //Constructor and Initialization of attributes
@@ -44,8 +47,10 @@ public class Player {
         this.PlayerInventory = new ArrayList<>();
         this.PlayerSpells = new ArrayList<>();
         this.equippedItem = null;
-        this.hitRate = 80;
+        this.baseHitRate = 80;
+        this.hitRate = 0;
         this.AvoidRate = 4 * speed;
+        this.inBattle = false;
     }
 
     //Getters and Setters
@@ -154,6 +159,21 @@ public class Player {
         this.AvoidRate = AvoidRate;
     }
 
+    public boolean getInBattle() {
+        return inBattle;
+    }
+
+    public void setInBattle(boolean inBattle) {
+        this.inBattle = inBattle;
+    }
+
+    public int getBaseHitRate() {
+        return baseHitRate;
+    }
+
+    public void setBaseHitRate(int baseHitRate) {
+        this.baseHitRate = baseHitRate;
+    }
 
     //Method to display the player inventory
     //Thuy Vy
