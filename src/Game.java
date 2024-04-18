@@ -158,6 +158,11 @@ public class Game implements Serializable {
             return currentRoom;
         }
 
+        if (command.equalsIgnoreCase("inventory")) {
+            mainCharacter.inventory();
+            return currentRoom;
+        }
+
         return -1;
     }
 
