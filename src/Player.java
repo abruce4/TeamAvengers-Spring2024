@@ -181,4 +181,15 @@ public class Player {
         System.out.println(itemName + " not found in your inventory.");
     }
 
+    // Method to examine a monster
+    //Ginette Wilson
+    public void examine(Monster monster) {
+        System.out.println("Name: " + monster.getName());
+        System.out.println("Description: " + monster.getDescription());
+        System.out.println("Health Points: " + monster.getHealth());
+        System.out.println("Attack Damage: " + monster.getAttack());
+        System.out.println("Dexterity: " + monster.getDexterity());
+        System.out.println("Speed: " + monster.getSpeed());
+    }
+
 }
