@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Game implements Serializable {
 
 
-    private int currentRoom = 0;
+    private int currentRoom;
     private transient Scanner scan;
     private boolean gameOver;
     private transient Scanner scanner;
@@ -84,14 +84,14 @@ public class Game implements Serializable {
     //Method to run the game
     //Kenny Amador
     public void RunGame() {
-        //Player mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
         System.out.println("Press q at any time if you wish to quit or y to continue");
         scan = new Scanner(System.in);
         Rooms currentRooms = listOfRooms.get(currentRoom);
         currentRooms.setHasBeenVisited(true);
         System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
         String command = scan.next();
-        while (!command.equalsIgnoreCase("save")) { //set a condition in which the player can exit the game when wanted and by doing this the save/load automatically gets executed
+        while (!command.equalsIgnoreCase("save")) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("Please enter a navigation command north,east,south,west to move around");
             scan = new Scanner(System.in);
             command = scan.nextLine();
