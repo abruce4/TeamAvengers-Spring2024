@@ -1,3 +1,7 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 //Thuy Vy Pham
 public class Level {
     private int level;
@@ -28,5 +32,29 @@ public class Level {
     public int getDexterity() { return dexterity; }
     public int getDefense() { return defense; }
     public int getExpToNextLevel() { return expToNextLevel; }
+
+    //Method to read levels from file
+    //Thuy VY Pham
+    public static void readLevels(String filePath, ArrayList<Level> listOfLevels) {
+        try {
+            File myLevels = new File(filePath);
+            Scanner myReader = new Scanner(myLevels);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] levelData = data.split("-");
+                int level = Integer.parseInt(levelData[0]);
+                int maxHP = Integer.parseInt(levelData[1]);
+                int maxMana = Integer.parseInt(levelData[2]);
+                int magic = Integer.parseInt(levelData[3]);
+                int speed = Integer.parseInt(levelData[4]);
+                int dexterity = Integer.parseInt(levelData[5]);
+                int defense = Integer.parseInt(levelData[6]);
+                int expToNextLevel = Integer.parseInt(levelData[7]);
+                listOfLevels.add(new Level(level, maxHP, maxMana, magic, speed, dexterity, defense, expToNextLevel));
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred with the level file.");
+        }
+    }
 }
 
