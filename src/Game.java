@@ -213,6 +213,10 @@ public class Game implements Serializable {
             mainCharacter.inventory();
             return currentRoom;
         }
+        if(command.equalsIgnoreCase("help")){
+            helpCommand();
+            return currentRoom;
+        }
 
         return -1;
     }
@@ -308,6 +312,18 @@ public class Game implements Serializable {
     }
 
     //help command
+    public void helpCommand(){
+        System.out.println("(north,east,south,west)--move around");
+        System.out.println("(look)--examine the room");
+        System.out.println("(inspect)--inspect an item");
+        System.out.println("(pickup)--pickup an item");
+        System.out.println("(drop)--drop an item");
+        System.out.println("(equip)--equip an item");
+        System.out.println("(unequip)--unequip an item");
+        System.out.println("(stats)--view player stats");
+        System.out.println("(save)--save current progress");
+        System.out.println("(inventory)--view inventory");
+    }
 
 
 }//end Game
