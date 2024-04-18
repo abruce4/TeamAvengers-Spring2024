@@ -150,4 +150,18 @@ public class Player {
         System.out.println("Speed: " + monster.getSpeed());
     }
 
+    // method to escape from the battle
+    // Ginette Wilson
+    public void escape(Rooms previousRoom, boolean inBattle) {
+        if (inBattle) {
+            System.out.println("You escaped from the battle!");
+            // Set the current room to the previous room
+            this.setCurrentRoom(previousRoom);
+            // Set the previous room as visited since the player returns to it
+            previousRoom.setHasBeenVisited(true);
+        } else {
+            System.out.println("You cannot escape because you are not in battle!");
+        }
+    }
+
 }
