@@ -235,7 +235,7 @@ public class Game implements Serializable {
             teleport(roomName);
             return currentRoom;
         }
-        if (command.equalsIgnoreCase("inventory")) {
+        if (command.equalsIgnoreCase("items")) {
             mainCharacter.inventory();
             return currentRoom;
         }
@@ -391,7 +391,31 @@ public void consume(String itemName, Player player) {
     System.out.println(itemName + " not found in inventory.");
 }
 
-
+// method to use damaging items
+public void throwItem(String itemName, Monster monster, Player player) {
+    for (Item item : player.getPlayerInventory()) {
+        if (item.getItemName().equalsIgnoreCase(itemName)) {
+            if (item instanceof Throwable) {
+                Throwable throwable = (Throwable) item;
+                int damageDealt = throwable.getDamageDealt();
+                int dexReduction = throwable.getSpeedReduction();
+                // Remove item from inventory
+                player.getPlayerInventory().remove(item);
+                System.out.println(itemName + " has been used.");
+                // Deal damage to the monster
+                monster.setHealth(monster.getHealth()-damageDealt);
+                monster.setDexterity(monster.getDexterity()-dexReduction);
+                System.out.println("You dealt " + damageDealt + " damage to the monster.");
+                System.out.println("You dealt " + dexReduction + " dexterity to the monster.");
+                return;
+            } else {
+                System.out.println(itemName + " is not a damaging item.");
+                return;
+            }
+        }
+    }
+    System.out.println(itemName + " not found in inventory.");
+}
 
     public void displayStats(){
         System.out.println("~~~~~~~~~~");
