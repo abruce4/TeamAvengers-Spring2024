@@ -139,6 +139,17 @@ public class Game implements Serializable {
             drop(command, mainCharacter, rooms);
             return currentRoom;
         }
+        if (command.equalsIgnoreCase("equip")) {
+            System.out.println("Which item would you like to equip?");
+            command = scan.nextLine();  // continues to use command variable
+            mainCharacter.equipItem(command);
+            return currentRoom;
+        }
+        if (command.equalsIgnoreCase("unequip")) {
+            mainCharacter.unequipItem();
+            return currentRoom;
+        }
+
         if(command.equalsIgnoreCase("stats")){
             displayStats();
             return currentRoom;

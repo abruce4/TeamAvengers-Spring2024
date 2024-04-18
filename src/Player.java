@@ -25,10 +25,13 @@ public class Player {
     private Rooms currentRoom;
     private ArrayList<Item> PlayerInventory;
     private ArrayList<Spells> PlayerSpells;
+    private Equipable equippedItem;
+    private int magic;
+
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
-    public Player(int health, int attack, int dexterity, int speed, int mana, int defense,Rooms currentRoom) {
+    public Player(int health, int attack, int dexterity, int speed, int mana, int defense, Rooms currentRoom) {
         this.health = health;
         this.attack = attack;
         this.dexterity = dexterity;
@@ -138,7 +141,6 @@ public class Player {
     }
 
 
-
     // Method to examine a monster
     //Ginette Wilson
     public void examine(Monster monster) {
@@ -163,5 +165,60 @@ public class Player {
             System.out.println("You cannot escape because you are not in battle!");
         }
     }
+    // Huyen Pham &  Ginette Wilson
+    public void equipItem(String itemName) {
+        boolean itemFound = false;
+        for (Item item : PlayerInventory) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                itemFound = true;
+                if (item instanceof Equipable) {
+                    if (equippedItem != null) {
+                        unequipItem(); // Unequip current item before equipping a new one
+                    }
+                    equippedItem = (Equipable) item;
+                    applyStats(equippedItem);
+                    System.out.println("Equipped: " + itemName);
+                    return;
+                } else {
+                    System.out.println(itemName + " is not an equipable item.");
+                }
+            }
+        }
+        if (!itemFound) {
+            System.out.println(itemName + " not found in inventory.");
+        }
+    }
 
+
+    // Method to unequip the current item and revert stat changes
+    // Huyen Pham
+    public void unequipItem() {
+        if (equippedItem != null) {
+            revertStats(equippedItem);
+            System.out.println("Unequipped: " + equippedItem.getItemName());
+            equippedItem = null;
+        } else {
+            System.out.println("No item is currently equipped.");
+        }
+    }
+    // Apply stats from an equipable item
+// Huyen Pham
+    private void applyStats(Equipable item) {
+        // Update player stats based on the equipable item's properties
+        this.health += item.getAddedHealth();
+        this.magic += item.getAddedMagic(); // Assuming magic is a player stat
+        this.dexterity += item.getAddedDexterity();
+        this.speed += item.getAddedSpeed();
+        this.defense += item.getAddedDefense();
+    }
+    // Revert stats from an unequipped item
+//Huyen Pham
+    private void revertStats(Equipable item) {
+        // Revert player stats when an item is unequipped
+        this.health -= item.getAddedHealth();
+        this.magic -= item.getAddedMagic();
+        this.dexterity -= item.getAddedDexterity();
+        this.speed -= item.getAddedSpeed();
+        this.defense -= item.getAddedDefense();
+    }
 }
