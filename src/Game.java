@@ -307,5 +307,7 @@ public class Game implements Serializable {
 
     }
 
+    //help command
+
 
 }//end Game
