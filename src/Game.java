@@ -43,7 +43,7 @@ public class Game implements Serializable {
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
         mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
-    }
+    }//end Game
 
     //Method to load game elements
     //Ginette Wilson
@@ -54,7 +54,7 @@ public class Game implements Serializable {
         Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
         Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
         addItemsToRoom(listOfItems, listOfRooms);
-    }
+    }//end loadGameElements
 
     //Method to add items to the room
     //Lincoln Bruce
@@ -66,7 +66,7 @@ public class Game implements Serializable {
                 }
             }
         }
-    }
+    }//end addItemsToRoom
 
     //Method to run the game
     //Kenny Amador
@@ -92,7 +92,8 @@ public class Game implements Serializable {
             System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
             currentRooms.setHasBeenVisited(true);
         }
-    }
+    }//end runGame
+
     public void checkRoom(Rooms rooms){
         if (rooms.getHasBeenVisited()){
             System.out.println("You have been here before");
@@ -100,8 +101,9 @@ public class Game implements Serializable {
         if(rooms.getShop()){
             shop(rooms);
         }
-    }
+    }//end checkRoom
 
+    //Kenny Amador
     public void shop(Rooms rooms){
         mainCharacter.setPlayerCoins(100);
         System.out.println("Would you like to shop or sell?");
@@ -120,8 +122,9 @@ public class Game implements Serializable {
             command = scan.nextLine();
             drop(command,mainCharacter,rooms);
         }
+    }//end shop
 
-    }
+    //Kenny Amador
     public void buyItem(String itemName, Player mainCharacter, Rooms currentRoom){
         for (Item item : currentRoom.getRoomInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName) & mainCharacter.getPlayerCoins() >= item.getItemValue()) {
@@ -136,7 +139,7 @@ public class Game implements Serializable {
             return;
         }
         System.out.println("You do not have enough coins");
-    }
+    }//end buyItem
 
 
     //Method to check the command
@@ -200,7 +203,10 @@ public class Game implements Serializable {
             mainCharacter.inventory();
             return currentRoom;
         }
-
+        if(command.equalsIgnoreCase("help")){
+            helpCommands();
+            return currentRoom;
+        }
         return -1;
     }
 
@@ -269,6 +275,7 @@ public class Game implements Serializable {
         System.out.println("There is no " + itemName + " in this room.");
     }
 
+    //Kenny Amador
     public void displayStats(){
         System.out.println("~~~~~~~~~~");
         System.out.println("Health: " + mainCharacter.getHealth());
@@ -278,14 +285,27 @@ public class Game implements Serializable {
         System.out.println("Mana: " + mainCharacter.getMana());
         System.out.println("Defense: " + mainCharacter.getDefense());
         System.out.println("~~~~~~~~~~");
-    }
+    }//end displayStats
 
+
+    public void helpCommands(){
+        System.out.println("(north,east,south,west)--move around");
+        System.out.println("(look)--examine rooms");
+        System.out.println("(inspect)--inspect an item");
+        System.out.println("(pickup)--pickup an item");
+        System.out.println("(drop)--drop an item");
+        System.out.println("(equip)--equip an item");
+        System.out.println("(unequip)--unequip an item");
+        System.out.println("(stats)--view your stats");
+        System.out.println("(save)--save the game");
+        System.out.println("(inventory)--view inventory");
+
+    }
     // Method to check who attack first
 
     // Method for player to attack a monster
 
     //Method for monster to attack player
-
 
 
 }//end Game
