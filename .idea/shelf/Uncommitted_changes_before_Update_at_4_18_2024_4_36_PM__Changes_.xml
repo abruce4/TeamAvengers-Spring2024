@@ -1,0 +1,64 @@
+<changelist name="Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]" date="1713472612958" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 4/18/2024 4:36 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/Item.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/Item.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/Item.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/Player.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/Player.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/Player.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/Equipable.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/Equipable.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/Equipable.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/MainCharacter.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/Map.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/RoomParsing.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/RoomParsing.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/RoomParsing.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/Game.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/Game.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/Game.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/EmptyClass.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/EmptyClass.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/EmptyClass.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/Puzzle.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/Puzzle.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/Puzzle.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/PuzzleItem.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/PuzzleItem.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/PuzzleItem.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/main.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/main.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/main.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/TeamAvengers-Spring2024/Consumable.class" />
+    <option name="AFTER_PATH" value="out/production/TeamAvengers-Spring2024/Consumable.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_4_36_PM_[Changes]/Consumable.class" />
+  </binary>
+</changelist>
