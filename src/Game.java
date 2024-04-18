@@ -38,8 +38,8 @@ public class Game implements Serializable {
     //Ginette Wilson
     public Game() {
         loadGameElements();// Initialize the game map
-        RoomParsing roomParsing = new RoomParsing();
-        System.out.println(listOfRooms.get(1).getRoomInventory());
+//        RoomParsing roomParsing = new RoomParsing();
+//        System.out.println(listOfRooms.get(1).getRoomInventory());
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
@@ -95,9 +95,35 @@ public class Game implements Serializable {
         }
     }
     public void checkRoom(Rooms rooms){
-        if (rooms.getHasBeenVisited() == true) {
+        if (rooms.getHasBeenVisited()) {
             System.out.println("You have been here before");
         }
+        if(rooms.getShop()){
+            shop(rooms);
+        }
+    }
+
+    public void shop(Rooms rooms){
+        mainCharacter.setPlayerCoins(150);
+        System.out.println("Would you like to shop or Sell?");
+        scan = new Scanner(System.in);
+        String command = scan.nextLine();
+        if(command.equalsIgnoreCase("shop")){
+            while(!command.equalsIgnoreCase("quit")){
+                System.out.println("Which Items would you like to buy?");
+                displayItems(rooms);
+                command = scan.nextLine();
+                buyItem(command,mainCharacter,rooms);
+            }
+        }
+        if(command.equalsIgnoreCase("sell")){
+            while(!command.equalsIgnoreCase("quit")){
+                System.out.println("Which Items would you like to sell");
+                command = scan.nextLine();
+                drop(command,mainCharacter,rooms);
+            }
+        }
+
     }
 
 
@@ -166,10 +192,15 @@ public class Game implements Serializable {
     public void displayItems(Rooms rooms) {
         if (rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")) {
             System.out.println("There are no items in this room");
-        } else {
+        }else if(rooms.getShop()){
+            for (Item item : rooms.getRoomInventory()) {
+                System.out.println("["+ item + "]" + " price: " + item.getItemValue());
+            }
+        }
+        else {
             System.out.print("Items in this room: ");
             for (Item item : rooms.getRoomInventory()) {
-                System.out.print(item + ",");
+                System.out.print("["+ item + "]");
             }
             System.out.println();
         }
@@ -201,6 +232,10 @@ public class Game implements Serializable {
                 return;
             }
         }
+        if(itemName.equalsIgnoreCase("quit")){
+            System.out.println("~~~~~~~~~~~~~~");
+            return;
+        }
         System.out.println("You don't have " + itemName + " in your inventory.");
     }//end drop
 
@@ -216,6 +251,22 @@ public class Game implements Serializable {
             }
         }
         System.out.println("There is no " + itemName + " in this room.");
+    }
+
+    public void buyItem(String itemName, Player mainCharacter, Rooms currentRoom){
+        for(Item item: currentRoom.getRoomInventory()){
+            if(item.getItemName().equalsIgnoreCase(itemName) & mainCharacter.getPlayerCoins() > item.getItemValue()){
+                mainCharacter.getPlayerInventory().add(item);
+                currentRoom.getRoomInventory().remove(item);
+                System.out.println(itemName + " has been added to your inventory.");
+                return;
+            }
+        }
+        if(itemName.equalsIgnoreCase("quit")){
+            System.out.println("~~~~~~~~~~~~~~~~~~~~");
+            return;
+        }
+        System.out.println("You do not have enough money");
     }
 
     public void displayStats(){

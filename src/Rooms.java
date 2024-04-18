@@ -25,10 +25,11 @@ public class Rooms implements Serializable {
     public ArrayList<String> itemsIncluded;
     public boolean hasBeenVisited;
     private ArrayList<Item> roomInventory;
+    private boolean shop;
 
     //Constructor and Initialization of attributes
     //Kenny Amador
-    public Rooms(int roomID, String roomName, String description, ArrayList<Integer> roomExits, ArrayList<String> monstersIncluded, ArrayList<String> itemsIncluded,String puzzleIncluded, boolean hasBeenVisited){
+    public Rooms(int roomID, String roomName, String description, ArrayList<Integer> roomExits, ArrayList<String> monstersIncluded, ArrayList<String> itemsIncluded,String puzzleIncluded, boolean hasBeenVisited,boolean shop){
         this.roomID = roomID;
         this.roomName = roomName;
         this.description = description;
@@ -38,6 +39,7 @@ public class Rooms implements Serializable {
         this.itemsIncluded = itemsIncluded;
         this.hasBeenVisited = hasBeenVisited;
         this.roomInventory = new ArrayList<>();
+        this.shop = shop;
     }
 
     //Getters and Setters
@@ -69,6 +71,7 @@ public class Rooms implements Serializable {
     public void setItemsIncluded(ArrayList<String> itemsIncluded){this.itemsIncluded = itemsIncluded;}
 
     public void setHasBeenVisited(boolean hasBeenVisited){this.hasBeenVisited = hasBeenVisited;}
+    public boolean getShop(){return shop;}
 
     public boolean getHasBeenVisited(){return hasBeenVisited;}
 
@@ -130,7 +133,8 @@ public class Rooms implements Serializable {
                     ArrayList<String> itemsID = parseItemID(line[5]);
                     String puzzleID = line[6];
                     Boolean hasBeenVisited = Boolean.parseBoolean(line[7]);
-                    listOfRooms.add(new Rooms(roomID, roomName, roomDesc, connects, monsterID, itemsID, puzzleID, hasBeenVisited));
+                    boolean shop = Boolean.parseBoolean(line[8]);
+                    listOfRooms.add(new Rooms(roomID, roomName, roomDesc, connects, monsterID, itemsID, puzzleID, hasBeenVisited,shop));
                 }
             } catch (FileNotFoundException fnfe){
                 System.out.println("Could not find the correct room file");
