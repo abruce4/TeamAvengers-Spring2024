@@ -131,7 +131,8 @@ public class Game implements Serializable {
         if(command.equalsIgnoreCase("sell")){
             System.out.println("Which items would you like to sell?");
             command = scan.nextLine();
-            drop(command,mainCharacter,rooms);
+            sell(command,mainCharacter,rooms);
+
         }
 
     }
@@ -259,6 +260,18 @@ public class Game implements Serializable {
         }
         System.out.println(itemName + " is not in your inventory.");
     }//end inspectItem
+    public void sell(String itemName, Player mainCharacter, Rooms currentRoom) {
+        for (Item item : mainCharacter.getPlayerInventory()) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                mainCharacter.getPlayerInventory().remove(item);
+                currentRoom.getRoomInventory().add(item);
+                System.out.println(itemName + " has been dropped from your inventory.");
+                mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins()+item.getItemValue());
+                System.out.println(mainCharacter.getPlayerCoins());
+                return;
+            }
+        }
+    }
 
     //Method to drop an item
     //Thuy Vy
@@ -349,6 +362,5 @@ public class Game implements Serializable {
         System.out.println("(save)--save current progress");
         System.out.println("(inventory)--view inventory");
     }
-
 
 }//end Game
