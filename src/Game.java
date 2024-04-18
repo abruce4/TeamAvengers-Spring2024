@@ -279,6 +279,10 @@ public class Game implements Serializable {
                 return;
             }
         }
+        if(itemName.equalsIgnoreCase("quit")){
+            System.out.println("~~~~~~~~~~");
+        }
+        System.out.println("You have nothing to sell");
     }
 
     //Method to drop an item
@@ -291,10 +295,6 @@ public class Game implements Serializable {
                 System.out.println(itemName + " has been dropped from your inventory.");
                 return;
             }
-        }
-        if(itemName.equalsIgnoreCase("quit")){
-            System.out.println("~~~~~~~~~~~~~~~");
-            return;
         }
         System.out.println("You don't have " + itemName + " in your inventory.");
     }//end drop
