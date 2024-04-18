@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Game implements Serializable {
 
 
-    private int currentRoom = 0;
+    private int currentRoom;
     private transient Scanner scan;
     private boolean gameOver;
     private transient Scanner scanner;
@@ -84,14 +84,14 @@ public class Game implements Serializable {
     //Method to run the game
     //Kenny Amador
     public void RunGame() {
-        //Player mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
         System.out.println("Press q at any time if you wish to quit or y to continue");
         scan = new Scanner(System.in);
         Rooms currentRooms = listOfRooms.get(currentRoom);
         currentRooms.setHasBeenVisited(true);
         System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
         String command = scan.next();
-        while (!command.equalsIgnoreCase("save")) { //set a condition in which the player can exit the game when wanted and by doing this the save/load automatically gets executed
+        while (!command.equalsIgnoreCase("save")) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("Please enter a navigation command north,east,south,west to move around");
             scan = new Scanner(System.in);
             command = scan.nextLine();
@@ -175,24 +175,28 @@ public class Game implements Serializable {
             return currentRoom;
         }
         if (command.equalsIgnoreCase("inspect")) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to inspect?");
             command = scan.nextLine();
             inspectItem(command, mainCharacter);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("pickup")) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to pick up?");
             command = scan.nextLine();
             pickup(command, mainCharacter, rooms);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("drop")) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to drop?");
             command = scan.nextLine();
             drop(command, mainCharacter, rooms);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("equip")) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to equip?");
             command = scan.nextLine();  // continues to use command variable
             mainCharacter.equipItem(command);
@@ -217,6 +221,7 @@ public class Game implements Serializable {
 
 
         if (command.equalsIgnoreCase("teleport")) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("Where would you like to teleport to?");
             String roomName = scanner.nextLine();
             teleport(roomName);
@@ -246,12 +251,14 @@ public class Game implements Serializable {
     //Ginette Wilson
     public void examine(Rooms currentRoom) {
         for (Monster monster : currentRoom.getRoomMonsters()) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("Name: " + monster.getName());
             System.out.println("Description: " + monster.getDescription());
             System.out.println("Health Points: " + monster.getHealth());
             System.out.println("Attack Damage: " + monster.getAttack());
             System.out.println("Dexterity: " + monster.getDexterity());
             System.out.println("Speed: " + monster.getSpeed());
+            System.out.println("~~~~~~~~~~");
         }
     }
 
@@ -260,17 +267,19 @@ public class Game implements Serializable {
     //Kenny Amador
     public void displayItems(Rooms rooms) {
         if (rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("There are no items in this room");
         } else if(rooms.getShop()){
             for (Item item : rooms.getRoomInventory()) {
                 System.out.println("["+ item + "]" + " cost: " + item.getItemValue());
             }
+            System.out.println("~~~~~~~~~~");
         }else {
             System.out.print("Items in this room: ");
             for (Item item : rooms.getRoomInventory()) {
-                System.out.print("["+ item + "]");
+                System.out.println("["+ item + "]");
             }
-            System.out.println();
+            System.out.println("~~~~~~~~~~");
         }
     }//end displayItems
 
@@ -283,6 +292,7 @@ public class Game implements Serializable {
                 System.out.println("Description: " + item.getItemDescription());
                 System.out.println("Type: " + item.getItemType());
                 System.out.println("Value: " + item.getItemValue());
+                System.out.println("~~~~~~~~~~");
                 return;
             }
         }
