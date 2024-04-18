@@ -142,6 +142,7 @@ public class Game implements Serializable {
                 mainCharacter.getPlayerInventory().add(item);
                 currentRoom.getRoomInventory().remove(item);
                 System.out.println(itemName + " has been added to your inventory.");
+                mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() -item.getItemValue());
                 return;
             }
         }
