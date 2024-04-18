@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="added teleport //ginette" />
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="added &quot;help&quot; command">
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -403,15 +405,39 @@
       <option name="project" value="LOCAL" />
       <updated>1713472084740</updated>
     </task>
-    <task id="LOCAL-00037" summary="added teleport //ginette">
+    <task id="LOCAL-00037" summary="added &quot;help&quot; command">
       <option name="closed" value="true" />
-      <created>1713473199648</created>
+      <created>1713472874359</created>
       <option name="number" value="00037" />
       <option name="presentableId" value="LOCAL-00037" />
       <option name="project" value="LOCAL" />
-      <updated>1713473199650</updated>
+      <updated>1713472874359</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="added &quot;help&quot; command">
+      <option name="closed" value="true" />
+      <created>1713472934570</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1713472934570</updated>
+    </task>
+    <task id="LOCAL-00039" summary="added &quot;help&quot; command">
+      <option name="closed" value="true" />
+      <created>1713473240365</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1713473240365</updated>
+    </task>
+    <task id="LOCAL-00040" summary="added &quot;help&quot; command">
+      <option name="closed" value="true" />
+      <created>1713473285539</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1713473285539</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,8 +479,8 @@
     <MESSAGE value="added display stats and moved mainCharacter to game constructor to simplify the runGame method" />
     <MESSAGE value="Start working on the attack method (Lincoln Bruce)" />
     <MESSAGE value="added buy and sell feature" />
-    <MESSAGE value="added teleport //ginette" />
-    <option name="LAST_COMMIT_MESSAGE" value="added teleport //ginette" />
+    <MESSAGE value="added &quot;help&quot; command" />
+    <option name="LAST_COMMIT_MESSAGE" value="added &quot;help&quot; command" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
