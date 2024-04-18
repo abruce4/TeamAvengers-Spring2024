@@ -38,7 +38,7 @@ public class Game implements Serializable {
     //Ginette Wilson
     public Game() {
         loadGameElements();// Initialize the game map
-        System.out.println(listOfRooms.get(10).getRoomInventory());
+        System.out.println(listOfRooms.get(14).getRoomMonsters());
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
@@ -54,6 +54,7 @@ public class Game implements Serializable {
         Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
         Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
         addItemsToRoom(listOfItems, listOfRooms);
+        addMonstersToRoom(listOfMonsters, listOfRooms);
     }
 
     //Method to add items to the room
@@ -63,6 +64,18 @@ public class Game implements Serializable {
             for (Item item : listOfItems) {
                 if (room.getItemsIncluded().contains(item.getItemID())) {
                     room.getRoomInventory().add(item);
+                }
+            }
+        }
+    }
+
+    //Method to add monsters to the room
+    //Lincoln Bruce
+    public static void addMonstersToRoom(ArrayList<Monster> listOfMonsters, ArrayList<Rooms> listOfRooms) {
+        for (Rooms room : listOfRooms) {
+            for (Monster monster : listOfMonsters) {
+                if (room.getMonstersIncluded().contains(monster.getMonsterID())) {
+                    room.getRoomMonsters().add(monster);
                 }
             }
         }
@@ -283,9 +296,16 @@ public class Game implements Serializable {
     // Method to check who attack first
 
     // Method for player to attack a monster
+    public void attackMonster() {
+
+    }
+
+    // Method for player to attack a monster
 
     //Method for monster to attack player
+    public void attackPlayer() {
 
+    }
 
 
 }//end Game
