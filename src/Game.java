@@ -26,6 +26,8 @@ public class Game implements Serializable {
     private static final String MONSTERS_FILE_PATH = "src/Monsters.txt";
     private static final String ROOMS_FILE_PATH = "src/Rooms.txt";
     private static final String SPELLS_FILE_PATH = "src/Spells.txt";
+    private static final String LEVELS_FILE_PATH = "src/levels.txt";
+
 
     // ArrayList to store game elements
     //Ginette Wilson
@@ -34,6 +36,8 @@ public class Game implements Serializable {
     private static final ArrayList<Monster> listOfMonsters = new ArrayList<>();
     private static final ArrayList<Rooms> listOfRooms = new ArrayList<>();
     private static final ArrayList<Spells> listOfSpells = new ArrayList<>();
+    private static final ArrayList<Level> listOfLevels = new ArrayList<>();
+
 
     //Ginette Wilson
     public Game() {
@@ -55,6 +59,7 @@ public class Game implements Serializable {
         Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
         addItemsToRoom(listOfItems, listOfRooms);
         addMonstersToRoom(listOfMonsters, listOfRooms);
+        Level.readLevels(LEVELS_FILE_PATH, listOfLevels);
     }
 
     //Method to add items to the room
