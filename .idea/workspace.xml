@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Changed main back to run method(Lincoln Bruce)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="added display stats and moved mainCharacter to game constructor to simplify the runGame method">
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +94,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Print my name to the console Lincoln Bruce" />
@@ -108,7 +112,7 @@
       <workItem from="1712861400756" duration="60000" />
       <workItem from="1712970710953" duration="28944000" />
       <workItem from="1713320904026" duration="12213000" />
-      <workItem from="1713333668176" duration="14124000" />
+      <workItem from="1713333668176" duration="19383000" />
     </task>
     <task id="LOCAL-00001" summary="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)">
       <option name="closed" value="true" />
@@ -374,7 +378,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713374774418</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Changed main back to run method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713378830609</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1713378830609</updated>
+    </task>
+    <task id="LOCAL-00035" summary="added display stats and moved mainCharacter to game constructor to simplify the runGame method">
+      <option name="closed" value="true" />
+      <created>1713395158569</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1713395158569</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +434,8 @@
     <MESSAGE value="Changed the map class to only create the map and put all parsing back into their respective classes (Lincoln Bruce)" />
     <MESSAGE value="rearanged most of the stuff for more clarification, will continue and explain tomorrow(Lincoln Bruce)" />
     <MESSAGE value="Changed main back to run method(Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed main back to run method(Lincoln Bruce)" />
+    <MESSAGE value="added display stats and moved mainCharacter to game constructor to simplify the runGame method" />
+    <option name="LAST_COMMIT_MESSAGE" value="added display stats and moved mainCharacter to game constructor to simplify the runGame method" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

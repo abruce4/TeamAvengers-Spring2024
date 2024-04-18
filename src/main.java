@@ -12,8 +12,7 @@ import java.util.Scanner;
 public class main {
 
     //Kenny Amador
-    public static void main(String[] args) throws FileNotFoundException {
-
+    public static void main(String[] args) {
         File f = new File("save.bin"); // this is the save/load feature that I was able to do with the help of ACE
         Game game = new Game();
         Scanner scan = new Scanner(System.in);
