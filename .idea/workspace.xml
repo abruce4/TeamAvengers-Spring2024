@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="added display stats and moved mainCharacter to game constructor to simplify the runGame method">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Consumable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Consumable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/EmptyClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/EmptyClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Equipable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Equipable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/PuzzleItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/PuzzleItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/RoomParsing.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RoomParsing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rooms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rooms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rooms.txt" afterDir="false" />
-    </list>
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="added display stats and moved mainCharacter to game constructor to simplify the runGame method" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,14 +29,14 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/abruce4/TeamAvengers-Spring2024.git&quot;,
-    &quot;accountId&quot;: &quot;e8178b44-5732-4f8e-8e0d-8a67283beaf5&quot;
+    &quot;accountId&quot;: &quot;7733526f-2f90-4f29-82ac-297ac51ad1aa&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2dtBpXZNAPK9cS6MQMxuRKXdxd3" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -129,6 +113,7 @@
       <workItem from="1712970710953" duration="28944000" />
       <workItem from="1713320904026" duration="12213000" />
       <workItem from="1713333668176" duration="19383000" />
+      <workItem from="1713468430024" duration="1771000" />
     </task>
     <task id="LOCAL-00001" summary="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)">
       <option name="closed" value="true" />
@@ -451,82 +436,8 @@
     <MESSAGE value="rearanged most of the stuff for more clarification, will continue and explain tomorrow(Lincoln Bruce)" />
     <MESSAGE value="Changed main back to run method(Lincoln Bruce)" />
     <MESSAGE value="added display stats and moved mainCharacter to game constructor to simplify the runGame method" />
-    <option name="LAST_COMMIT_MESSAGE" value="added display stats and moved mainCharacter to game constructor to simplify the runGame method" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>105</line>
-          <properties class="Game" method="shop">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>116</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Start working on the attack method (Lincoln Bruce)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start working on the attack method (Lincoln Bruce)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
