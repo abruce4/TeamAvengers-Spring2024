@@ -209,6 +209,12 @@ public class Game implements Serializable {
             return currentRoom;
         }
 
+        if (command.equalsIgnoreCase("teleport")) {
+            System.out.println("Where would you like to teleport to?");
+            String roomName = scanner.nextLine();
+            teleport(roomName);
+            return currentRoom;
+        }
         if (command.equalsIgnoreCase("inventory")) {
             mainCharacter.inventory();
             return currentRoom;
@@ -281,6 +287,25 @@ public class Game implements Serializable {
         }
         System.out.println("There is no " + itemName + " in this room.");
     }
+
+    //method to be teleported to a room
+    //Ginette Wilson
+    public void teleport(String roomName) {
+        boolean roomFound = false;
+        for (Rooms room : listOfRooms) {
+            if (room.getRoomName().equalsIgnoreCase(roomName) && room.getHasBeenVisited()) {
+                roomFound = true;
+                currentRoom = room.getRoomID() - 1;
+                System.out.println("Teleported to: " + roomName);
+                return;
+            }
+        }
+        if (!roomFound) {
+            System.out.println("Room " + roomName + " not found or hasn't been visited yet.");
+        }
+    }
+
+
 
     public void displayStats(){
         System.out.println("~~~~~~~~~~");
