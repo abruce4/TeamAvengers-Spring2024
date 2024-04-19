@@ -249,6 +249,7 @@ public class Game implements Serializable {
             return currentRoom;
         }
         if (command.equalsIgnoreCase("attack")) {
+            System.out.println("~~~~~~~~~~");
             System.out.println("Which monster would you like to attack?");
             command = scan.nextLine();
             attackMonster(command, mainCharacter, rooms);
@@ -438,18 +439,29 @@ public class Game implements Serializable {
         for (Monster monster : currentRoom.getRoomMonsters()) {
             if (monster.getName().equalsIgnoreCase(monsterName)) {
                 mainCharacter.setInBattle(true);
-                System.out.println("You are now in battle with " + monsterName);
-                while (mainCharacter.getInBattle() && monster.getHealth() > 0) {
-                    System.out.println("Choose an action: attack, consume, or escape");
-                    String action = scanner.nextLine();
-                    if (action.equalsIgnoreCase("attack")) {
-                        dealDamage(monster);
-                        dealDamage2(monster);
-                    } else if (action.equalsIgnoreCase("consume")) {
-                        String item = scanner.nextLine();
-                        consume(item, mainCharacter);
-                    } else if (action.equalsIgnoreCase("escape")) {
-                        mainCharacter.escape(currentRoom, mainCharacter.getInBattle());
+                System.out.println("You are now in battle with the " + monsterName);
+                while (mainCharacter.getInBattle()) {
+                    if (mainCharacter.getHealth() <= 0) {
+                        System.out.println("You have been defeated by the " + monsterName);
+                        mainCharacter.setInBattle(false);
+                        break;
+                    } else if (monster.getHealth() <= 0) {
+                        System.out.println("You have defeated the " + monsterName);
+                        mainCharacter.setInBattle(false);
+                        break;
+                    } else {
+                        System.out.println("Choose an action: attack, consume, or escape");
+                        String action = scanner.nextLine();
+                        if (action.equalsIgnoreCase("attack")) {
+                            dealDamage(monster);
+                            dealDamage2(monster);
+                        } else if (action.equalsIgnoreCase("consume")) {
+                            System.out.println("Which item would you like to consume?");
+                            String itemToConsume = scanner.nextLine();
+                            consume(itemToConsume, mainCharacter);
+                        } else if (action.equalsIgnoreCase("escape")) {
+                            mainCharacter.escape(currentRoom, mainCharacter.getInBattle());
+                        }
                     }
                 }
             }

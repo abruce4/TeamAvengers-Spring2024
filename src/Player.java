@@ -16,6 +16,7 @@ public class Player {
     //Player attributes
     //Lincoln Bruce
     private int health;
+    private int maxHealth;
     private int magic;
     private int dexterity;
     private int speed;
@@ -31,8 +32,10 @@ public class Player {
     private int AvoidRate;
     private boolean inBattle;
     private int playerLevel;
+
     public Player(int health, int magic, int dexterity, int speed, int mana, int defense, Rooms currentRoom) {
         this.health = health;
+        this.maxHealth = health;
         this.magic = magic;
         this.dexterity = dexterity;
         this.speed = speed;
@@ -57,6 +60,14 @@ public class Player {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public int getMagic() {
@@ -190,6 +201,7 @@ public class Player {
     public void escape(Rooms previousRoom, boolean inBattle) {
         if (inBattle) {
             System.out.println("You escaped from the battle!");
+            setInBattle(false);
             // Set the current room to the previous room
             this.setCurrentRoom(previousRoom);
             // Set the previous room as visited since the player returns to it
@@ -238,7 +250,7 @@ public class Player {
 // Huyen Pham
     private void applyStats(Equipable item) {
         // Update player stats based on the equipable item's properties
-        this.health += item.getAddedHealth();
+        this.maxHealth += item.getAddedHealth();
         this.magic += item.getAddedMagic(); // Assuming magic is a player stat
         this.dexterity += item.getAddedDexterity();
         this.speed += item.getAddedSpeed();
@@ -248,7 +260,7 @@ public class Player {
 //Huyen Pham
     private void revertStats(Equipable item) {
         // Revert player stats when an item is unequipped
-        this.health -= item.getAddedHealth();
+        this.maxHealth -= item.getAddedHealth();
         this.magic -= item.getAddedMagic();
         this.dexterity -= item.getAddedDexterity();
         this.speed -= item.getAddedSpeed();
