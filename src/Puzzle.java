@@ -15,18 +15,17 @@ public class Puzzle {
     private String puzzleID;
     private String name;
     private String description;
-    private String solution;
     private String failMessage;
     private String hint;
     private boolean isSolved;
     private int attemptsLeft;
+    private String solution;
 
     // Constructor
-    public Puzzle(String puzzleID, String name, String description, String solution, String failMessage, String hint) {
+    public Puzzle(String puzzleID, String name, String description, String failMessage, String hint) {
         this.puzzleID = puzzleID;
         this.name = name;
         this.description = description;
-        this.solution = solution;
         this.failMessage = failMessage;
         this.hint = hint;
         this.isSolved = false;
@@ -60,10 +59,9 @@ public class Puzzle {
                 String puzzleID = puzzleData[0];
                 String name = puzzleData[1];
                 String description = puzzleData[2];
-                String solution = puzzleData[3]; // Assuming this is where the solution is defined.
-                String failMessage = puzzleData[4];
-                String hint = puzzleData[5];
-                Puzzle puzzle = new Puzzle(puzzleID, name, description, solution, failMessage, hint);
+                String failMessage = puzzleData[3];
+                String hint = puzzleData[4];
+                Puzzle puzzle = new Puzzle(puzzleID, name, description, failMessage, hint);
                 listOfPuzzles.add(puzzle);
             }
         } catch (Exception e) {
@@ -110,6 +108,7 @@ public class Puzzle {
         if (!isSolved) {
             System.out.println(getFailMessage());
         }
+
     }
 }
 
