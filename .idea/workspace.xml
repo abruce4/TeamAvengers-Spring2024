@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Working on the player's levels by Thuy Vy">
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Update Puzzle class by Thuy Vy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -422,7 +423,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713482812920</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Add inventory() in Game class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713487208490</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1713487208490</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Update Puzzle class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713500655867</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1713500655867</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,8 +457,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modified the Monster.java and Monsters.txt to add the room ID.(Lincoln Bruce)" />
-    <MESSAGE value="Organized the classes and files into packages and added to the items package 2(Lincoln Bruce)" />
     <MESSAGE value="Organized the classes and files into packages and added to the items package(Lincoln Bruce)" />
     <MESSAGE value="Removed packages(Lincoln Bruce)" />
     <MESSAGE value="Worked on the items inheritance(Lincoln Bruce)" />
@@ -465,7 +480,9 @@
     <MESSAGE value="Start working on the attack method (Lincoln Bruce)" />
     <MESSAGE value="Method to read levels from file by Thuy Vy" />
     <MESSAGE value="Working on the player's levels by Thuy Vy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on the player's levels by Thuy Vy" />
+    <MESSAGE value="Add inventory() in Game class by Thuy Vy" />
+    <MESSAGE value="Update Puzzle class by Thuy Vy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Puzzle class by Thuy Vy" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
