@@ -216,7 +216,10 @@ public class Game implements Serializable {
             mainCharacter.unequipItem();
             return currentRoom;
         }
-
+        if (command.equalsIgnoreCase("inventory")) {
+            mainCharacter.inventory();
+            return currentRoom;
+        }
         if(command.equalsIgnoreCase("stats")){
             displayStats();
             return currentRoom;
