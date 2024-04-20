@@ -104,16 +104,19 @@ public class Item {
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("consumable")) {
                     int healedHealth = Integer.parseInt(itemData[5].trim());
-                    Consumable item = new Consumable(itemID, itemType, itemName, description, value, healedHealth);
+                    int healedMana = Integer.parseInt(itemData[6].trim());
+                    Consumable item = new Consumable(itemID, itemType, itemName, description, value, healedHealth, healedMana);
                     listOfItems.add(item);
                 } else if (itemType.equalsIgnoreCase("throwable")) {
                     int damageDealt = Integer.parseInt(itemData[5].trim());
                     int dexReduction = Integer.parseInt(itemData[6].trim());
                     Throwable item = new Throwable(itemID, itemType, itemName, description, value, damageDealt, dexReduction);
                     listOfItems.add(item);
-                } else if (itemType.equalsIgnoreCase("PuzzleItem")) {
-                    int puzzleID = Integer.parseInt(itemData[5].trim());
-                    PuzzleItem item = new PuzzleItem(itemID, itemType, itemName, description, value, puzzleID);
+                } else if (itemType.equalsIgnoreCase("Aura")) {
+                    int addedMagic = Integer.parseInt(itemData[5].trim());
+                    int addedDex = Integer.parseInt(itemData[6].trim());
+                    int addedDefense = Integer.parseInt(itemData[7].trim());
+                    Aura item = new Aura(itemID, itemType, itemName, description, value, addedMagic, addedDex, addedDefense);
                     listOfItems.add(item);
                 }
             }

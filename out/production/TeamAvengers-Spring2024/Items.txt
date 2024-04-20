@@ -7,22 +7,22 @@ SOI011-Throwable-Ice Shard-A small shard of enchanted ice capable of inflicting 
 SOI012-Decoration-Snow Globe-A decorative globe containing the landscape of the school of ice.-10
 SOI013-Equipable-Winter Warmth Gloves-Perfect for students in the school of ice! The gloves provide warmth and protection against freezing temperatures.-15-0-0-0-3-3-armor
 SOI014-Decoration-Ring of Regeneration-Grants you with passive health regeneration over time, aiding in recovery during battles and exploration.-0
-SOI015-Consumable-Potion of Greater Healing-This potion is very potent in healing!-15-0
-SOF011-Decoration-Blazing Ember-A magical ember that burns perpetually without fuel, providing light and warmth in dark environments.-0
+SOI015-Consumable-Potion of Greater Healing-This potion is very potent in healing!-15-900-0
+SOF011-Aura-Blazing Ember-A magical ember that burns perpetually without fuel, providing light and warmth in dark environments.-0-3-3-0
 SOF012-Decoration-Pyro Charm-A charm infused with the essence of flames, providing a slight boost to fire based spell damage.(Limit to one use),When used, you will learn the spell “Flame Shield”.-0
 SOF013-Decoration-Engraved Vase-This vase is made of terracotta with fire engraved designs. Shows you the awesomeness of the “School of Fire”.-10
 SOF014-Equipable-Phoenix Feather Wand-A wand crafted from a phoenix feather, enhancing the player’s magical abilities.-25-0-10-5-0-0-weapon
-SOF015-Consumable-Purification Tonic-A purifying elixir made from rare herbs and spring water. Consuming the tonic removes debuffs, toxins, and curses from the player, restoring them to full health and vigor.-20-110
-SOL011-Consumable-Renewal Leaf-A magical leaf that regenerates health, providing a small boost to health when consumed.-3-15
-SOL012-Decoration-Bushy Quill-This quill once belonged to the best professor in the school of defense. Once you find this, you will be noticed as the elemental Einstein.-0
-SOL013-Consumable-Potion of Greater Vitality-This potion gives you health beyond your normal vitality.-30-30
+SOF015-Consumable-Purification Tonic-A purifying elixir made from rare herbs and spring water. Consuming the tonic removes debuffs, toxins, and curses from the player, restoring them to full health and vigor.-20-500-0
+SOL011-Consumable-Renewal Leaf-A magical leaf that regenerates health, providing a small boost to health when consumed.-3-15-0
+SOL012-Aura-Bushy Quill-This quill once belonged to the best professor in the school of defense. Once you find this, you will be noticed as the elemental Einstein.-0-4-4-0
+SOL013-Consumable-Potion of Greater Vitality-This potion gives you health beyond your normal vitality.-30-30-0
 SOL014-Decoration-Lockpick Set-A set of delicate tools used for picking locks. Using the lockpick set allows to attempt to open locked doors or chests, granting access to hidden areas or valuable treasures.-0
 SOL015-Decoration-Broken Portable Mirror-A small, broken mirror left in the lost city. It has aged for at least a decade.-15
 SOD011-Decoration-Schools of Defense Photo-This photo reveals the faces of all the first students to join the school of defense.-10
-SOD012-Puzzle-Death’s Whispers Skull-Once this item is discovered, you finally learn the truth of whom the beast truly is.-0-7
-SOD013-Decoration-Necrotic Shroud-A black silk shroud that is said to have been woven from the threads of the underworld.-50
-SOD014-PuzzleItem-Grimoire of Legends-A book containing stories and legends about death, the afterlife, and mythical creatures.-0-6
-SOD015-Decoration-Adrenaline Shot-A syringe filled with a potent concoction of stimulants and adrenaline inducing compounds. When injected, the adrenaline shot provides the player with a temporary burst of energy and heightened reflexes, increasing power for a short duration.-15
+SOD012-Decoration-Death’s Whispers Skull-Once this item is discovered, you finally learn the truth of whom the beast truly is.-0-7
+SOD013-Aura-Necrotic Shroud-A black silk shroud that is said to have been woven from the threads of the underworld.-50-0-5-5
+SOD014-Decoration-Grimoire of Legends-A book containing stories and legends about death, the afterlife, and mythical creatures.-0
 A1-Throwable-Fire Potion-Throw this at a monster to burn them!-10-13-0
-A2-Decoration-Resurrection Potion-Use this in a room with defeated monsters to summon an ally!-15
-A3-PuzzleItem-Unique Tree Branch-An item dropped by a tree monster.-5-2
+A3-Decoration-Unique Tree Branch-An item dropped by a tree monster.-5
+A4-Consumable-Mana Potion-This potion will help you recover some of your mana.-10-0-900
+A5-Consumable-Greater Mana Potion-Unlike other mana potions, this one is a delicacy.-20-0-500

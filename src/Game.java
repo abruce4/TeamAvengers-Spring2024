@@ -355,9 +355,10 @@ public class Game implements Serializable {
     public void drop(String itemName, Player mainCharacter, Rooms currentRoom) {
         for (Item item : mainCharacter.getPlayerInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
+                System.out.println(itemName + " has been dropped from your inventory.");
+                checkAuraDrop(item, mainCharacter);
                 mainCharacter.getPlayerInventory().remove(item);
                 currentRoom.getRoomInventory().add(item);
-                System.out.println(itemName + " has been dropped from your inventory.");
                 return;
             }
         }
@@ -372,10 +373,49 @@ public class Game implements Serializable {
                 mainCharacter.getPlayerInventory().add(item);
                 currentRoom.getRoomInventory().remove(item);
                 System.out.println(itemName + " has been added to your inventory.");
+                checkAura(item, mainCharacter);
                 return;
             }
         }
         System.out.println("There is no " + itemName + " in this room.");
+    }
+
+    //Method to check if the item picked up is an aura
+    //Lincoln Bruce
+    public void checkAura(Item item, Player mainCharacter) {
+       for (Item aura : mainCharacter.getPlayerInventory()) {
+           if (aura.getItemType().equalsIgnoreCase("aura")) {
+               if (item instanceof Aura) {
+                   Aura auraItem = (Aura) item;
+                   System.out.println("This item boost your stats from the inventory");
+                   mainCharacter.setMagic(mainCharacter.getMagic() + auraItem.getAddedMagic());
+                   mainCharacter.setDexterity(mainCharacter.getDexterity() + auraItem.getAddedDex());
+                   mainCharacter.setDefense(mainCharacter.getDefense() + auraItem.getAddedDefense());
+                   System.out.println("Your magic has been boosted by " + auraItem.getAddedMagic());
+                   System.out.println("Your dexterity has been boosted by " + auraItem.getAddedDex());
+                   System.out.println("Your defense has been boosted by " + auraItem.getAddedDefense());
+               }
+           }
+       }
+    }
+
+    //Method to check if the item dropped is an aura
+    //Lincoln Bruce
+    public void checkAuraDrop(Item item, Player mainCharacter) {
+        for (Item aura : mainCharacter.getPlayerInventory()) {
+            if (aura.getItemType().equalsIgnoreCase("aura")) {
+                if (item instanceof Aura) {
+                    Aura auraItem = (Aura) item;
+                    System.out.println("You lost your boosts");
+                    mainCharacter.setMagic(mainCharacter.getMagic() - auraItem.getAddedMagic());
+                    mainCharacter.setDexterity(mainCharacter.getDexterity() - auraItem.getAddedDex());
+                    mainCharacter.setDefense(mainCharacter.getDefense() - auraItem.getAddedDefense());
+                    System.out.println("Your magic has been reduced by " + auraItem.getAddedMagic());
+                    System.out.println("Your dexterity has been reduced by " + auraItem.getAddedDex());
+                    System.out.println("Your defense has been reduced by " + auraItem.getAddedDefense());
+                }
+            }
+        }
     }
 
     //method to be teleported to a room
@@ -401,14 +441,51 @@ public class Game implements Serializable {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
                 if (item instanceof Consumable) {
                     Consumable consumable = (Consumable) item;
-                    int healedHealth = consumable.getHealedHealth();
-                    // Remove item from inventory
-                    player.getPlayerInventory().remove(item);
-                    System.out.println(itemName + " has been used.");
-                    // Recover player's health
-                    player.setHealth(player.getHealth() + healedHealth);
-                    System.out.println("You have been healed for " + healedHealth + " HP. Current HP: " + player.getHealth());
-                    return;
+                    if (((Consumable) item).getHealedHealth() == 900) {
+                        int healedHealth = player.getMaxHealth() / 2;
+                        // Remove item from inventory
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        // Recover player's health
+                        player.setHealth(player.getHealth() + healedHealth);
+                        System.out.println("You have been healed for " + healedHealth + " HP.");
+                        return;
+                    }
+                    else if (((Consumable) item).getHealedMana() == 900) {
+                        int healedMana = player.getMaxMana() / 2;
+                        // Remove item from inventory
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        // Recover player's mana
+                        player.setMana(player.getMana() + healedMana);
+                        System.out.println("You have been healed for " + healedMana + " MP.");
+                        return;
+                    }
+                    else if (((Consumable) item).getHealedHealth() == 500) {
+                        player.setHealth(player.getMaxHealth());
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        System.out.println("You have been healed to full health.");
+                    }
+                    else if (((Consumable) item).getHealedMana() == 500) {
+                        player.setMana(player.getMaxMana());
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        System.out.println("You have been healed to full mana.");
+                    }
+                    else {
+                        int healedHealth = consumable.getHealedHealth();
+                        int healedMana = consumable.getHealedMana();
+                        // Remove item from inventory
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        // Recover player's health and mana
+                        player.setHealth(player.getHealth() + healedHealth);
+                        player.setMana(player.getMana() + healedMana);
+                        System.out.println("You have been healed for " + healedHealth + " HP and " + healedMana + " MP.");
+                        return;
+                    }
+
                 } else {
                     System.out.println(itemName + " is not a healing item.");
                     return;
