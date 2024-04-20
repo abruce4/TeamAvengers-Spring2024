@@ -472,6 +472,14 @@ public class Game implements Serializable {
                         } else if (action.equalsIgnoreCase("escape")) {
                             mainCharacter.escape(currentRoom, mainCharacter.getInBattle());
                         }
+                        else if (action.equalsIgnoreCase("throw")) {
+                            System.out.println("Which item would you like to throw?");
+                            String itemToThrow = scanner.nextLine();
+                            throwItem(itemToThrow, monster, mainCharacter);
+                        }
+                        else {
+                            System.out.println("You can't do that in battle. Please try again.");
+                        }
                     }
                 }
             }
