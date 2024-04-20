@@ -496,6 +496,7 @@ public class Game implements Serializable {
     }
 
     // method to use damaging items
+    //Ginette Wilson
     public void throwItem(String itemName, Monster monster, Player player) {
         for (Item item : player.getPlayerInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
@@ -521,6 +522,8 @@ public class Game implements Serializable {
         System.out.println(itemName + " not found in inventory.");
     }
 
+    // Method to display player stats
+    //Kenny Amador
     public void displayStats(){
         System.out.println("~~~~~~~~~~");
         System.out.println("Health: " + mainCharacter.getHealth() / mainCharacter.getMaxHealth());
@@ -535,6 +538,7 @@ public class Game implements Serializable {
     }
 
     // Method for player to attack a monster
+    //Lincoln Bruce
     public void attackMonster(String monsterName, Player mainCharacter, Rooms currentRoom) {
         for (Monster monster : currentRoom.getRoomMonsters()) {
             if (monster.getName().equalsIgnoreCase(monsterName)) {
