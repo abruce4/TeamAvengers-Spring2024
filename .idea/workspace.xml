@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Update Puzzle class by Thuy Vy">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_5_19_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_5_19_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_6_20_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2024_6_20_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" afterDir="false" />
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="fixed the attack method, will work on it and player level more today (Lincoln Bruce)">
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
@@ -443,7 +437,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713500655867</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="fixed the attack method, will work on it and player level more today (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713552721543</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1713552721543</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Organized the classes and files into packages and added to the items package(Lincoln Bruce)" />
     <MESSAGE value="Removed packages(Lincoln Bruce)" />
     <MESSAGE value="Worked on the items inheritance(Lincoln Bruce)" />
     <MESSAGE value="Finished working on items for now, waiting to test(Lincoln Bruce)" />
@@ -486,7 +487,8 @@
     <MESSAGE value="Working on the player's levels by Thuy Vy" />
     <MESSAGE value="Add inventory() in Game class by Thuy Vy" />
     <MESSAGE value="Update Puzzle class by Thuy Vy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Puzzle class by Thuy Vy" />
+    <MESSAGE value="fixed the attack method, will work on it and player level more today (Lincoln Bruce)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the attack method, will work on it and player level more today (Lincoln Bruce)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

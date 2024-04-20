@@ -20,6 +20,7 @@ public class Player {
     private int magic;
     private int dexterity;
     private int speed;
+    private int maxMana;
     private int mana;
     private int defense;
     private int playerCoins;
@@ -32,6 +33,8 @@ public class Player {
     private int AvoidRate;
     private boolean inBattle;
     private int playerLevel;
+    private int playerExp;
+    private int playerMaxExp;
 
     public Player(int health, int magic, int dexterity, int speed, int mana, int defense, Rooms currentRoom) {
         this.health = health;
@@ -40,6 +43,7 @@ public class Player {
         this.dexterity = dexterity;
         this.speed = speed;
         this.mana = mana;
+        this.maxMana = mana;
         this.defense = defense;
         this.playerCoins = 0;
         this.currentRoom = currentRoom;
@@ -50,6 +54,9 @@ public class Player {
         this.hitRate = 0;
         this.AvoidRate = 4 * speed;
         this.inBattle = false;
+        this.playerLevel = 1;
+        this.playerExp = 0;
+        this.playerMaxExp = 100;
     }
 
     //Getters and Setters
@@ -100,6 +107,14 @@ public class Player {
 
     public void setMana(int mana) {
         this.mana = mana;
+    }
+
+    public int getMaxMana() {
+        return maxMana;
+    }
+
+    public void setMaxMana(int maxMana) {
+        this.maxMana = maxMana;
     }
 
     public int getDefense() {
@@ -180,6 +195,30 @@ public class Player {
 
     public void setBaseHitRate(int baseHitRate) {
         this.baseHitRate = baseHitRate;
+    }
+
+    public int getPlayerLevel() {
+        return playerLevel;
+    }
+
+    public void setPlayerLevel(int playerLevel) {
+        this.playerLevel = playerLevel;
+    }
+
+    public int getPlayerExp() {
+        return playerExp;
+    }
+
+    public void setPlayerExp(int playerExp) {
+        this.playerExp = playerExp;
+    }
+
+    public int getPlayerMaxExp() {
+        return playerMaxExp;
+    }
+
+    public void setPlayerMaxExp(int playerMaxExp) {
+        this.playerMaxExp = playerMaxExp;
     }
 
     //Method to display the player inventory
@@ -265,5 +304,63 @@ public class Player {
         this.dexterity -= item.getAddedDexterity();
         this.speed -= item.getAddedSpeed();
         this.defense -= item.getAddedDefense();
+    }
+
+    //Method to level up the player
+    public void levelUp() {
+        if (playerExp >= playerMaxExp && playerLevel < 5) {
+            if (playerLevel == 1 && playerExp >=100) {
+                playerLevel = 2;
+                playerExp = playerExp - playerMaxExp;
+                playerMaxExp = 300;
+                setMaxHealth(getMaxHealth() + 15);
+                setHealth(getMaxHealth());
+                setMaxMana(getMaxMana() + 8);
+                setMana(getMaxMana());
+                setMagic(getMagic() + 5);
+                setSpeed(getSpeed() + 3);
+                setDexterity(getDexterity() + 8);
+                setDefense(getDefense() + 3);
+                System.out.println("You leveled up to level 2!");
+            } else if (playerLevel == 2 && playerExp >= 300) {
+                playerLevel = 3;
+                playerExp = playerExp - playerMaxExp;
+                playerMaxExp = 600;
+                setMaxHealth(getMaxHealth() + 25);
+                setHealth(getMaxHealth());
+                setMaxMana(getMaxMana() + 8);
+                setMana(getMaxMana());
+                setMagic(getMagic() + 5);
+                setSpeed(getSpeed() + 3);
+                setDexterity(getDexterity() + 5);
+                setDefense(getDefense() + 3);
+                System.out.println("You leveled up to level 3!");
+            } else if (playerLevel == 3 && playerExp >= 600) {
+                playerLevel = 4;
+                playerExp = playerExp - playerMaxExp;
+                playerMaxExp = 1000;
+                setMaxHealth(getMaxHealth() + 15);
+                setHealth(getMaxHealth());
+                setMaxMana(getMaxMana() + 8);
+                setMana(getMaxMana());
+                setMagic(getMagic() + 5);
+                setSpeed(getSpeed() + 3);
+                setDexterity(getDexterity() + 5);
+                setDefense(getDefense() + 3);
+                System.out.println("You leveled up to level 4!");
+            } else if (playerLevel == 4 && playerExp >= 1000) {
+                playerLevel = 5;
+                setMaxHealth(getMaxHealth() + 30);
+                setHealth(getMaxHealth());
+                setMaxMana(getMaxMana() + 16);
+                setMana(getMaxMana());
+                setMagic(getMagic() + 5);
+                setSpeed(getSpeed() + 4);
+                setDexterity(getDexterity() + 5);
+                setDefense(getDefense() + 3);
+                System.out.println("You leveled up to level 5!");
+                System.out.println("You have reached the maximum level!");
+            }
+        }
     }
 }

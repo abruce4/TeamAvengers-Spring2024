@@ -425,12 +425,14 @@ public class Game implements Serializable {
 
     public void displayStats(){
         System.out.println("~~~~~~~~~~");
-        System.out.println("Health: " + mainCharacter.getHealth());
+        System.out.println("Health: " + mainCharacter.getHealth() / mainCharacter.getMaxHealth());
         System.out.println("Magic: " + mainCharacter.getMagic());
         System.out.println("Dexterity: " + mainCharacter.getDexterity());
         System.out.println("Speed: " + mainCharacter.getSpeed());
-        System.out.println("Mana: " + mainCharacter.getMana());
+        System.out.println("Mana: " + mainCharacter.getMana() / mainCharacter.getMaxMana());
         System.out.println("Defense: " + mainCharacter.getDefense());
+        System.out.println("Coins: " + mainCharacter.getPlayerCoins());
+        System.out.println("Experience: " + mainCharacter.getPlayerExp() / mainCharacter.getPlayerMaxExp());
         System.out.println("~~~~~~~~~~");
     }
 
@@ -447,6 +449,14 @@ public class Game implements Serializable {
                         break;
                     } else if (monster.getHealth() <= 0) {
                         System.out.println("You have defeated the " + monsterName);
+                        System.out.println("~~~~~~~~~~");
+                        mainCharacter.setPlayerExp(mainCharacter.getPlayerExp() + monster.getExpDrop());
+                        System.out.println("You have gained " + monster.getExpDrop() + " experience points.");
+                        System.out.println("~~~~~~~~~~");
+                        mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() + monster.getGoldDrop());
+                        System.out.println("You have gained " + monster.getGoldDrop() + " coins.");
+                        System.out.println("~~~~~~~~~~");
+                        mainCharacter.levelUp();
                         mainCharacter.setInBattle(false);
                         break;
                     } else {
