@@ -1,5 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -249,6 +247,7 @@ public class Player {
             System.out.println("You cannot escape because you are not in battle!");
         }
     }
+
     // Huyen Pham &  Ginette Wilson
     public void equipItem(String itemName) {
         boolean itemFound = false;
@@ -285,6 +284,7 @@ public class Player {
             System.out.println("No item is currently equipped.");
         }
     }
+
     // Apply stats from an equipable item
 // Huyen Pham
     private void applyStats(Equipable item) {
@@ -295,6 +295,7 @@ public class Player {
         this.speed += item.getAddedSpeed();
         this.defense += item.getAddedDefense();
     }
+
     // Revert stats from an unequipped item
 //Huyen Pham
     private void revertStats(Equipable item) {
@@ -309,7 +310,7 @@ public class Player {
     //Method to level up the player
     public void levelUp() {
         if (playerExp >= playerMaxExp && playerLevel < 5) {
-            if (playerLevel == 1 && playerExp >=100) {
+            if (playerLevel == 1 && playerExp >= 100) {
                 playerLevel = 2;
                 playerExp = playerExp - playerMaxExp;
                 playerMaxExp = 300;
@@ -361,6 +362,95 @@ public class Player {
                 System.out.println("You leveled up to level 5!");
                 System.out.println("You have reached the maximum level!");
             }
+        }
+    }
+
+    // Method to display puzzle
+    // Thuy Vy Pham
+    public void displayPuzzle(Rooms currentRoom) {
+        System.out.println("~~~~~ Puzzle ~~~~~");
+        System.out.println("You have encountered a puzzle in this room.");
+        System.out.println("~~~~~~~~~~");
+        System.out.println("Puzzle: " + currentRoom.getRoomPuzzle().get(0).getName());
+        System.out.println("Description: " + currentRoom.getRoomPuzzle().get(0).getDescription());
+        System.out.println("~~~~~~~~~~");
+        System.out.println("Enter 'solve' to solve the puzzle.");
+    }
+
+    //Method to solve the puzzle
+    // Thuy Vy Pham
+    public void solvePuzzle(String solution, ArrayList<Item> playerInventory, ArrayList<Item> listOfItems, Rooms currentRoom, ArrayList<Puzzle> roomPuzzle) {
+        if (currentRoom.getRoomPuzzle() != null) {
+            String itemToUse = "";
+            for (Item item : playerInventory) {
+                if (item.getItemName().equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getItemSolution())) {
+                    itemToUse = item.getItemName();
+                }
+            }
+            while (!currentRoom.getRoomPuzzle().get(0).isSolved()) {
+                if (solution.equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getSolution())) {
+                    System.out.println(currentRoom.getRoomPuzzle().get(0).getSolvedMessage());
+                    rewardPlayer(currentRoom, listOfItems, roomPuzzle);
+                    currentRoom.getRoomPuzzle().get(0).setSolved(true);
+                    currentRoom.setRoomPuzzle(null);
+                    break;
+                } else if (solution.equalsIgnoreCase(itemToUse)) {
+                    System.out.println(currentRoom.getRoomPuzzle().get(0).getSolvedMessage());
+                    rewardPlayer(currentRoom, listOfItems, roomPuzzle);
+                    currentRoom.getRoomPuzzle().get(0).setSolved(true);
+                    currentRoom.setRoomPuzzle(null);
+                    break;
+                } else if (solution.equalsIgnoreCase("eot") || solution.equalsIgnoreCase("Eye of Truth")) {
+                    System.out.println(currentRoom.getRoomPuzzle().get(0).getHint());
+                    Scanner scanner = new Scanner(System.in);
+                    String action = scanner.nextLine();
+                    solvePuzzle(action, playerInventory, listOfItems, currentRoom, roomPuzzle);
+                } else if (currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() == 1) {
+                    System.out.println(currentRoom.getRoomPuzzle().get(0).getFailMessage());
+                    malusPlayer(currentRoom, roomPuzzle);
+                    currentRoom.getRoomPuzzle().get(0).setSolved(true);
+                    break;
+                } else {
+                    currentRoom.getRoomPuzzle().get(0).setAttemptsLeft(currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() - 1);
+                    System.out.println(" Try again! You have: " + currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() + " attempts left.");
+                    Scanner scanner = new Scanner(System.in);
+                    String action = scanner.nextLine();
+                    solvePuzzle(action, playerInventory, listOfItems, currentRoom, roomPuzzle);
+                }
+            }
+        }
+        else {
+            System.out.println("There is no puzzle in this room.");
+        }
+    }
+
+    //Method to reward the player after a puzzle
+    // Thuy Vy Pham
+    public void rewardPlayer(Rooms currentRoom, ArrayList<Item> listOfItems, ArrayList<Puzzle> roomPuzzle) {
+        if (currentRoom.getRoomPuzzle().get(0).getItemReward() != null) {
+            System.out.println("You have received a " + currentRoom.getRoomPuzzle().get(0).getItemReward() + "!");
+            for (Item item : listOfItems) {
+                if (item.getItemName().equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getItemReward())) {
+                    PlayerInventory.add(item);
+                }
+            }
+        }
+        if (currentRoom.getRoomPuzzle().get(0).getCoinsReward() != 0) {
+            System.out.println("You have received " + currentRoom.getRoomPuzzle().get(0).getCoinsReward() + " coins!");
+            setPlayerCoins(getPlayerCoins() + currentRoom.getRoomPuzzle().get(0).getCoinsReward());
+        }
+        if (currentRoom.getRoomPuzzle().get(0).getMagicReward() != 0) {
+            System.out.println("You have received " + currentRoom.getRoomPuzzle().get(0).getMagicReward() + " magic points!");
+            setMagic(getMagic() + currentRoom.getRoomPuzzle().get(0).getMagicReward());
+        }
+    }
+
+    //Method to malus the player after a puzzle
+    // Thuy Vy Pham
+    public void malusPlayer(Rooms currentRoom, ArrayList<Puzzle> roomPuzzle) {
+        if (currentRoom.getRoomPuzzle().get(0).getDamageTaken() != 0) {
+            System.out.println("You have taken " + currentRoom.getRoomPuzzle().get(0).getDamageTaken() + " damage!");
+            setHealth(getHealth() - currentRoom.getRoomPuzzle().get(0).getDamageTaken());
         }
     }
 }

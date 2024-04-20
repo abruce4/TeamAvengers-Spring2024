@@ -27,6 +27,7 @@ public class Rooms implements Serializable {
     private ArrayList<Item> roomInventory;
     private boolean shop;
     private ArrayList<Monster> roomMonsters;
+    private ArrayList<Puzzle> roomPuzzle;
 
     //Constructor and Initialization of attributes
     //Kenny Amador
@@ -42,6 +43,7 @@ public class Rooms implements Serializable {
         this.roomInventory = new ArrayList<>();
         this.shop = shop;
         this.roomMonsters = new ArrayList<>();
+        this.roomPuzzle = new ArrayList<>();
     }
 
     //Getters and Setters
@@ -112,6 +114,12 @@ public class Rooms implements Serializable {
     public ArrayList<Monster> getRoomMonsters() {return roomMonsters;}
 
     public void setRoomMonsters(ArrayList<Monster> roomMonsters) {this.roomMonsters = roomMonsters;}
+
+    public void setShop(boolean shop){this.shop = shop;}
+
+    public ArrayList<Puzzle> getRoomPuzzle() {return roomPuzzle;}
+
+    public void setRoomPuzzle(ArrayList<Puzzle> roomPuzzle) {this.roomPuzzle = roomPuzzle;}
 
     //toString method
     @Override

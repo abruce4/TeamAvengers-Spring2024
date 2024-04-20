@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="fixed the attack method, will work on it and player level more today (Lincoln Bruce)">
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="fixed more of the attack and implemented level up system (Lincoln Bruce)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Rooms.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Rooms.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Puzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Puzzle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Puzzles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Puzzles.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rooms.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -445,7 +453,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713552721543</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fixed more of the attack and implemented level up system (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713575374236</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1713575374236</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fixed more of the attack and implemented level up system (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713576488741</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1713576488741</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed packages(Lincoln Bruce)" />
     <MESSAGE value="Worked on the items inheritance(Lincoln Bruce)" />
     <MESSAGE value="Finished working on items for now, waiting to test(Lincoln Bruce)" />
     <MESSAGE value="Edit Map class by Thuy Vy" />
@@ -488,7 +511,8 @@
     <MESSAGE value="Add inventory() in Game class by Thuy Vy" />
     <MESSAGE value="Update Puzzle class by Thuy Vy" />
     <MESSAGE value="fixed the attack method, will work on it and player level more today (Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the attack method, will work on it and player level more today (Lincoln Bruce)" />
+    <MESSAGE value="fixed more of the attack and implemented level up system (Lincoln Bruce)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed more of the attack and implemented level up system (Lincoln Bruce)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

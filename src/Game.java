@@ -40,7 +40,7 @@ public class Game implements Serializable {
     //Ginette Wilson
     public Game() {
         loadGameElements();// Initialize the game map
-        System.out.println(listOfRooms.get(14).getRoomMonsters());
+        System.out.println(listOfRooms.get(2).getRoomPuzzle());
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
@@ -57,6 +57,19 @@ public class Game implements Serializable {
         Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
         addItemsToRoom(listOfItems, listOfRooms);
         addMonstersToRoom(listOfMonsters, listOfRooms);
+        addPuzzlesToRoom(listOfPuzzles, listOfRooms);
+    }
+
+    //Method to add puzzles to the room
+    //Lincoln Bruce
+    public static void addPuzzlesToRoom(ArrayList<Puzzle> listOfPuzzles, ArrayList<Rooms> listOfRooms) {
+        for (Rooms room : listOfRooms) {
+            for (Puzzle puzzle : listOfPuzzles) {
+                if (room.getPuzzleIncluded().contains(puzzle.getPuzzleID())) {
+                    room.getRoomPuzzle().add(puzzle);
+                }
+            }
+        }
     }
 
     //Method to add items to the room
@@ -115,6 +128,9 @@ public class Game implements Serializable {
         if(rooms.getShop()){
             shop(rooms);
         }
+//        if (rooms.getRoomPuzzle() != null) {
+//            mainCharacter.displayPuzzle(rooms);
+//        }
     }
 
     public void shop(Rooms rooms){
@@ -176,6 +192,13 @@ public class Game implements Serializable {
             displayItems(rooms);
             return currentRoom;
         }
+        if (command.equalsIgnoreCase("solve")) {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("What is your answer?");
+            command = scan.nextLine();
+            mainCharacter.solvePuzzle(command,mainCharacter.getPlayerInventory(),listOfItems,rooms,rooms.getRoomPuzzle());
+            return currentRoom;
+        }
         if (command.equalsIgnoreCase("inspect")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to inspect?");
@@ -231,8 +254,6 @@ public class Game implements Serializable {
             examine(rooms);
             return currentRoom;
         }
-
-
         if (command.equalsIgnoreCase("teleport")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Where would you like to teleport to?");
@@ -248,9 +269,9 @@ public class Game implements Serializable {
             helpCommand();
             return currentRoom;
         }
-        if (command.equalsIgnoreCase("attack")) {
+        if (command.equalsIgnoreCase("fight")) {
             System.out.println("~~~~~~~~~~");
-            System.out.println("Which monster would you like to attack?");
+            System.out.println("Which monster would you like to fight?");
             command = scan.nextLine();
             attackMonster(command, mainCharacter, rooms);
             return currentRoom;
@@ -521,6 +542,9 @@ public class Game implements Serializable {
         System.out.println("(stats)--view player stats");
         System.out.println("(save)--save current progress");
         System.out.println("(inventory)--view inventory");
+        System.out.println("(consume)--consume an item");
+        System.out.println("(fight)--fight a monster");
+        System.out.println("(teleport)--teleport to a room");
     }
 
 }//end Game
