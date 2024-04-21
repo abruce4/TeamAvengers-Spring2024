@@ -190,6 +190,7 @@ public class Game implements Serializable {
         }
         if (command.equalsIgnoreCase("look")) {
             displayItems(rooms);
+            displayPuzzle(rooms);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("solve")) {
@@ -317,6 +318,18 @@ public class Game implements Serializable {
             System.out.println("~~~~~~~~~~");
         }
     }//end displayItems
+
+    // Method to display puzzle
+    // Thuy Vy Pham
+    public void displayPuzzle(Rooms currentRoom) {
+        System.out.println("~~~~~ Puzzle ~~~~~");
+        System.out.println("You have encountered a puzzle in this room.");
+        System.out.println("~~~~~~~~~~");
+        System.out.println("Puzzle: " + currentRoom.getRoomPuzzle().get(0).getName());
+        System.out.println("Description: " + currentRoom.getRoomPuzzle().get(0).getDescription());
+        System.out.println("~~~~~~~~~~");
+        System.out.println("Enter 'solve' to solve the puzzle.");
+    }
 
     // Method to inspect an item in the current room
     //Huyen Pham

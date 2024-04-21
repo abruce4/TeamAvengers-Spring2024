@@ -365,17 +365,7 @@ public class Player {
         }
     }
 
-    // Method to display puzzle
-    // Thuy Vy Pham
-    public void displayPuzzle(Rooms currentRoom) {
-        System.out.println("~~~~~ Puzzle ~~~~~");
-        System.out.println("You have encountered a puzzle in this room.");
-        System.out.println("~~~~~~~~~~");
-        System.out.println("Puzzle: " + currentRoom.getRoomPuzzle().get(0).getName());
-        System.out.println("Description: " + currentRoom.getRoomPuzzle().get(0).getDescription());
-        System.out.println("~~~~~~~~~~");
-        System.out.println("Enter 'solve' to solve the puzzle.");
-    }
+
 
     //Method to solve the puzzle
     // Thuy Vy Pham
