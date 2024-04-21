@@ -8,10 +8,11 @@
  */
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Item {
+public class Item implements Serializable {
     private String itemID;
     private String itemType;
     private String itemName;
