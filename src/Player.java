@@ -400,6 +400,13 @@ public class Player {
                 }
             }
             while (!currentRoom.getRoomPuzzle().get(0).isSolved()) {
+                Scanner scanner = new Scanner(System.in);
+                solution = scanner.nextLine();
+                if (solution.equalsIgnoreCase("exit")) {
+                    System.out.println("Exiting puzzle... You can return to solve it later.");
+                    break;
+                }
+
                 if (solution.equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getSolution())) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getSolvedMessage());
                     rewardPlayer(currentRoom, listOfItems, roomPuzzle);
@@ -414,9 +421,6 @@ public class Player {
                     break;
                 } else if (solution.equalsIgnoreCase("eot") || solution.equalsIgnoreCase("Eye of Truth")) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getHint());
-                    Scanner scanner = new Scanner(System.in);
-                    String action = scanner.nextLine();
-                    solvePuzzle(action, playerInventory, listOfItems, currentRoom, roomPuzzle);
                 } else if (currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() == 1) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getFailMessage());
                     malusPlayer(currentRoom, roomPuzzle);
@@ -424,14 +428,10 @@ public class Player {
                     break;
                 } else {
                     currentRoom.getRoomPuzzle().get(0).setAttemptsLeft(currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() - 1);
-                    System.out.println(" Try again! You have: " + currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() + " attempts left.");
-                    Scanner scanner = new Scanner(System.in);
-                    String action = scanner.nextLine();
-                    solvePuzzle(action, playerInventory, listOfItems, currentRoom, roomPuzzle);
+                    System.out.println("Incorrect. Try again! You have: " + currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() + " attempts left.");
                 }
             }
-        }
-        else {
+        } else {
             System.out.println("There is no puzzle in this room.");
         }
     }
