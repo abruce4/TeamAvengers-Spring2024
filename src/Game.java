@@ -190,7 +190,6 @@ public class Game implements Serializable {
         }
         if (command.equalsIgnoreCase("look")) {
             displayItems(rooms);
-            displayPuzzle(rooms);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("solve")) {
@@ -330,6 +329,8 @@ public class Game implements Serializable {
         System.out.println("~~~~~~~~~~");
         System.out.println("Enter 'solve' to solve the puzzle.");
     }
+
+
 
     // Method to inspect an item in the current room
     //Huyen Pham
