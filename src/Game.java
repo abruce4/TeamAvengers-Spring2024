@@ -192,6 +192,8 @@ public class Game implements Serializable {
         }
         if (command.equalsIgnoreCase("look")) {
             displayItems(rooms);
+            displayMonsters(rooms);
+            displayPuzzles(rooms);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("solve")) {
@@ -283,6 +285,10 @@ public class Game implements Serializable {
             eyeOfTruth(rooms);
             return currentRoom;
         }
+        if (command.equalsIgnoreCase("puzzle")) {
+            examinePuzzle(rooms);
+            return currentRoom;
+        }
 
         return -1;
     }
@@ -324,16 +330,54 @@ public class Game implements Serializable {
         }
     }//end displayItems
 
-    // Method to display puzzle
+    //Method to display monsters in the room
+    public void displayMonsters(Rooms currentRoom) {
+        if (!currentRoom.getRoomMonsters().isEmpty()) {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Monsters in this room: ");
+            for (Monster monster : currentRoom.getRoomMonsters()) {
+                System.out.println("[" + monster.getName() + "]");
+            }
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Enter 'fight' to fight the monster.");
+        }
+        else {
+            System.out.println("There are no monsters in this room.");
+        }
+    }
+
+    //Method to display puzzles in room
+    public void displayPuzzles(Rooms currentRoom) {
+        if (!currentRoom.getRoomPuzzle().isEmpty()) {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Puzzles in this room: ");
+            for (Puzzle puzzle : currentRoom.getRoomPuzzle()) {
+                System.out.println("[" + puzzle.getName() + "]");
+            }
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Enter 'puzzle' to interact with the puzzle.");
+        }
+        else {
+            System.out.println("There are no puzzles in this room.");
+        }
+    }
+
+
+
     // Thuy Vy Pham
-    public void displayPuzzle(Rooms currentRoom) {
-        System.out.println("~~~~~ Puzzle ~~~~~");
-        System.out.println("You have encountered a puzzle in this room.");
-        System.out.println("~~~~~~~~~~");
-        System.out.println("Puzzle: " + currentRoom.getRoomPuzzle().get(0).getName());
-        System.out.println("Description: " + currentRoom.getRoomPuzzle().get(0).getDescription());
-        System.out.println("~~~~~~~~~~");
-        System.out.println("Enter 'solve' to solve the puzzle.");
+    public void examinePuzzle(Rooms currentRoom) {
+        if (!currentRoom.getRoomPuzzle().isEmpty()) {
+            System.out.println("~~~~~ Puzzle ~~~~~");
+            System.out.println("You have encountered a puzzle in this room.");
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Puzzle: " + currentRoom.getRoomPuzzle().get(0).getName());
+            System.out.println("Description: " + currentRoom.getRoomPuzzle().get(0).getDescription());
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Enter 'solve' to solve the puzzle.");
+        }
+        else {
+            System.out.println("There are no puzzles in this room.");
+        }
     }
 
 
