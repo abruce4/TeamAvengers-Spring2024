@@ -18,7 +18,7 @@ public class Game implements Serializable {
     private transient Scanner scan;
     private boolean gameOver;
     private transient Scanner scanner;
-    private Player mainCharacter;
+    private final Player mainCharacter;
 
     // File paths for game elements
     //Ginette Wilson
@@ -41,6 +41,7 @@ public class Game implements Serializable {
     //Ginette Wilson
     public Game() {
         loadGameElements();// Initialize the game map
+        System.out.println(listOfRooms.get(1).getRoomInventory());
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
@@ -50,13 +51,13 @@ public class Game implements Serializable {
     //Method to load game elements
     //Ginette Wilson
     private static void loadGameElements() {
+        Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
         Item.readItems(ITEMS_FILE_PATH, listOfItems);
         Puzzle.readPuzzles(PUZZLES_FILE_PATH, listOfPuzzles);
         Monster.readMonsters(MONSTERS_FILE_PATH, listOfMonsters);
         addItemsToRoom(listOfItems, listOfRooms);
         addMonstersToRoom(listOfMonsters, listOfRooms);
         addPuzzlesToRoom(listOfPuzzles, listOfRooms);
-        Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
         Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
     }
 
@@ -543,14 +544,14 @@ public class Game implements Serializable {
     //Kenny Amador
     public void displayStats() {
         System.out.println("~~~~~~~~~~");
-        System.out.println("Health: " + mainCharacter.getHealth() / mainCharacter.getMaxHealth());
+        System.out.println("Health: " + mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
         System.out.println("Magic: " + mainCharacter.getMagic());
         System.out.println("Dexterity: " + mainCharacter.getDexterity());
         System.out.println("Speed: " + mainCharacter.getSpeed());
-        System.out.println("Mana: " + mainCharacter.getMana() / mainCharacter.getMaxMana());
+        System.out.println("Mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
         System.out.println("Defense: " + mainCharacter.getDefense());
         System.out.println("Coins: " + mainCharacter.getPlayerCoins());
-        System.out.println("Experience: " + mainCharacter.getPlayerExp() / mainCharacter.getPlayerMaxExp());
+        System.out.println("Experience: " + mainCharacter.getPlayerExp() + "/" + mainCharacter.getPlayerMaxExp());
         System.out.println("~~~~~~~~~~");
     }
 
