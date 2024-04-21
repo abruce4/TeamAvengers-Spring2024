@@ -576,7 +576,7 @@ public class Game implements Serializable {
                         mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() + monster.getGoldDrop());
                         System.out.println("You have gained " + monster.getGoldDrop() + " coins.");
                         System.out.println("~~~~~~~~~~");
-                        mainCharacter.levelUp(listOfSpells);
+                        mainCharacter.levelUp();
                         mainCharacter.setInBattle(false);
                         break;
                     } else {
@@ -665,12 +665,16 @@ public class Game implements Serializable {
         }
     }
 
+
     public void activateSpells(String spellName, Monster monster, Player mainCharacter) {
         if (spellName.equalsIgnoreCase("Ray of fire")) {
             for (Spells spell : listOfSpells) {
                 if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
                     monster.setHealth(monster.getHealth() - spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have dealt " + spell.getEffects() + " damage to the monster");
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }//end if
@@ -679,6 +683,9 @@ public class Game implements Serializable {
                 if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("Your defense has increased by " + spell.getEffects());
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }//end if
@@ -689,25 +696,36 @@ public class Game implements Serializable {
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
                     mainCharacter.setDefense(mainCharacter.getDefense() - spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have dealt " + spell.getEffects() + " damage to the monster");
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }
+
         if(spellName.equalsIgnoreCase("Meteor Storm")){
             Random random = new Random();
-            int meteors = random.nextInt();
+            int meteors = random.nextInt(5);
             for (Spells spell : listOfSpells) {
                 if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
                     mainCharacter.setHealth(mainCharacter.getMaxHealth() - (meteors * spell.getEffects()));
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have casted " + meteors + " that deals 15 damage per meteor");
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }
+
         if(spellName.equalsIgnoreCase("flame master")){
             for (Spells spell : listOfSpells) {
                 if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
                     mainCharacter.setHealth(mainCharacter.getHealth() + spell.getEffects());
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have");
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }
@@ -717,6 +735,8 @@ public class Game implements Serializable {
                 if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }
