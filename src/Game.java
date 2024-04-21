@@ -585,7 +585,11 @@ public class Game implements Serializable {
                         if (action.equalsIgnoreCase("attack")) {
                             dealDamage(monster);
                             dealDamage2(monster);
-                        } else if (action.equalsIgnoreCase("consume")) {
+                        }
+                        else if (action.equalsIgnoreCase("examine")) {
+                            examine(currentRoom);
+                        }
+                        else if (action.equalsIgnoreCase("consume")) {
                             System.out.println("Which item would you like to consume?");
                             String itemToConsume = scanner.nextLine();
                             consume(itemToConsume, mainCharacter);
@@ -614,6 +618,8 @@ public class Game implements Serializable {
         if (mainCharacter.getHitRate() > 50) {
             monster.setHealth(monster.getHealth() - mainCharacter.getMagic());
             System.out.println("You dealt " + mainCharacter.getMagic() + " damage to the monster.");
+            System.out.println("~~~~~~~~~~");
+            System.out.println(mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
         } else {
             System.out.println("You missed the monster.");
         }
@@ -625,6 +631,8 @@ public class Game implements Serializable {
         if (monster.getHitRate() > 50) {
             mainCharacter.setHealth(mainCharacter.getHealth() - monster.getAttack());
             System.out.println("The monster dealt " + monster.getAttack() + " damage to you.");
+            System.out.println("~~~~~~~~~~");
+            System.out.println(monster.getHealth() + "/" + monster.getHealth());
         } else {
             System.out.println("The monster missed you.");
         }
