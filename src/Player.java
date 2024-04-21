@@ -50,8 +50,8 @@ public class Player {
         this.defense = defense;
         this.playerCoins = 0;
         this.currentRoom = currentRoom;
-        this.playerInventory = playerInventory;
-        this.playerSpells = playerSpells;
+        this.playerInventory = new ArrayList<>();
+        this.playerSpells = new ArrayList<>();
         this.equippedItem = null;
         this.baseHitRate = 80;
         this.hitRate = 0;
