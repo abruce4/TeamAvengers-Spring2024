@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,8 +24,8 @@ public class Player {
     private int defense;
     private int playerCoins;
     private Rooms currentRoom;
-    private ArrayList<Item> PlayerInventory;
-    private ArrayList<Spells> PlayerSpells;
+    private ArrayList<Item> playerInventory;
+    private ArrayList<Spells> playerSpells;
     private Equipable equippedItem;
     private int baseHitRate;
     private int hitRate;
@@ -33,8 +34,12 @@ public class Player {
     private int playerLevel;
     private int playerExp;
     private int playerMaxExp;
+    private String name;
+    private String description;
+    private int effects;
+    private int manaCost;
 
-    public Player(int health, int magic, int dexterity, int speed, int mana, int defense, Rooms currentRoom) {
+    public Player(int health, int magic, int dexterity, int speed, int mana, int defense,Rooms currentRoom) {
         this.health = health;
         this.maxHealth = health;
         this.magic = magic;
@@ -45,8 +50,8 @@ public class Player {
         this.defense = defense;
         this.playerCoins = 0;
         this.currentRoom = currentRoom;
-        this.PlayerInventory = new ArrayList<>();
-        this.PlayerSpells = new ArrayList<>();
+        this.playerInventory = playerInventory;
+        this.playerSpells = playerSpells;
         this.equippedItem = null;
         this.baseHitRate = 80;
         this.hitRate = 0;
@@ -140,19 +145,20 @@ public class Player {
     }
 
     public ArrayList<Item> getPlayerInventory() {
-        return PlayerInventory;
+        return playerInventory;
     }
 
     public void setPlayerInventory(ArrayList<Item> playerInventory) {
-        PlayerInventory = playerInventory;
+
+        this.playerInventory = playerInventory;
     }
 
     public ArrayList<Spells> getPlayerSpells() {
-        return PlayerSpells;
+        return playerSpells;
     }
 
     public void setPlayerSpells(ArrayList<Spells> playerSpells) {
-        PlayerSpells = playerSpells;
+        this.playerSpells = playerSpells;
     }
 
     public Equipable getEquippedItem() {
@@ -218,6 +224,23 @@ public class Player {
     public void setPlayerMaxExp(int playerMaxExp) {
         this.playerMaxExp = playerMaxExp;
     }
+    public String getName() {
+        return name;
+    }
+    public int getEffects(){return effects;}
+    public int getManaCost(){return manaCost;}
+
+    public void setManaCost(int manaCost){this.manaCost = manaCost;}
+    public void setEffects(int effects){this.effects = effects;}
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     //Method to display the player inventory
     //Thuy Vy
@@ -251,7 +274,7 @@ public class Player {
     // Huyen Pham &  Ginette Wilson
     public void equipItem(String itemName) {
         boolean itemFound = false;
-        for (Item item : PlayerInventory) {
+        for (Item item : playerInventory) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
                 itemFound = true;
                 if (item instanceof Equipable) {
@@ -308,7 +331,7 @@ public class Player {
     }
 
     //Method to level up the player
-    public void levelUp() {
+    public void levelUp(ArrayList<Spells> spells) {
         if (playerExp >= playerMaxExp && playerLevel < 5) {
             if (playerLevel == 1 && playerExp >= 100) {
                 playerLevel = 2;
@@ -322,6 +345,7 @@ public class Player {
                 setSpeed(getSpeed() + 3);
                 setDexterity(getDexterity() + 8);
                 setDefense(getDefense() + 3);
+                playerSpells.add(spells.get(1));
                 System.out.println("You leveled up to level 2!");
             } else if (playerLevel == 2 && playerExp >= 300) {
                 playerLevel = 3;
@@ -335,6 +359,7 @@ public class Player {
                 setSpeed(getSpeed() + 3);
                 setDexterity(getDexterity() + 5);
                 setDefense(getDefense() + 3);
+                playerSpells.add(spells.get(2));
                 System.out.println("You leveled up to level 3!");
             } else if (playerLevel == 3 && playerExp >= 600) {
                 playerLevel = 4;
@@ -348,6 +373,7 @@ public class Player {
                 setSpeed(getSpeed() + 3);
                 setDexterity(getDexterity() + 5);
                 setDefense(getDefense() + 3);
+                playerSpells.add(spells.get(3));
                 System.out.println("You leveled up to level 4!");
             } else if (playerLevel == 4 && playerExp >= 1000) {
                 playerLevel = 5;
@@ -359,6 +385,7 @@ public class Player {
                 setSpeed(getSpeed() + 4);
                 setDexterity(getDexterity() + 5);
                 setDefense(getDefense() + 3);
+                playerSpells.add(spells.get(4));
                 System.out.println("You leveled up to level 5!");
                 System.out.println("You have reached the maximum level!");
             }
@@ -421,7 +448,7 @@ public class Player {
             System.out.println("You have received a " + currentRoom.getRoomPuzzle().get(0).getItemReward() + "!");
             for (Item item : listOfItems) {
                 if (item.getItemName().equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getItemReward())) {
-                    PlayerInventory.add(item);
+                    playerInventory.add(item);
                 }
             }
         }

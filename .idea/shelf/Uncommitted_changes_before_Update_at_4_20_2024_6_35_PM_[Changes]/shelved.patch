@@ -1,0 +1,28 @@
+Index: src/Spells.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Spells.txt b/src/spells.txt
+rename from src/Spells.txt
+rename to src/spells.txt
+--- a/src/Spells.txt	
++++ b/src/spells.txt	
+@@ -1,8 +1,8 @@
+-NC001-Ray of Poison-This will deal damage and has a chance of poisoning the enemy.
+-NC002-Raise of dead-Defeated monsters can now be brought back to life as an ally, but in the form of a skeleton or a zombie. Up to 6 undead can be controlled at once. This ability can only be usedoutside of battle.
+-NC003-Merge the Dead-Outside of battle, you can merge 4 undead creatures under your control into a more powerful undead creature.
+-NC004-Loyal Servants-Your undead creatures will always take the damage for you, shielding you from any attacks.
+-NC005-Master of the Dead-You can now cast "Raise the dead" during a battle due to your experience as a necromancer.
+-FC001-Ray of Fire-This will definitely scorch monsters in your path during combat.
+-FC002-Flame Shield-You cast an aura of fire around you. Now whenever an enemy attacks you, they'll take damage in return.
+-FC003- Heat Wave-You begin to create heat waves while raising the temperature of the area. Your enemy's defense is lowered while your defense is raised.
++Ray of Fire-This will definitely scorch monsters in your path during combat-12-4
++Flame Shield-You cast an aura of fire around you that protects you-0-8
++Heat Wave-You begin to create heat waves while raising the temperature of the area. Your enemy's defense is lowered.-10-12
++Meteor Storm-You cast a meteor storm that hurls meteors on your enemy-15-20
++Flame Master-This spell increases your hp and automatically casts flame shield-0-0
++Ice Castle-Using magic, you create a fortress out of ice protecting you from incoming damage.-15-0
++Eye of Truth-This spell will give you valuable insight whenever you feel stuck.-0-0
++Channel Energy-This restores magic in the middle of a fight-12-0
+\ No newline at end of file

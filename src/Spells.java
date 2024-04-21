@@ -5,25 +5,31 @@ import java.util.Scanner;
 //Thuy Vy Pham
 public class Spells
 {
-    private String id;
     private String name;
     private String description;
+    private int effects;
+    private int manaCost;
 
-    public Spells(String id, String name, String description) {
-        this.id = id;
+    private int levelNeeded;
+
+    public Spells(String name, String description, int effects, int manaCost,int levelNeeded) {
         this.name = name;
         this.description = description;
+        this.effects = effects;
+        this.manaCost = manaCost;
+        this.levelNeeded = levelNeeded;
     }
 
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
+
     public String getName() {
         return name;
     }
+    public int getEffects(){return effects;}
+    public int getLevelNeeded(){return levelNeeded;}
+    public int getManaCost(){return manaCost;}
+
+    public void setManaCost(int manaCost){this.manaCost = manaCost;}
+    public void setEffects(int effects){this.effects = effects;}
     public void setName(String name) {
         this.name = name;
     }
@@ -42,16 +48,18 @@ public class Spells
             Scanner myReader = new Scanner(mySpells);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                String[] spellData = data.split("-");
-                String spellID = spellData[0];
-                String name = spellData[1];
-                String description = spellData[2];
-                Spells spells = new Spells(spellID, name, description);
+                String[] line = data.split("-");
+                String name = line[0];
+                String description = line[1];
+                int levelNeed = Integer.parseInt(line[2]);
+                int effects = Integer.parseInt(line[3]);
+                int manaCost = Integer.parseInt(line[4]);
+                Spells spells = new Spells(name, description,effects,manaCost,levelNeed);
                 listOfSpells.add(spells);
+
             }
         } catch(Exception e){
             System.out.println("An error occurred with the spell file.");
         }
     }
 }
-

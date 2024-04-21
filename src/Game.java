@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ public class Game implements Serializable {
     private static final String PUZZLES_FILE_PATH = "src/Puzzles.txt";
     private static final String MONSTERS_FILE_PATH = "src/Monsters.txt";
     private static final String ROOMS_FILE_PATH = "src/Rooms.txt";
-    private static final String SPELLS_FILE_PATH = "src/Spells.txt";
+    private static final String SPELLS_FILE_PATH = "src/spells.txt";
 
 
     // ArrayList to store game elements
@@ -40,7 +41,6 @@ public class Game implements Serializable {
     //Ginette Wilson
     public Game() {
         loadGameElements();// Initialize the game map
-        System.out.println(listOfRooms.get(2).getRoomPuzzle());
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
@@ -53,12 +53,13 @@ public class Game implements Serializable {
         Item.readItems(ITEMS_FILE_PATH, listOfItems);
         Puzzle.readPuzzles(PUZZLES_FILE_PATH, listOfPuzzles);
         Monster.readMonsters(MONSTERS_FILE_PATH, listOfMonsters);
-        Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
-        Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
         addItemsToRoom(listOfItems, listOfRooms);
         addMonstersToRoom(listOfMonsters, listOfRooms);
         addPuzzlesToRoom(listOfPuzzles, listOfRooms);
+        Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
+        Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
     }
+
 
     //Method to add puzzles to the room
     //Lincoln Bruce
@@ -105,6 +106,7 @@ public class Game implements Serializable {
         currentRooms.setHasBeenVisited(true);
         System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
         String command = scan.next();
+//        System.out.println(mainCharacter.getPlayerSpells().get(0));
         while (!command.equalsIgnoreCase("save")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Please enter a navigation command north,east,south,west to move around");
@@ -121,50 +123,49 @@ public class Game implements Serializable {
             currentRooms.setHasBeenVisited(true);
         }
     }
-    public void checkRoom(Rooms rooms){
-        if (rooms.getHasBeenVisited()){
+
+    public void checkRoom(Rooms rooms) {
+        if (rooms.getHasBeenVisited()) {
             System.out.println("You have been here before");
         }
-        if(rooms.getShop()){
+        if (rooms.getShop()) {
             shop(rooms);
         }
-//        if (rooms.getRoomPuzzle() != null) {
-//            mainCharacter.displayPuzzle(rooms);
-//        }
     }
 
-    public void shop(Rooms rooms){
+    public void shop(Rooms rooms) {
         mainCharacter.setPlayerCoins(100);
         System.out.println("Would you like to shop or sell?");
         scan = new Scanner(System.in);
         String command = scan.nextLine();
-        if(command.equalsIgnoreCase("shop")){
-            while(!command.equalsIgnoreCase("quit")){
+        if (command.equalsIgnoreCase("shop")) {
+            while (!command.equalsIgnoreCase("quit")) {
                 System.out.println("Which items would you like to buy?");
                 displayItems(rooms);
                 command = scan.nextLine();
-                buyItem(command,mainCharacter,rooms);
+                buyItem(command, mainCharacter, rooms);
             }
         }
-        if(command.equalsIgnoreCase("sell")){
+        if (command.equalsIgnoreCase("sell")) {
             System.out.println("Which items would you like to sell?");
             command = scan.nextLine();
-            sell(command,mainCharacter,rooms);
+            sell(command, mainCharacter, rooms);
 
         }
 
     }
-    public void buyItem(String itemName, Player mainCharacter, Rooms currentRoom){
+
+    public void buyItem(String itemName, Player mainCharacter, Rooms currentRoom) {
         for (Item item : currentRoom.getRoomInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName) & mainCharacter.getPlayerCoins() >= item.getItemValue()) {
                 mainCharacter.getPlayerInventory().add(item);
                 currentRoom.getRoomInventory().remove(item);
                 System.out.println(itemName + " has been added to your inventory.");
-                mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() -item.getItemValue());
+                mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() - item.getItemValue());
                 return;
             }
         }
-        if(itemName.equalsIgnoreCase("quit")){
+        if (itemName.equalsIgnoreCase("quit")) {
             System.out.println("~~~~~~~~~~~~~");
             return;
         }
@@ -196,7 +197,7 @@ public class Game implements Serializable {
             System.out.println("~~~~~~~~~~");
             System.out.println("What is your answer?");
             command = scan.nextLine();
-            mainCharacter.solvePuzzle(command,mainCharacter.getPlayerInventory(),listOfItems,rooms,rooms.getRoomPuzzle());
+            mainCharacter.solvePuzzle(command, mainCharacter.getPlayerInventory(), listOfItems, rooms, rooms.getRoomPuzzle());
             return currentRoom;
         }
         if (command.equalsIgnoreCase("inspect")) {
@@ -243,7 +244,7 @@ public class Game implements Serializable {
             mainCharacter.inventory();
             return currentRoom;
         }
-        if(command.equalsIgnoreCase("stats")){
+        if (command.equalsIgnoreCase("stats")) {
             displayStats();
             return currentRoom;
         }
@@ -265,7 +266,7 @@ public class Game implements Serializable {
             mainCharacter.inventory();
             return currentRoom;
         }
-        if(command.equalsIgnoreCase("help")){
+        if (command.equalsIgnoreCase("help")) {
             helpCommand();
             return currentRoom;
         }
@@ -276,6 +277,10 @@ public class Game implements Serializable {
             attackMonster(command, mainCharacter, rooms);
             return currentRoom;
 
+        }
+        if (command.equalsIgnoreCase("Eye of truth")) {
+            eyeOfTruth(rooms);
+            return currentRoom;
         }
 
         return -1;
@@ -304,15 +309,15 @@ public class Game implements Serializable {
         if (rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("There are no items in this room");
-        } else if(rooms.getShop()){
+        } else if (rooms.getShop()) {
             for (Item item : rooms.getRoomInventory()) {
-                System.out.println("["+ item + "]" + " cost: " + item.getItemValue());
+                System.out.println("[" + item + "]" + " cost: " + item.getItemValue());
             }
             System.out.println("~~~~~~~~~~");
-        }else {
+        } else {
             System.out.print("Items in this room: ");
             for (Item item : rooms.getRoomInventory()) {
-                System.out.println("["+ item + "]");
+                System.out.println("[" + item + "]");
             }
             System.out.println("~~~~~~~~~~");
         }
@@ -347,18 +352,19 @@ public class Game implements Serializable {
         }
         System.out.println(itemName + " is not in your inventory.");
     }//end inspectItem
+
     public void sell(String itemName, Player mainCharacter, Rooms currentRoom) {
         for (Item item : mainCharacter.getPlayerInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
                 mainCharacter.getPlayerInventory().remove(item);
                 currentRoom.getRoomInventory().add(item);
                 System.out.println(itemName + " has been dropped from your inventory.");
-                mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins()+item.getItemValue());
+                mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() + item.getItemValue());
                 System.out.println(mainCharacter.getPlayerCoins());
                 return;
             }
         }
-        if(itemName.equalsIgnoreCase("quit")){
+        if (itemName.equalsIgnoreCase("quit")) {
             System.out.println("~~~~~~~~~~");
         }
         System.out.println("You have nothing to sell");
@@ -397,20 +403,20 @@ public class Game implements Serializable {
     //Method to check if the item picked up is an aura
     //Lincoln Bruce
     public void checkAura(Item item, Player mainCharacter) {
-       for (Item aura : mainCharacter.getPlayerInventory()) {
-           if (aura.getItemType().equalsIgnoreCase("aura")) {
-               if (item instanceof Aura) {
-                   Aura auraItem = (Aura) item;
-                   System.out.println("This item boost your stats from the inventory");
-                   mainCharacter.setMagic(mainCharacter.getMagic() + auraItem.getAddedMagic());
-                   mainCharacter.setDexterity(mainCharacter.getDexterity() + auraItem.getAddedDex());
-                   mainCharacter.setDefense(mainCharacter.getDefense() + auraItem.getAddedDefense());
-                   System.out.println("Your magic has been boosted by " + auraItem.getAddedMagic());
-                   System.out.println("Your dexterity has been boosted by " + auraItem.getAddedDex());
-                   System.out.println("Your defense has been boosted by " + auraItem.getAddedDefense());
-               }
-           }
-       }
+        for (Item aura : mainCharacter.getPlayerInventory()) {
+            if (aura.getItemType().equalsIgnoreCase("aura")) {
+                if (item instanceof Aura) {
+                    Aura auraItem = (Aura) item;
+                    System.out.println("This item boost your stats from the inventory");
+                    mainCharacter.setMagic(mainCharacter.getMagic() + auraItem.getAddedMagic());
+                    mainCharacter.setDexterity(mainCharacter.getDexterity() + auraItem.getAddedDex());
+                    mainCharacter.setDefense(mainCharacter.getDefense() + auraItem.getAddedDefense());
+                    System.out.println("Your magic has been boosted by " + auraItem.getAddedMagic());
+                    System.out.println("Your dexterity has been boosted by " + auraItem.getAddedDex());
+                    System.out.println("Your defense has been boosted by " + auraItem.getAddedDefense());
+                }
+            }
+        }
     }
 
     //Method to check if the item dropped is an aura
@@ -448,6 +454,7 @@ public class Game implements Serializable {
             System.out.println("Room " + roomName + " not found or hasn't been visited yet.");
         }
     }
+
     //method to use healing items
     //Ginette
     public void consume(String itemName, Player player) {
@@ -464,8 +471,7 @@ public class Game implements Serializable {
                         player.setHealth(player.getHealth() + healedHealth);
                         System.out.println("You have been healed for " + healedHealth + " HP.");
                         return;
-                    }
-                    else if (((Consumable) item).getHealedMana() == 900) {
+                    } else if (((Consumable) item).getHealedMana() == 900) {
                         int healedMana = player.getMaxMana() / 2;
                         // Remove item from inventory
                         player.getPlayerInventory().remove(item);
@@ -474,20 +480,17 @@ public class Game implements Serializable {
                         player.setMana(player.getMana() + healedMana);
                         System.out.println("You have been healed for " + healedMana + " MP.");
                         return;
-                    }
-                    else if (((Consumable) item).getHealedHealth() == 500) {
+                    } else if (((Consumable) item).getHealedHealth() == 500) {
                         player.setHealth(player.getMaxHealth());
                         player.getPlayerInventory().remove(item);
                         System.out.println(itemName + " has been used.");
                         System.out.println("You have been healed to full health.");
-                    }
-                    else if (((Consumable) item).getHealedMana() == 500) {
+                    } else if (((Consumable) item).getHealedMana() == 500) {
                         player.setMana(player.getMaxMana());
                         player.getPlayerInventory().remove(item);
                         System.out.println(itemName + " has been used.");
                         System.out.println("You have been healed to full mana.");
-                    }
-                    else {
+                    } else {
                         int healedHealth = consumable.getHealedHealth();
                         int healedMana = consumable.getHealedMana();
                         // Remove item from inventory
@@ -522,8 +525,8 @@ public class Game implements Serializable {
                     player.getPlayerInventory().remove(item);
                     System.out.println(itemName + " has been used.");
                     // Deal damage to the monster
-                    monster.setHealth(monster.getHealth()-damageDealt);
-                    monster.setDexterity(monster.getDexterity()-dexReduction);
+                    monster.setHealth(monster.getHealth() - damageDealt);
+                    monster.setDexterity(monster.getDexterity() - dexReduction);
                     System.out.println("You dealt " + damageDealt + " damage to the monster.");
                     System.out.println("You dealt " + dexReduction + " dexterity to the monster.");
                     return;
@@ -538,7 +541,7 @@ public class Game implements Serializable {
 
     // Method to display player stats
     //Kenny Amador
-    public void displayStats(){
+    public void displayStats() {
         System.out.println("~~~~~~~~~~");
         System.out.println("Health: " + mainCharacter.getHealth() / mainCharacter.getMaxHealth());
         System.out.println("Magic: " + mainCharacter.getMagic());
@@ -572,7 +575,7 @@ public class Game implements Serializable {
                         mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() + monster.getGoldDrop());
                         System.out.println("You have gained " + monster.getGoldDrop() + " coins.");
                         System.out.println("~~~~~~~~~~");
-                        mainCharacter.levelUp();
+                        mainCharacter.levelUp(listOfSpells);
                         mainCharacter.setInBattle(false);
                         break;
                     } else {
@@ -587,13 +590,15 @@ public class Game implements Serializable {
                             consume(itemToConsume, mainCharacter);
                         } else if (action.equalsIgnoreCase("escape")) {
                             mainCharacter.escape(currentRoom, mainCharacter.getInBattle());
-                        }
-                        else if (action.equalsIgnoreCase("throw")) {
+                        } else if (action.equalsIgnoreCase("throw")) {
                             System.out.println("Which item would you like to throw?");
                             String itemToThrow = scanner.nextLine();
                             throwItem(itemToThrow, monster, mainCharacter);
-                        }
-                        else {
+                        } else if (action.equalsIgnoreCase("spells")) {
+                            System.out.println("Which spell will you like to case");
+                            String spells = scanner.nextLine();
+                            activateSpells(spells, monster, mainCharacter);
+                        } else {
                             System.out.println("You can't do that in battle. Please try again.");
                         }
                     }
@@ -604,7 +609,7 @@ public class Game implements Serializable {
 
     // Method for the player to deal damage to a monster
     public void dealDamage(Monster monster) {
-        mainCharacter.setHitRate((4*mainCharacter.getDexterity()+mainCharacter.getBaseHitRate())-monster.getAvoidRate());
+        mainCharacter.setHitRate((4 * mainCharacter.getDexterity() + mainCharacter.getBaseHitRate()) - monster.getAvoidRate());
         if (mainCharacter.getHitRate() > 50) {
             monster.setHealth(monster.getHealth() - mainCharacter.getMagic());
             System.out.println("You dealt " + mainCharacter.getMagic() + " damage to the monster.");
@@ -615,7 +620,7 @@ public class Game implements Serializable {
 
     //Method for the monster to deal damage to the player
     public void dealDamage2(Monster monster) {
-        monster.setHitRate((4*monster.getDexterity())-mainCharacter.getAvoidRate());
+        monster.setHitRate((4 * monster.getDexterity()) - mainCharacter.getAvoidRate());
         if (monster.getHitRate() > 50) {
             mainCharacter.setHealth(mainCharacter.getHealth() - monster.getAttack());
             System.out.println("The monster dealt " + monster.getAttack() + " damage to you.");
@@ -626,7 +631,7 @@ public class Game implements Serializable {
 
 
     //help command
-    public void helpCommand(){
+    public void helpCommand() {
         System.out.println("(north,east,south,west)--move around");
         System.out.println("(look)--examine the room");
         System.out.println("(inspect)--inspect an item");
@@ -640,6 +645,75 @@ public class Game implements Serializable {
         System.out.println("(consume)--consume an item");
         System.out.println("(fight)--fight a monster");
         System.out.println("(teleport)--teleport to a room");
+    }
+
+
+    public void eyeOfTruth(Rooms currentRoom) {
+        if (!currentRoom.getPuzzleIncluded().contains("N/A")) {
+            System.out.println(listOfPuzzles.get(listOfRooms.indexOf(currentRoom)).getHint());
+        } else {
+            System.out.println("There are no puzzles in this room");
+        }
+    }
+
+    public void activateSpells(String spellName, Monster monster, Player mainCharacter) {
+        if (spellName.equalsIgnoreCase("Ray of fire")) {
+            for (Spells spell : listOfSpells) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                    monster.setHealth(monster.getHealth() - spell.getEffects());
+                    mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                }
+            }
+        }//end if
+        if(spellName.equalsIgnoreCase("Flame Shield")){
+            for (Spells spell : listOfSpells) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                    mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
+                    mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                }
+            }
+        }//end if
+
+        if(spellName.equalsIgnoreCase("Heat Wave")){
+            for (Spells spell : listOfSpells) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                    mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
+                    mainCharacter.setDefense(mainCharacter.getDefense() - spell.getEffects());
+                    mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                }
+            }
+        }
+        if(spellName.equalsIgnoreCase("Meteor Storm")){
+            Random random = new Random();
+            int meteors = random.nextInt();
+            for (Spells spell : listOfSpells) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                    mainCharacter.setHealth(mainCharacter.getMaxHealth() - (meteors * spell.getEffects()));
+                    mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                }
+            }
+        }
+        if(spellName.equalsIgnoreCase("flame master")){
+            for (Spells spell : listOfSpells) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                    mainCharacter.setHealth(mainCharacter.getHealth() + spell.getEffects());
+                    mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
+                    mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                }
+            }
+        }
+
+        if(spellName.equalsIgnoreCase("Ice Shield")) {
+            for (Spells spell : listOfSpells) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                    mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
+                    mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                }
+            }
+        }
+        else{
+            System.out.println("You cannot use this spell");
+        }
     }
 
 }//end Game

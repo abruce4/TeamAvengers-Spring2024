@@ -1,0 +1,8 @@
+Ray of Fire-This will scorch monsters in your path during combat-1-12-4
+Flame Shield-You cast an aura of fire around you that protects you-2-10-8
+Heat Wave-You begin to create heat waves while raising the temperature of the area. Your enemy's defense is lowered.-3-15-12
+Meteor Storm-You cast a meteor storm that hurls meteors on your enemy-4-15-20
+Flame Master-This spell increases your hp and automatically casts flame shield-5-10-0
+Ice Castle-Using magic, you create a fortress out of ice protecting you from incoming damage.-0-5-0
+Eye of Truth-This spell will give you valuable insight whenever you feel stuck.-0-0-0
+Channel Energy-This restores magic in the middle of a fight-0-12-0
