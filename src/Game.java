@@ -21,7 +21,7 @@ public class Game implements Serializable {
     private final Player mainCharacter;
 
     // File paths for game elements
-    //Ginette Wilson
+    // Ginette Wilson - Lincoln Bruce
     private static final String ITEMS_FILE_PATH = "src/Items.txt";
     private static final String PUZZLES_FILE_PATH = "src/Puzzles.txt";
     private static final String MONSTERS_FILE_PATH = "src/Monsters.txt";
@@ -30,7 +30,7 @@ public class Game implements Serializable {
 
 
     // ArrayList to store game elements
-    //Ginette Wilson
+    // Ginette Wilson - Lincoln Bruce
     private static final ArrayList<Item> listOfItems = new ArrayList<>();
     private static final ArrayList<Puzzle> listOfPuzzles = new ArrayList<>();
     private static final ArrayList<Monster> listOfMonsters = new ArrayList<>();
@@ -38,68 +38,19 @@ public class Game implements Serializable {
     private static final ArrayList<Spells> listOfSpells = new ArrayList<>();
 
 
+    //Method to create the game
     //Ginette Wilson
     public Game() {
         loadGameElements();// Initialize the game map
-        System.out.println(listOfRooms.get(1).getRoomInventory());
         gameOver = false; // Game over flag
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
-        mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
-    }
-
-    //Method to load game elements
-    //Ginette Wilson
-    private static void loadGameElements() {
-        Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
-        Item.readItems(ITEMS_FILE_PATH, listOfItems);
-        Puzzle.readPuzzles(PUZZLES_FILE_PATH, listOfPuzzles);
-        Monster.readMonsters(MONSTERS_FILE_PATH, listOfMonsters);
-        addItemsToRoom(listOfItems, listOfRooms);
-        addMonstersToRoom(listOfMonsters, listOfRooms);
-        addPuzzlesToRoom(listOfPuzzles, listOfRooms);
-        Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
+        mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.getFirst());
     }
 
 
-    //Method to add puzzles to the room
-    //Lincoln Bruce
-    public static void addPuzzlesToRoom(ArrayList<Puzzle> listOfPuzzles, ArrayList<Rooms> listOfRooms) {
-        for (Rooms room : listOfRooms) {
-            for (Puzzle puzzle : listOfPuzzles) {
-                if (room.getPuzzleIncluded().contains(puzzle.getPuzzleID())) {
-                    room.getRoomPuzzle().add(puzzle);
-                }
-            }
-        }
-    }
-
-    //Method to add items to the room
-    //Lincoln Bruce
-    public static void addItemsToRoom(ArrayList<Item> listOfItems, ArrayList<Rooms> listOfRooms) {
-        for (Rooms room : listOfRooms) {
-            for (Item item : listOfItems) {
-                if (room.getItemsIncluded().contains(item.getItemID())) {
-                    room.getRoomInventory().add(item);
-                }
-            }
-        }
-    }
-
-    //Method to add monsters to the room
-    //Lincoln Bruce
-    public static void addMonstersToRoom(ArrayList<Monster> listOfMonsters, ArrayList<Rooms> listOfRooms) {
-        for (Rooms room : listOfRooms) {
-            for (Monster monster : listOfMonsters) {
-                if (room.getMonstersIncluded().contains(monster.getMonsterID())) {
-                    room.getRoomMonsters().add(monster);
-                }
-            }
-        }
-    }
-
-    //Method to run the game
-    //Kenny Amador
+    // Method to run the game
+    // Kenny Amador
     public void RunGame() {
         System.out.println("Press q at any time if you wish to quit or y to continue");
         scan = new Scanner(System.in);
@@ -107,7 +58,6 @@ public class Game implements Serializable {
         currentRooms.setHasBeenVisited(true);
         System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
         String command = scan.next();
-//        System.out.println(mainCharacter.getPlayerSpells().get(0));
         while (!command.equalsIgnoreCase("save")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Please enter a navigation command north,east,south,west to move around");
@@ -125,6 +75,8 @@ public class Game implements Serializable {
         }
     }
 
+    // Method to check if the room has been visited
+    // Kenny Amador
     public void checkRoom(Rooms rooms) {
         if (rooms.getHasBeenVisited()) {
             System.out.println("You have been here before");
@@ -134,15 +86,16 @@ public class Game implements Serializable {
         }
     }
 
+    // Method to shop
+    // Kenny Amador
     public void shop(Rooms rooms) {
-        mainCharacter.setPlayerCoins(100);
         System.out.println("Would you like to shop or sell?");
         scan = new Scanner(System.in);
         String command = scan.nextLine();
         if (command.equalsIgnoreCase("shop")) {
             while (!command.equalsIgnoreCase("quit")) {
                 System.out.println("Which items would you like to buy?");
-                displayItems(rooms);
+                mainCharacter.displayItems(rooms);
                 command = scan.nextLine();
                 buyItem(command, mainCharacter, rooms);
             }
@@ -151,11 +104,11 @@ public class Game implements Serializable {
             System.out.println("Which items would you like to sell?");
             command = scan.nextLine();
             sell(command, mainCharacter, rooms);
-
         }
-
     }
 
+    // Method to buy items
+    // Kenny Amador
     public void buyItem(String itemName, Player mainCharacter, Rooms currentRoom) {
         for (Item item : currentRoom.getRoomInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName) & mainCharacter.getPlayerCoins() >= item.getItemValue()) {
@@ -173,8 +126,8 @@ public class Game implements Serializable {
         System.out.println("You do not have enough coins");
     }
 
-    //Method to check the command
-    //Kenny Amador
+    // Method to check the command
+    // Kenny Amador
     public int checkCommand(String command, Rooms rooms, Player mainCharacter) {
         ArrayList<Integer> connects = rooms.roomExits;
         if (command.equalsIgnoreCase("north")) {
@@ -190,9 +143,9 @@ public class Game implements Serializable {
             return connects.get(3) - 1;
         }
         if (command.equalsIgnoreCase("look")) {
-            displayItems(rooms);
-            displayMonsters(rooms);
-            displayPuzzles(rooms);
+           mainCharacter.displayItems(rooms);
+           mainCharacter.displayMonsters(rooms);
+           mainCharacter.displayPuzzles(rooms);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("solve")) {
@@ -205,28 +158,28 @@ public class Game implements Serializable {
             System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to inspect?");
             command = scan.nextLine();
-            inspectItem(command, mainCharacter);
+            mainCharacter.inspectItem(command, mainCharacter);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("pickup")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to pick up?");
             command = scan.nextLine();
-            pickup(command, mainCharacter, rooms);
+            mainCharacter.pickup(command, mainCharacter, rooms);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("drop")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to drop?");
             command = scan.nextLine();
-            drop(command, mainCharacter, rooms);
+            mainCharacter.drop(command, mainCharacter, rooms);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("consume")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Which item would you like to consume?");
             command = scan.nextLine();
-            consume(command, mainCharacter);
+            mainCharacter.consume(command, mainCharacter);
             return currentRoom;
 
         }
@@ -284,15 +237,15 @@ public class Game implements Serializable {
             return currentRoom;
         }
         if (command.equalsIgnoreCase("puzzle")) {
-            examinePuzzle(rooms);
+            mainCharacter.examinePuzzle(rooms);
             return currentRoom;
         }
 
         return -1;
     }
 
-    //Method to print monster stats
-    //Ginette Wilson
+    // Method to print monster stats
+    // Ginette Wilson
     public void examine(Rooms currentRoom) {
         for (Monster monster : currentRoom.getRoomMonsters()) {
             System.out.println("~~~~~~~~~~");
@@ -306,92 +259,9 @@ public class Game implements Serializable {
         }
     }
 
-    //Method to display items in the room
-    //Kenny Amador
-    public void displayItems(Rooms rooms) {
-        if (rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")) {
-            System.out.println("~~~~~~~~~~");
-            System.out.println("There are no items in this room");
-        } else if (rooms.getShop()) {
-            for (Item item : rooms.getRoomInventory()) {
-                System.out.println("[" + item + "]" + " cost: " + item.getItemValue());
-            }
-            System.out.println("~~~~~~~~~~");
-        } else {
-            System.out.print("Items in this room: ");
-            for (Item item : rooms.getRoomInventory()) {
-                System.out.println("[" + item + "]");
-            }
-            System.out.println("~~~~~~~~~~");
-        }
-    }//end displayItems
 
-    //Method to display monsters in the room
-    public void displayMonsters(Rooms currentRoom) {
-        if (!currentRoom.getRoomMonsters().isEmpty()) {
-            System.out.println("~~~~~~~~~~");
-            System.out.println("Monsters in this room: ");
-            for (Monster monster : currentRoom.getRoomMonsters()) {
-                System.out.println("[" + monster.getName() + "]");
-            }
-            System.out.println("~~~~~~~~~~");
-            System.out.println("Enter 'fight' to fight the monster.");
-        }
-        else {
-            System.out.println("There are no monsters in this room.");
-        }
-    }
-
-    //Method to display puzzles in room
-    public void displayPuzzles(Rooms currentRoom) {
-        if (!currentRoom.getRoomPuzzle().isEmpty()) {
-            System.out.println("~~~~~~~~~~");
-            System.out.println("Puzzles in this room: ");
-            for (Puzzle puzzle : currentRoom.getRoomPuzzle()) {
-                System.out.println("[" + puzzle.getName() + "]");
-            }
-            System.out.println("~~~~~~~~~~");
-            System.out.println("Enter 'puzzle' to interact with the puzzle.");
-        }
-        else {
-            System.out.println("There are no puzzles in this room.");
-        }
-    }
-
-
-
-    // Thuy Vy Pham
-    public void examinePuzzle(Rooms currentRoom) {
-        if (!currentRoom.getRoomPuzzle().isEmpty()) {
-            System.out.println("~~~~~ Puzzle ~~~~~");
-            System.out.println("You have encountered a puzzle in this room.");
-            System.out.println("~~~~~~~~~~");
-            System.out.println("Puzzle: " + currentRoom.getRoomPuzzle().get(0).getName());
-            System.out.println("Description: " + currentRoom.getRoomPuzzle().get(0).getDescription());
-            System.out.println("~~~~~~~~~~");
-            System.out.println("Enter 'solve' to solve the puzzle.");
-        }
-        else {
-            System.out.println("There are no puzzles in this room.");
-        }
-    }
-
-    // Method to inspect an item in the current room
-    //Huyen Pham
-    public void inspectItem(String itemName, Player mainCharacter) {
-        for (Item item : mainCharacter.getPlayerInventory()) {
-            if (item.getItemName().equalsIgnoreCase(itemName)) {
-                System.out.println("Inspecting: " + itemName);
-                System.out.println("Description: " + item.getItemDescription());
-                System.out.println("Type: " + item.getItemType());
-                System.out.println("Value: " + item.getItemValue());
-                System.out.println("~~~~~~~~~~");
-                return;
-            }
-        }
-        System.out.println(itemName + " is not in your inventory.");
-    }//end inspectItem
-
+    // Method to sell items
+    // Kenny Amador
     public void sell(String itemName, Player mainCharacter, Rooms currentRoom) {
         for (Item item : mainCharacter.getPlayerInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
@@ -409,76 +279,9 @@ public class Game implements Serializable {
         System.out.println("You have nothing to sell");
     }
 
-    //Method to drop an item
-    //Thuy Vy
-    public void drop(String itemName, Player mainCharacter, Rooms currentRoom) {
-        for (Item item : mainCharacter.getPlayerInventory()) {
-            if (item.getItemName().equalsIgnoreCase(itemName)) {
-                System.out.println(itemName + " has been dropped from your inventory.");
-                checkAuraDrop(item, mainCharacter);
-                mainCharacter.getPlayerInventory().remove(item);
-                currentRoom.getRoomInventory().add(item);
-                return;
-            }
-        }
-        System.out.println("You don't have " + itemName + " in your inventory.");
-    }//end drop
 
-    //Method to pick up an item
-    //Thuy Vy
-    public void pickup(String itemName, Player mainCharacter, Rooms currentRoom) {
-        for (Item item : currentRoom.getRoomInventory()) {
-            if (item.getItemName().equalsIgnoreCase(itemName)) {
-                mainCharacter.getPlayerInventory().add(item);
-                currentRoom.getRoomInventory().remove(item);
-                System.out.println(itemName + " has been added to your inventory.");
-                checkAura(item, mainCharacter);
-                return;
-            }
-        }
-        System.out.println("There is no " + itemName + " in this room.");
-    }
-
-    //Method to check if the item picked up is an aura
-    //Lincoln Bruce
-    public void checkAura(Item item, Player mainCharacter) {
-        for (Item aura : mainCharacter.getPlayerInventory()) {
-            if (aura.getItemType().equalsIgnoreCase("aura")) {
-                if (item instanceof Aura) {
-                    Aura auraItem = (Aura) item;
-                    System.out.println("This item boost your stats from the inventory");
-                    mainCharacter.setMagic(mainCharacter.getMagic() + auraItem.getAddedMagic());
-                    mainCharacter.setDexterity(mainCharacter.getDexterity() + auraItem.getAddedDex());
-                    mainCharacter.setDefense(mainCharacter.getDefense() + auraItem.getAddedDefense());
-                    System.out.println("Your magic has been boosted by " + auraItem.getAddedMagic());
-                    System.out.println("Your dexterity has been boosted by " + auraItem.getAddedDex());
-                    System.out.println("Your defense has been boosted by " + auraItem.getAddedDefense());
-                }
-            }
-        }
-    }
-
-    //Method to check if the item dropped is an aura
-    //Lincoln Bruce
-    public void checkAuraDrop(Item item, Player mainCharacter) {
-        for (Item aura : mainCharacter.getPlayerInventory()) {
-            if (aura.getItemType().equalsIgnoreCase("aura")) {
-                if (item instanceof Aura) {
-                    Aura auraItem = (Aura) item;
-                    System.out.println("You lost your boosts");
-                    mainCharacter.setMagic(mainCharacter.getMagic() - auraItem.getAddedMagic());
-                    mainCharacter.setDexterity(mainCharacter.getDexterity() - auraItem.getAddedDex());
-                    mainCharacter.setDefense(mainCharacter.getDefense() - auraItem.getAddedDefense());
-                    System.out.println("Your magic has been reduced by " + auraItem.getAddedMagic());
-                    System.out.println("Your dexterity has been reduced by " + auraItem.getAddedDex());
-                    System.out.println("Your defense has been reduced by " + auraItem.getAddedDefense());
-                }
-            }
-        }
-    }
-
-    //method to be teleported to a room
-    //Ginette Wilson
+    // Method to be teleported to a room
+    // Ginette Wilson
     public void teleport(String roomName) {
         boolean roomFound = false;
         for (Rooms room : listOfRooms) {
@@ -494,92 +297,8 @@ public class Game implements Serializable {
         }
     }
 
-    //method to use healing items
-    //Ginette
-    public void consume(String itemName, Player player) {
-        for (Item item : player.getPlayerInventory()) {
-            if (item.getItemName().equalsIgnoreCase(itemName)) {
-                if (item instanceof Consumable) {
-                    Consumable consumable = (Consumable) item;
-                    if (((Consumable) item).getHealedHealth() == 900) {
-                        int healedHealth = player.getMaxHealth() / 2;
-                        // Remove item from inventory
-                        player.getPlayerInventory().remove(item);
-                        System.out.println(itemName + " has been used.");
-                        // Recover player's health
-                        player.setHealth(player.getHealth() + healedHealth);
-                        System.out.println("You have been healed for " + healedHealth + " HP.");
-                        return;
-                    } else if (((Consumable) item).getHealedMana() == 900) {
-                        int healedMana = player.getMaxMana() / 2;
-                        // Remove item from inventory
-                        player.getPlayerInventory().remove(item);
-                        System.out.println(itemName + " has been used.");
-                        // Recover player's mana
-                        player.setMana(player.getMana() + healedMana);
-                        System.out.println("You have been healed for " + healedMana + " MP.");
-                        return;
-                    } else if (((Consumable) item).getHealedHealth() == 500) {
-                        player.setHealth(player.getMaxHealth());
-                        player.getPlayerInventory().remove(item);
-                        System.out.println(itemName + " has been used.");
-                        System.out.println("You have been healed to full health.");
-                    } else if (((Consumable) item).getHealedMana() == 500) {
-                        player.setMana(player.getMaxMana());
-                        player.getPlayerInventory().remove(item);
-                        System.out.println(itemName + " has been used.");
-                        System.out.println("You have been healed to full mana.");
-                    } else {
-                        int healedHealth = consumable.getHealedHealth();
-                        int healedMana = consumable.getHealedMana();
-                        // Remove item from inventory
-                        player.getPlayerInventory().remove(item);
-                        System.out.println(itemName + " has been used.");
-                        // Recover player's health and mana
-                        player.setHealth(player.getHealth() + healedHealth);
-                        player.setMana(player.getMana() + healedMana);
-                        System.out.println("You have been healed for " + healedHealth + " HP and " + healedMana + " MP.");
-                        return;
-                    }
-
-                } else {
-                    System.out.println(itemName + " is not a healing item.");
-                    return;
-                }
-            }
-        }
-        System.out.println(itemName + " not found in inventory.");
-    }
-
-    // method to use damaging items
-    //Ginette Wilson
-    public void throwItem(String itemName, Monster monster, Player player) {
-        for (Item item : player.getPlayerInventory()) {
-            if (item.getItemName().equalsIgnoreCase(itemName)) {
-                if (item instanceof Throwable) {
-                    Throwable throwable = (Throwable) item;
-                    int damageDealt = throwable.getDamageDealt();
-                    int dexReduction = throwable.getSpeedReduction();
-                    // Remove item from inventory
-                    player.getPlayerInventory().remove(item);
-                    System.out.println(itemName + " has been used.");
-                    // Deal damage to the monster
-                    monster.setHealth(monster.getHealth() - damageDealt);
-                    monster.setDexterity(monster.getDexterity() - dexReduction);
-                    System.out.println("You dealt " + damageDealt + " damage to the monster.");
-                    System.out.println("You dealt " + dexReduction + " dexterity to the monster.");
-                    return;
-                } else {
-                    System.out.println(itemName + " is not a damaging item.");
-                    return;
-                }
-            }
-        }
-        System.out.println(itemName + " not found in inventory.");
-    }
-
     // Method to display player stats
-    //Kenny Amador
+    // Kenny Amador
     public void displayStats() {
         System.out.println("~~~~~~~~~~");
         System.out.println("Health: " + mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
@@ -594,7 +313,7 @@ public class Game implements Serializable {
     }
 
     // Method for player to attack a monster
-    //Lincoln Bruce
+    // Lincoln Bruce
     public void attackMonster(String monsterName, Player mainCharacter, Rooms currentRoom) {
         for (Monster monster : currentRoom.getRoomMonsters()) {
             if (monster.getName().equalsIgnoreCase(monsterName)) {
@@ -618,7 +337,7 @@ public class Game implements Serializable {
                         mainCharacter.setInBattle(false);
                         break;
                     } else {
-                        System.out.println("Choose an action: attack, consume, or escape");
+                        System.out.println("Choose an action: attack, consume, throw, spells or escape");
                         String action = scanner.nextLine();
                         if (action.equalsIgnoreCase("attack")) {
                             dealDamage(monster);
@@ -630,13 +349,13 @@ public class Game implements Serializable {
                         else if (action.equalsIgnoreCase("consume")) {
                             System.out.println("Which item would you like to consume?");
                             String itemToConsume = scanner.nextLine();
-                            consume(itemToConsume, mainCharacter);
+                            mainCharacter.consume(itemToConsume, mainCharacter);
                         } else if (action.equalsIgnoreCase("escape")) {
                             mainCharacter.escape(currentRoom, mainCharacter.getInBattle());
                         } else if (action.equalsIgnoreCase("throw")) {
                             System.out.println("Which item would you like to throw?");
                             String itemToThrow = scanner.nextLine();
-                            throwItem(itemToThrow, monster, mainCharacter);
+                            mainCharacter.throwItem(itemToThrow, monster, mainCharacter);
                         } else if (action.equalsIgnoreCase("spells")) {
                             System.out.println("Which spell will you like to case");
                             String spells = scanner.nextLine();
@@ -651,32 +370,37 @@ public class Game implements Serializable {
     }
 
     // Method for the player to deal damage to a monster
+    // Lincoln Bruce
     public void dealDamage(Monster monster) {
         mainCharacter.setHitRate((4 * mainCharacter.getDexterity() + mainCharacter.getBaseHitRate()) - monster.getAvoidRate());
         if (mainCharacter.getHitRate() > 50) {
             monster.setHealth(monster.getHealth() - mainCharacter.getMagic());
             System.out.println("You dealt " + mainCharacter.getMagic() + " damage to the monster.");
             System.out.println("~~~~~~~~~~");
+            mainCharacter.ringOfRegeneration(mainCharacter.getPlayerInventory());
             System.out.println(mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
         } else {
             System.out.println("You missed the monster.");
         }
     }
 
-    //Method for the monster to deal damage to the player
+    // Method for the monster to deal damage to the player
+    // Lincoln Bruce
     public void dealDamage2(Monster monster) {
         monster.setHitRate((4 * monster.getDexterity()) - mainCharacter.getAvoidRate());
         if (monster.getHitRate() > 50) {
             mainCharacter.setHealth(mainCharacter.getHealth() - monster.getAttack());
             System.out.println("The monster dealt " + monster.getAttack() + " damage to you.");
             System.out.println("~~~~~~~~~~");
+            mainCharacter.ringOfRegeneration(mainCharacter.getPlayerInventory());
             System.out.println(monster.getHealth() + "/" + monster.getHealth());
         } else {
             System.out.println("The monster missed you.");
         }
     }
 
-    //help command
+    // Method to display the help command
+    // Kenny Amador
     public void helpCommand() {
         System.out.println("(north,east,south,west)--move around");
         System.out.println("(look)--examine the room");
@@ -691,6 +415,10 @@ public class Game implements Serializable {
         System.out.println("(consume)--consume an item");
         System.out.println("(fight)--fight a monster");
         System.out.println("(teleport)--teleport to a room");
+        System.out.println("(examine)--examine a monster");
+        System.out.println("(Eye of truth/eot)--get a hint for a puzzle");
+        System.out.println("(puzzle)--interact with a puzzle");
+        System.out.println("(spells)--cast a spell");
     }
 
     public void eyeOfTruth(Rooms currentRoom) {
@@ -701,6 +429,8 @@ public class Game implements Serializable {
         }
     }
 
+    // Method to activate spells
+    // Kenny Amador
     public void activateSpells(String spellName, Monster monster, Player mainCharacter) {
         if (spellName.equalsIgnoreCase("Ray of fire")) {
             for (Spells spell : listOfSpells) {
@@ -713,7 +443,7 @@ public class Game implements Serializable {
                     return;
                 }
             }
-        }//end if
+        }
 
         if(spellName.equalsIgnoreCase("Flame Shield")){
             for (Spells spell : listOfSpells) {
@@ -726,7 +456,7 @@ public class Game implements Serializable {
                     return;
                 }
             }
-        }//end if
+        }
 
         if(spellName.equalsIgnoreCase("Heat Wave")){
             for (Spells spell : listOfSpells) {
@@ -798,6 +528,56 @@ public class Game implements Serializable {
         else{
             System.out.println("You cannot use this spell or have run out of mana");
         }
-    }
+    }//end activateSpells
+
+    // Method to load game elements
+    // Ginette Wilson - Lincoln Bruce
+    private static void loadGameElements() {
+        Rooms.readRooms(ROOMS_FILE_PATH, listOfRooms);
+        Item.readItems(ITEMS_FILE_PATH, listOfItems);
+        Puzzle.readPuzzles(PUZZLES_FILE_PATH, listOfPuzzles);
+        Monster.readMonsters(MONSTERS_FILE_PATH, listOfMonsters);
+        addItemsToRoom(listOfItems, listOfRooms);
+        addMonstersToRoom(listOfMonsters, listOfRooms);
+        addPuzzlesToRoom(listOfPuzzles, listOfRooms);
+        Spells.readSpells(SPELLS_FILE_PATH, listOfSpells);
+    } // end loadGameElements
+
+
+    //Method to add puzzles to the room
+    //Lincoln Bruce
+    public static void addPuzzlesToRoom(ArrayList<Puzzle> listOfPuzzles, ArrayList<Rooms> listOfRooms) {
+        for (Rooms room : listOfRooms) {
+            for (Puzzle puzzle : listOfPuzzles) {
+                if (room.getPuzzleIncluded().contains(puzzle.getPuzzleID())) {
+                    room.getRoomPuzzle().add(puzzle);
+                }
+            }
+        }
+    }//end addPuzzlesToRoom
+
+    //Method to add items to the room
+    //Lincoln Bruce
+    public static void addItemsToRoom(ArrayList<Item> listOfItems, ArrayList<Rooms> listOfRooms) {
+        for (Rooms room : listOfRooms) {
+            for (Item item : listOfItems) {
+                if (room.getItemsIncluded().contains(item.getItemID())) {
+                    room.getRoomInventory().add(item);
+                }
+            }
+        }
+    }//end addItemsToRoom
+
+    //Method to add monsters to the room
+    //Lincoln Bruce
+    public static void addMonstersToRoom(ArrayList<Monster> listOfMonsters, ArrayList<Rooms> listOfRooms) {
+        for (Rooms room : listOfRooms) {
+            for (Monster monster : listOfMonsters) {
+                if (room.getMonstersIncluded().contains(monster.getMonsterID())) {
+                    room.getRoomMonsters().add(monster);
+                }
+            }
+        }
+    }//end addMonstersToRoom
 
 }//end Game

@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class Player {
 
     //Player attributes
-    //Lincoln Bruce
     private int health;
     private int maxHealth;
     private int magic;
@@ -62,7 +61,6 @@ public class Player {
     }
 
     //Getters and Setters
-    //Lincoln Bruce
     public int getHealth() {
         return health;
     }
@@ -241,8 +239,8 @@ public class Player {
         this.description = description;
     }
 
-    //Method to display the player inventory
-    //Thuy Vy
+    // Method to display the player inventory
+    // Thuy Vy
     public void inventory() {
         if (getPlayerInventory().isEmpty()) {
             System.out.println("You didn't pick up any items yet.");
@@ -252,10 +250,217 @@ public class Player {
                 System.out.println("- " + item.getItemName());
             }
         }
+    }//end inventory
+
+    // Method to inspect an item in the player's inventory
+    //Huyen Pham
+    public void inspectItem(String itemName, Player mainCharacter) {
+        for (Item item : mainCharacter.getPlayerInventory()) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                System.out.println("Inspecting: " + itemName);
+                System.out.println("Description: " + item.getItemDescription());
+                System.out.println("Type: " + item.getItemType());
+                System.out.println("Value: " + item.getItemValue());
+                System.out.println("~~~~~~~~~~");
+                return;
+            }
+        }
+        System.out.println(itemName + " is not in your inventory.");
+    }//end inspectItem
+
+    //Method to pick up an item
+    //Thuy Vy
+    public void pickup(String itemName, Player mainCharacter, Rooms currentRoom) {
+        for (Item item : currentRoom.getRoomInventory()) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                mainCharacter.getPlayerInventory().add(item);
+                currentRoom.getRoomInventory().remove(item);
+                System.out.println(itemName + " has been added to your inventory.");
+                checkAura(item, mainCharacter);
+                return;
+            }
+        }
+        System.out.println("There is no " + itemName + " in this room.");
+    }//end pickup
+
+    //Method to check if the item picked up is an aura
+    //Lincoln Bruce
+    public void checkAura(Item item, Player mainCharacter) {
+        for (Item aura : mainCharacter.getPlayerInventory()) {
+            if (aura.getItemType().equalsIgnoreCase("aura")) {
+                if (item instanceof Aura) {
+                    Aura auraItem = (Aura) item;
+                    System.out.println("This item boost your stats from the inventory");
+                    mainCharacter.setMagic(mainCharacter.getMagic() + auraItem.getAddedMagic());
+                    mainCharacter.setDexterity(mainCharacter.getDexterity() + auraItem.getAddedDex());
+                    mainCharacter.setDefense(mainCharacter.getDefense() + auraItem.getAddedDefense());
+                    System.out.println("Your magic has been boosted by " + auraItem.getAddedMagic());
+                    System.out.println("Your dexterity has been boosted by " + auraItem.getAddedDex());
+                    System.out.println("Your defense has been boosted by " + auraItem.getAddedDefense());
+                }
+            }
+        }
+    }
+
+    // Method to drop an item
+    // Thuy Vy
+    public void drop(String itemName, Player mainCharacter, Rooms currentRoom) {
+        for (Item item : mainCharacter.getPlayerInventory()) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                System.out.println(itemName + " has been dropped from your inventory.");
+                checkAuraDrop(item, mainCharacter);
+                mainCharacter.getPlayerInventory().remove(item);
+                currentRoom.getRoomInventory().add(item);
+                return;
+            }
+        }
+        System.out.println("You don't have " + itemName + " in your inventory.");
+    }//end drop
+
+    //Method to check if the item dropped is an aura
+    //Lincoln Bruce
+    public void checkAuraDrop(Item item, Player mainCharacter) {
+        for (Item aura : mainCharacter.getPlayerInventory()) {
+            if (aura.getItemType().equalsIgnoreCase("aura")) {
+                if (item instanceof Aura) {
+                    Aura auraItem = (Aura) item;
+                    System.out.println("You lost your boosts");
+                    mainCharacter.setMagic(mainCharacter.getMagic() - auraItem.getAddedMagic());
+                    mainCharacter.setDexterity(mainCharacter.getDexterity() - auraItem.getAddedDex());
+                    mainCharacter.setDefense(mainCharacter.getDefense() - auraItem.getAddedDefense());
+                    System.out.println("Your magic has been reduced by " + auraItem.getAddedMagic());
+                    System.out.println("Your dexterity has been reduced by " + auraItem.getAddedDex());
+                    System.out.println("Your defense has been reduced by " + auraItem.getAddedDefense());
+                }
+            }
+        }
+    }
+
+    //Method to display items in the room
+    //Kenny Amador
+    public void displayItems(Rooms rooms) {
+        if (rooms.itemsIncluded.get(0).equalsIgnoreCase("n/a")) {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("There are no items in this room");
+        } else if (rooms.getShop()) {
+            for (Item item : rooms.getRoomInventory()) {
+                System.out.println("[" + item + "]" + " cost: " + item.getItemValue());
+            }
+            System.out.println("~~~~~~~~~~");
+        } else {
+            System.out.print("Items in this room: ");
+            for (Item item : rooms.getRoomInventory()) {
+                System.out.println("[" + item + "]");
+            }
+        }
+    }//end displayItems
+
+    // Method to display monsters in the room
+    // Lincoln Bruce
+    public void displayMonsters(Rooms currentRoom) {
+        if (!currentRoom.getRoomMonsters().isEmpty()) {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Monsters in this room: ");
+            for (Monster monster : currentRoom.getRoomMonsters()) {
+                System.out.println("[" + monster.getName() + "]");
+            }
+            System.out.println("Enter 'fight' to fight the monster.");
+        }
+        else {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("There are no monsters in this room.");
+        }
+    }
+
+    // Method to display puzzles in room
+    // Lincoln Bruce
+    public void displayPuzzles(Rooms currentRoom) {
+        if (!currentRoom.getRoomPuzzle().isEmpty()) {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Puzzles in this room: ");
+            for (Puzzle puzzle : currentRoom.getRoomPuzzle()) {
+                System.out.println("[" + puzzle.getName() + "]");
+            }
+            System.out.println("Enter 'puzzle' to interact with the puzzle.");
+        }
+        else {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("There are no puzzles in this room.");
+        }
+        System.out.println("~~~~~~~~~~");
+    }
+
+    // Method to use healing items
+    // Ginette Wilson - Lincoln Bruce
+    public void consume(String itemName, Player player) {
+        for (Item item : player.getPlayerInventory()) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                if (item instanceof Consumable) {
+                    Consumable consumable = (Consumable) item;
+                    if (((Consumable) item).getHealedHealth() == 900) {
+                        int healedHealth = player.getMaxHealth() / 2;
+                        // Remove item from inventory
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        // Recover player's health
+                        player.setHealth(player.getHealth() + healedHealth);
+                        if (player.getHealth()>player.getMaxHealth()) {
+                            player.setHealth(player.getMaxHealth());
+                        }
+                        System.out.println("You have been healed for " + healedHealth + " HP.");
+                        return;
+                    } else if (((Consumable) item).getHealedMana() == 900) {
+                        int healedMana = player.getMaxMana() / 2;
+                        // Remove item from inventory
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        // Recover player's mana
+                        player.setMana(player.getMana() + healedMana);
+                        if (player.getMana()>player.getMaxMana()) {
+                            player.setMana(player.getMaxMana());
+                        }
+                        System.out.println("You have been healed for " + healedMana + " MP.");
+                        return;
+                    } else if (((Consumable) item).getHealedHealth() == 500) {
+                        player.setHealth(player.getMaxHealth());
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        System.out.println("You have been healed to full health.");
+                    } else if (((Consumable) item).getHealedMana() == 500) {
+                        player.setMana(player.getMaxMana());
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        System.out.println("You have been healed to full mana.");
+                    } else {
+                        int healedHealth = consumable.getHealedHealth();
+                        int healedMana = consumable.getHealedMana();
+                        // Remove item from inventory
+                        player.getPlayerInventory().remove(item);
+                        System.out.println(itemName + " has been used.");
+                        // Recover player's health and mana
+                        player.setHealth(player.getHealth() + healedHealth);
+                        player.setMana(player.getMana() + healedMana);
+                        if (player.getHealth() > player.getMaxHealth()) {
+                            player.setHealth(player.getMaxHealth());
+                        }
+                        if (player.getMana() > player.getMaxMana()) {
+                            player.setMana(player.getMaxMana());
+                        }
+                        System.out.println("You have been healed for " + healedHealth + " HP and " + healedMana + " MP.");
+                        return;
+                    }
+
+                } else {
+                    System.out.println(itemName + " is not a healing item.");
+                    return;
+                }
+            }
+        }
+        System.out.println(itemName + " not found in inventory.");
     }
 
 
-    // method to escape from the battle
+    // Method to escape from the battle
     // Ginette Wilson
     public void escape(Rooms previousRoom, boolean inBattle) {
         if (inBattle) {
@@ -270,7 +475,8 @@ public class Player {
         }
     }
 
-    // Huyen Pham &  Ginette Wilson
+    // Method to equip an item
+    // Huyen Pham - Ginette Wilson
     public void equipItem(String itemName) {
         boolean itemFound = false;
         for (Item item : playerInventory) {
@@ -308,7 +514,7 @@ public class Player {
     }
 
     // Apply stats from an equipable item
-// Huyen Pham
+    // Huyen Pham
     private void applyStats(Equipable item) {
         // Update player stats based on the equipable item's properties
         this.maxHealth += item.getAddedHealth();
@@ -319,7 +525,7 @@ public class Player {
     }
 
     // Revert stats from an unequipped item
-//Huyen Pham
+    // Huyen Pham
     private void revertStats(Equipable item) {
         // Revert player stats when an item is unequipped
         this.maxHealth -= item.getAddedHealth();
@@ -329,7 +535,8 @@ public class Player {
         this.defense -= item.getAddedDefense();
     }
 
-    //Method to level up the player
+    // Method to level up the player
+    // Lincoln Bruce
     public void levelUp() {
         if (playerExp >= playerMaxExp && playerLevel < 5) {
             if (playerLevel == 1 && playerExp >= 100) {
@@ -387,10 +594,25 @@ public class Player {
         }
     }
 
-
+    // Method to interact with a puzzle
+    // Thuy Vy Pham
+    public void examinePuzzle(Rooms currentRoom) {
+        if (!currentRoom.getRoomPuzzle().isEmpty()) {
+            System.out.println("~~~~~ Puzzle ~~~~~");
+            System.out.println("You have encountered a puzzle in this room.");
+            System.out.println("Puzzle: " + currentRoom.getRoomPuzzle().get(0).getName());
+            System.out.println("Description: " + currentRoom.getRoomPuzzle().get(0).getDescription());
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Enter 'solve' to solve the puzzle.");
+            System.out.println("Enter 'exit' to exit the puzzle.");
+        }
+        else {
+            System.out.println("There are no puzzles in this room.");
+        }
+    }
 
     //Method to solve the puzzle
-    // Thuy Vy Pham
+    // Thuy Vy Pham - Lincoln Bruce
     public void solvePuzzle(String solution, ArrayList<Item> playerInventory, ArrayList<Item> listOfItems, Rooms currentRoom, ArrayList<Puzzle> roomPuzzle) {
         if (currentRoom.getRoomPuzzle() != null) {
             String itemToUse = "";
@@ -406,8 +628,7 @@ public class Player {
                     System.out.println("Exiting puzzle... You can return to solve it later.");
                     break;
                 }
-
-                if (solution.equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getSolution())) {
+                else if (solution.equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getSolution())) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getSolvedMessage());
                     rewardPlayer(currentRoom, listOfItems, roomPuzzle);
                     currentRoom.getRoomPuzzle().get(0).setSolved(true);
@@ -437,7 +658,7 @@ public class Player {
     }
 
     //Method to reward the player after a puzzle
-    // Thuy Vy Pham
+    // Thuy Vy Pham - Lincoln Bruce
     public void rewardPlayer(Rooms currentRoom, ArrayList<Item> listOfItems, ArrayList<Puzzle> roomPuzzle) {
         if (currentRoom.getRoomPuzzle().get(0).getItemReward() != null) {
             System.out.println("You have received a " + currentRoom.getRoomPuzzle().get(0).getItemReward() + "!");
@@ -458,11 +679,54 @@ public class Player {
     }
 
     //Method to malus the player after a puzzle
-    // Thuy Vy Pham
+    // Thuy Vy Pham - Lincoln Bruce
     public void malusPlayer(Rooms currentRoom, ArrayList<Puzzle> roomPuzzle) {
         if (currentRoom.getRoomPuzzle().get(0).getDamageTaken() != 0) {
             System.out.println("You have taken " + currentRoom.getRoomPuzzle().get(0).getDamageTaken() + " damage!");
             setHealth(getHealth() - currentRoom.getRoomPuzzle().get(0).getDamageTaken());
         }
     }
+
+    // Method to use damaging items
+    // Ginette Wilson
+    public void throwItem(String itemName, Monster monster, Player player) {
+        for (Item item : player.getPlayerInventory()) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
+                if (item instanceof Throwable) {
+                    Throwable throwable = (Throwable) item;
+                    int damageDealt = throwable.getDamageDealt();
+                    int dexReduction = throwable.getSpeedReduction();
+                    // Remove item from inventory
+                    player.getPlayerInventory().remove(item);
+                    System.out.println(itemName + " has been used.");
+                    // Deal damage to the monster
+                    monster.setHealth(monster.getHealth() - damageDealt);
+                    monster.setDexterity(monster.getDexterity() - dexReduction);
+                    System.out.println("You dealt " + damageDealt + " damage to the monster.");
+                    System.out.println("You dealt " + dexReduction + " dexterity to the monster.");
+                    return;
+                } else {
+                    System.out.println(itemName + " is not a damaging item.");
+                    return;
+                }
+            }
+        }
+        System.out.println(itemName + " not found in inventory.");
+    }
+
+    // Method to check if the player have the ring of regeneration
+    // Lincoln Bruce
+    public void ringOfRegeneration (ArrayList<Item> playerInventory) {
+        boolean hasRing = false;
+        for (Item item : playerInventory) {
+            if (item.getItemName().equalsIgnoreCase("Ring of Regeneration")) {
+                hasRing = true;
+            }
+        }
+        if (hasRing) {
+            System.out.println("You have the Ring of Regeneration. You will regenerate 3 health points every turn.");
+            setHealth(getHealth() + 3);
+        }
+    }
+
 }
