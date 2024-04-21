@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ import java.util.Scanner;
  * It allows reading puzzle details from a file and managing puzzle properties.
  */
 
-public class Puzzle {
+public class Puzzle implements Serializable {
     private String puzzleID;
     private String name;
     private String description;

@@ -1,4 +1,6 @@
-public class Equipable extends Item {
+import java.io.Serializable;
+
+public class Equipable extends Item implements Serializable {
 
     private int addedHealth;
     private int addedMagic;

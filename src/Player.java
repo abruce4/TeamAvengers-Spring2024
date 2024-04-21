@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ import java.util.Scanner;
  * This class represents a player entity within a game. Each player object encapsulates information
  */
 
-public class Player {
+public class Player implements Serializable {
 
     //Player attributes
     private int health;

@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ import java.util.Scanner;
  * Written: Apr 9, 2024
  * This class represents a monster entity within a game. Each monster object encapsulates information
  */
-public class Monster {
+public class Monster implements Serializable {
 
     //The following variables are the common attribute between all monsters
     //Lincoln Bruce

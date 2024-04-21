@@ -1,4 +1,6 @@
-public class Throwable extends Item {
+import java.io.Serializable;
+
+public class Throwable extends Item implements Serializable {
 
     private int damageDealt;
     private int dexReduction;
