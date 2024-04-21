@@ -1,4 +1,6 @@
-public class Consumable extends Item {
+import java.io.Serializable;
+
+public class Consumable extends Item implements Serializable{
 
     private int healedHealth;
     private int healedMana;

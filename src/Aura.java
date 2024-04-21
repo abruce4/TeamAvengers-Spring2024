@@ -1,4 +1,6 @@
-public class Aura extends Item {
+import java.io.Serializable;
+
+public class Aura extends Item implements Serializable {
 
     private int addedMagic;
     private int addedDex;
