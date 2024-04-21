@@ -198,7 +198,6 @@ public class Game implements Serializable {
         if (command.equalsIgnoreCase("solve")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("What is your answer?");
-            command = scan.nextLine();
             mainCharacter.solvePuzzle(command, mainCharacter.getPlayerInventory(), listOfItems, rooms, rooms.getRoomPuzzle());
             return currentRoom;
         }
