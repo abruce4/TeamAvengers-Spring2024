@@ -1,4 +1,4 @@
-Skeleton-An undead creature, deprived of its skin and made entirely of dry bones.-20-8-15-8-10-1-M1
+Skeleton-An undead creature, deprived of its skin and made entirely of dry bones.-20-8-15-8-1000-1-M1
 Flamespawn-A bundle of flames that takes the shape of a large bird.-45-13-20-12-30-8-M2
 Zombie-An undead creature that uses its bloody bones and rotten flesh to move-70-25-20-5-30-5-M3
 Titanoboa-A giant snake that has a blade like interior process and has a high amount of palatal and marginal tooth position.-20-10-25-5-20-4-M4
