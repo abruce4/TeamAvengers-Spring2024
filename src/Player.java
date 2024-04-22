@@ -345,6 +345,7 @@ public class Player implements Serializable {
                 setDexterity(getDexterity() + 8);
                 setDefense(getDefense() + 3);
                 playerSpells.add(spells.get(1));
+                playerSpells.add(spells.get(7));
                 System.out.println("You leveled up to level 2!");
             } else if (playerLevel == 2 && playerExp >= 300) {
                 playerLevel = 3;

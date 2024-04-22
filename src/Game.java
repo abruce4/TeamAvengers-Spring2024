@@ -171,9 +171,9 @@ public class Game implements Serializable {
         for (Item item : currentRoom.getRoomInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName) & mainCharacter.getPlayerCoins() >= item.getItemValue()) {
                 mainCharacter.getPlayerInventory().add(item);
-                currentRoom.getRoomInventory().remove(item);
                 System.out.println(itemName + " has been added to your inventory.");
                 mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() - item.getItemValue());
+                System.out.println("Coins: " + mainCharacter.getPlayerCoins());
                 return;
             }
         }
@@ -428,10 +428,9 @@ public class Game implements Serializable {
         for (Item item : mainCharacter.getPlayerInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
                 mainCharacter.getPlayerInventory().remove(item);
-                currentRoom.getRoomInventory().add(item);
-                System.out.println(itemName + " has been dropped from your inventory.");
+                System.out.println(itemName + " has been removed from your inventory.");
                 mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() + item.getItemValue());
-                System.out.println(mainCharacter.getPlayerCoins());
+                System.out.println("Coins: " + mainCharacter.getPlayerCoins());
                 return;
             }
         }
@@ -691,9 +690,14 @@ public class Game implements Serializable {
                             System.out.println("Which item would you like to consume?");
                             String itemToConsume = scanner.nextLine();
                             consume(itemToConsume, mainCharacter);
+                            mainCharacter.ringOfRegeneration(mainCharacter.getPlayerInventory());
+                            dealDamage2(monster);
                         }
                         else if (action.equalsIgnoreCase("inventory")) {
                             mainCharacter.inventory();
+                        }
+                        else if (action.equalsIgnoreCase("stats")) {
+                            displayStats();
                         }
                         else if (action.equalsIgnoreCase("escape")) {
                             mainCharacter.escape(currentRoom, mainCharacter.getInBattle());
@@ -705,6 +709,9 @@ public class Game implements Serializable {
                             System.out.println("Which spell will you like to case");
                             String spells = scanner.nextLine();
                             activateSpells(spells, monster, mainCharacter);
+                            if (monster.getHealth() > 0) {
+                                dealDamage2(monster);
+                            }
                         } else {
                             System.out.println("You can't do that in battle. Please try again.");
                         }
@@ -862,7 +869,7 @@ public class Game implements Serializable {
             }
         }
 
-        if(spellName.equalsIgnoreCase("Ice Shield")) {
+        if(spellName.equalsIgnoreCase("Ice Castle")) {
             for (Spells spell : listOfSpells) {
                 if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName) & mainCharacter.getMana() > spell.getManaCost()) {
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
