@@ -395,6 +395,7 @@ public class Player implements Serializable {
     //Method to solve the puzzle
     // Thuy Vy Pham - Lincoln Bruce
     public void solvePuzzle(String solution, ArrayList<Item> playerInventory, ArrayList<Item> listOfItems, Rooms currentRoom, ArrayList<Puzzle> roomPuzzle) {
+        currentRoom.getRoomPuzzle().get(0).setAttemptsLeft(currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() - 1);
         if (currentRoom.getRoomPuzzle() != null) {
             String itemToUse = "";
             for (Item item : playerInventory) {
@@ -409,7 +410,7 @@ public class Player implements Serializable {
                     System.out.println("Exiting puzzle... You can return to solve it later.");
                     break;
                 }
-                else if (solution.equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getSolution())) {
+                else if (solution.equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getSolution().trim())) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getSolvedMessage());
                     rewardPlayer(currentRoom, listOfItems, roomPuzzle);
                     currentRoom.getRoomPuzzle().get(0).setSolved(true);
@@ -423,10 +424,11 @@ public class Player implements Serializable {
                     break;
                 } else if (solution.equalsIgnoreCase("eot") || solution.equalsIgnoreCase("Eye of Truth")) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getHint());
-                } else if (currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() == 1) {
+                } else if (currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() == 0) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getFailMessage());
                     malusPlayer(currentRoom, roomPuzzle);
                     currentRoom.getRoomPuzzle().get(0).setSolved(true);
+                    currentRoom.setRoomPuzzle(null);
                     break;
                 } else {
                     currentRoom.getRoomPuzzle().get(0).setAttemptsLeft(currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() - 1);

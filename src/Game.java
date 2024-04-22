@@ -300,10 +300,10 @@ public class Game implements Serializable {
             interactPuzzle(rooms);
             return currentRoom;
         }
-        if (command.equalsIgnoreCase("Eye of truth")) {
-            eyeOfTruth(rooms);
-            return currentRoom;
-        }
+       // if (command.equalsIgnoreCase("Eye of truth")) {
+         //   eyeOfTruth(rooms);
+           // return currentRoom;
+        //}
 
         return -1;
     }
@@ -379,7 +379,7 @@ public class Game implements Serializable {
     // Method to display puzzles in room
     // Lincoln Bruce
     public void displayPuzzles(Rooms currentRoom) {
-        if (!currentRoom.getRoomPuzzle().isEmpty()) {
+        if (currentRoom.getRoomPuzzle() != null && !currentRoom.getRoomPuzzle().isEmpty()) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Puzzles in this room: ");
             for (Puzzle puzzle : currentRoom.getRoomPuzzle()) {
@@ -397,8 +397,6 @@ public class Game implements Serializable {
     // Method to interact with puzzle
     // Thuy Vy Pham
     public void interactPuzzle(Rooms currentRoom) {
-        System.out.println("~~~~~ Puzzle ~~~~~");
-        System.out.println("You have encountered a puzzle in this room.");
         System.out.println("~~~~~~~~~~");
         System.out.println("Puzzle: " + currentRoom.getRoomPuzzle().get(0).getName());
         System.out.println("Description: " + currentRoom.getRoomPuzzle().get(0).getDescription());
@@ -705,6 +703,9 @@ public class Game implements Serializable {
                             System.out.println("Which item would you like to throw?");
                             String itemToThrow = scanner.nextLine();
                             throwItem(itemToThrow, monster, mainCharacter);
+                            if (monster.getHealth() > 0) {
+                                dealDamage2(monster);
+                            }
                         } else if (action.equalsIgnoreCase("spells")) {
                             System.out.println("Which spell will you like to case");
                             String spells = scanner.nextLine();
