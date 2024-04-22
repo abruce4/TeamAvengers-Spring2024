@@ -3,6 +3,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**Class: Spells
+ * @author Team Avengers / Thuy
+ * @version 1.0
+ * Course: ITEC 3860 Spring 2024
+ * Written: Apr 9, 2024
+ * This class represents a spell entity within a game. Each spell object encapsulates information
+ */
+
 //Thuy Vy Pham
 public class Spells implements Serializable {
     private String name;
