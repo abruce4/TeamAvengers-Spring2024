@@ -304,6 +304,10 @@ public class Game implements Serializable {
             eyeOfTruth(rooms);
             return currentRoom;
         }
+        if (command.equalsIgnoreCase("quit")) {
+            System.out.println("Thank you for playing Arcane Odyssey");
+            System.exit(0);
+        }
 
         return -1;
     }
