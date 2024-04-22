@@ -58,7 +58,7 @@ public class Game implements Serializable {
         currentRooms.setHasBeenVisited(true);
         System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
         String command = scan.next();
-        while (!command.equalsIgnoreCase("save")) {
+        while (!command.equalsIgnoreCase("save") && !gameOver) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Please enter a navigation command north,east,south,west to move around");
             scan = new Scanner(System.in);
@@ -323,6 +323,7 @@ public class Game implements Serializable {
                     if (mainCharacter.getHealth() <= 0) {
                         System.out.println("You have been defeated by the " + monsterName);
                         mainCharacter.setInBattle(false);
+                        gameOver();
                         break;
                     } else if (monster.getHealth() <= 0) {
                         System.out.println("You have defeated the " + monsterName);
@@ -579,5 +580,12 @@ public class Game implements Serializable {
             }
         }
     }//end addMonstersToRoom
+
+    //Method for game over
+    //Lincoln Bruce
+    public void gameOver() {
+        System.out.println("Game Over");
+        gameOver = true;
+    }//end gameOver
 
 }//end Game
