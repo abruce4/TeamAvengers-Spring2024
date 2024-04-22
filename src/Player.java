@@ -443,7 +443,7 @@ public class Player implements Serializable {
     //Method to reward the player after a puzzle
     // Thuy Vy Pham - Lincoln Bruce
     public void rewardPlayer(Rooms currentRoom, ArrayList<Item> listOfItems, ArrayList<Puzzle> roomPuzzle) {
-        if (currentRoom.getRoomPuzzle().get(0).getItemReward() != null) {
+        if (!currentRoom.getRoomPuzzle().get(0).getItemReward().equalsIgnoreCase("N/A")) {
             System.out.println("You have received a " + currentRoom.getRoomPuzzle().get(0).getItemReward() + "!");
             for (Item item : listOfItems) {
                 if (item.getItemName().equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getItemReward())) {

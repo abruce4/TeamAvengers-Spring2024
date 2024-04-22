@@ -300,10 +300,10 @@ public class Game implements Serializable {
             interactPuzzle(rooms);
             return currentRoom;
         }
-       // if (command.equalsIgnoreCase("Eye of truth")) {
-         //   eyeOfTruth(rooms);
-           // return currentRoom;
-        //}
+        if (command.equalsIgnoreCase("Eye of truth")) {
+            eyeOfTruth(rooms);
+            return currentRoom;
+        }
 
         return -1;
     }
