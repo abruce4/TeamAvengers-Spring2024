@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="completely finished the items and now about to test(Lincoln Bruce)">
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="added back the spells">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Aura.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Aura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Consumable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Consumable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/EmptyClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/EmptyClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Equipable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Equipable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Monster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Rooms.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Rooms.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Rooms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Rooms.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Spells.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Spells.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Spells.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Spells.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Throwable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Throwable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Spells.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spells.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,12 +46,12 @@
     &quot;assignee&quot;: &quot;abruce4&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/abruce4/TeamAvengers-Spring2024.git",
-    "accountId": "e8178b44-5732-4f8e-8e0d-8a67283beaf5"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/abruce4/TeamAvengers-Spring2024.git&quot;,
+    &quot;accountId&quot;: &quot;e8178b44-5732-4f8e-8e0d-8a67283beaf5&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -478,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713663835079</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="added back the spells">
+      <option name="closed" value="true" />
+      <created>1713748782684</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1713748782684</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished working on items for now, waiting to test(Lincoln Bruce)" />
     <MESSAGE value="Edit Map class by Thuy Vy" />
     <MESSAGE value="Create Spells.java class by Thuy Vy" />
     <MESSAGE value="Add readSpells method by Thuy Vy" />
@@ -521,7 +546,8 @@
     <MESSAGE value="fixed the attack method, will work on it and player level more today (Lincoln Bruce)" />
     <MESSAGE value="Add displayPuzzle() to Game class by Thuy Vy" />
     <MESSAGE value="completely finished the items and now about to test(Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="completely finished the items and now about to test(Lincoln Bruce)" />
+    <MESSAGE value="added back the spells" />
+    <option name="LAST_COMMIT_MESSAGE" value="added back the spells" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

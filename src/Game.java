@@ -668,27 +668,38 @@ public class Game implements Serializable {
     public void activateSpells(String spellName, Monster monster, Player mainCharacter) {
         if (spellName.equalsIgnoreCase("Ray of fire")) {
             for (Spells spell : listOfSpells) {
-                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName) & mainCharacter.getMana() > spell.getManaCost()) {
                     monster.setHealth(monster.getHealth() - spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have dealt" + spell.getEffects() + " damage");
+                    System.out.println("Remaining mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }//end if
         if(spellName.equalsIgnoreCase("Flame Shield")){
             for (Spells spell : listOfSpells) {
-                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName) & mainCharacter.getMana() > spell.getManaCost()) {
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have gained " + spell.getEffects() + " amount of defense");
+                    System.out.println("Remaining mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
+                    return;
                 }
             }
         }//end if
 
         if(spellName.equalsIgnoreCase("Heat Wave")){
             for (Spells spell : listOfSpells) {
-                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName) & mainCharacter.getMana() > spell.getManaCost()) {
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
                     mainCharacter.setDefense(mainCharacter.getDefense() - spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have dealt" + spell.getEffects() + " damage");
+                    System.out.println("Remaining mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }
@@ -696,32 +707,54 @@ public class Game implements Serializable {
             Random random = new Random();
             int meteors = random.nextInt();
             for (Spells spell : listOfSpells) {
-                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName) & mainCharacter.getMana() > spell.getManaCost()) {
                     mainCharacter.setHealth(mainCharacter.getMaxHealth() - (meteors * spell.getEffects()));
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have casted " + meteors + " that deals 15 damage for each");
+                    System.out.println("Remaining mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }
         if(spellName.equalsIgnoreCase("flame master")){
             for (Spells spell : listOfSpells) {
-                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName) & mainCharacter.getMana() > spell.getManaCost()) {
                     mainCharacter.setHealth(mainCharacter.getHealth() + spell.getEffects());
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have gained " + spell.getEffects() + " health and defense");
+                    System.out.println("Remaining mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
+                    dealDamage2(monster);
+                    return;
                 }
             }
         }
 
         if(spellName.equalsIgnoreCase("Ice Shield")) {
             for (Spells spell : listOfSpells) {
-                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName)) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName) & mainCharacter.getMana() > spell.getManaCost()) {
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
+                    System.out.println("You have gained " + spell.getEffects() + " amount of defense");
+                    System.out.println("Remaining mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
+                    dealDamage2(monster);
+                    return;
+                }
+            }
+        }
+
+        if(spellName.equalsIgnoreCase("Channel Energy")) {
+            for (Spells spell : listOfSpells) {
+                if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName) & mainCharacter.getMana() > spell.getManaCost()) {
+                    mainCharacter.setMana(mainCharacter.getMana() + spell.getEffects());
+                    System.out.println("Remaining mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
+                    return;
                 }
             }
         }
         else{
-            System.out.println("You cannot use this spell");
+            System.out.println("You cannot use this spell or you have ran of out mana");
         }
     }
 
