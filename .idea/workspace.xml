@@ -4,23 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ede46a0-dd43-4e2c-81a9-4bd7fd7b785a" name="Changes" comment="(Lincoln Bruce)">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_20_2024_10_23_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_21_2024_1_55_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_21_2024_1_55_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Equipable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Equipable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Monster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Puzzle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Spells.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Spells.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Throwable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Throwable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save.bin" beforeDir="false" afterPath="$PROJECT_DIR$/save.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="completely finished the items and now about to test(Lincoln Bruce)">
+      <change beforePath="$PROJECT_DIR$/src/Spells.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spells.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,16 +28,16 @@
     &quot;assignee&quot;: &quot;abruce4&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/abruce4/TeamAvengers-Spring2024.git&quot;,
-    &quot;accountId&quot;: &quot;e8178b44-5732-4f8e-8e0d-8a67283beaf5&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/abruce4/TeamAvengers-Spring2024.git",
+    "accountId": "e8178b44-5732-4f8e-8e0d-8a67283beaf5"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2fOS1SO1bbSwGVm82JjtQBy0F1Z" />
+  <component name="ProjectId" id="2dtBpXZNAPK9cS6MQMxuRKXdxd3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -50,25 +47,45 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.Run.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Game.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/linco/IdeaProjects/Individial Assignment&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src" />
+      <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src\Puzzles" />
+      <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src\Monsters" />
+      <recent name="C:\Users\linco\OneDrive\Desktop\TeamAvengers-Spring2024\src\Items" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="Run" type="Application" factoryName="Application">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="TeamAvengers-Spring2024" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -79,41 +96,389 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1ede46a0-dd43-4e2c-81a9-4bd7fd7b785a" name="Changes" comment="" />
-      <created>1713670419307</created>
+      <changelist id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="Print my name to the console Lincoln Bruce" />
+      <created>1710817678022</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1713670419307</updated>
-      <workItem from="1713748193271" duration="28000" />
-      <workItem from="1713748245312" duration="295000" />
+      <updated>1710817678022</updated>
+      <workItem from="1710817679173" duration="788000" />
+      <workItem from="1712681902239" duration="12247000" />
+      <workItem from="1712753941084" duration="9200000" />
+      <workItem from="1712849759235" duration="925000" />
+      <workItem from="1712852633706" duration="2000" />
+      <workItem from="1712861400756" duration="60000" />
+      <workItem from="1712970710953" duration="28944000" />
+      <workItem from="1713320904026" duration="12213000" />
+      <workItem from="1713333668176" duration="19383000" />
+      <workItem from="1713468430024" duration="1771000" />
+      <workItem from="1713662427452" duration="1420000" />
     </task>
-    <task id="LOCAL-00001" summary="(Lincoln Bruce)">
+    <task id="LOCAL-00001" summary="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)">
       <option name="closed" value="true" />
-      <created>1713708867704</created>
+      <created>1712691368453</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1713708867704</updated>
+      <updated>1712691368453</updated>
     </task>
-    <task id="LOCAL-00002" summary="(Lincoln Bruce)">
+    <task id="LOCAL-00002" summary="Modified the Monster.java and Monsters.txt to add the room ID.(Lincoln Bruce)">
       <option name="closed" value="true" />
-      <created>1713722927077</created>
+      <created>1712785910437</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1713722927077</updated>
+      <updated>1712785910437</updated>
     </task>
-    <task id="LOCAL-00003" summary="(Lincoln Bruce)">
+    <task id="LOCAL-00003" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
       <option name="closed" value="true" />
-      <created>1713722940902</created>
+      <created>1712986031488</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1713722940902</updated>
+      <updated>1712986031488</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1712986320424</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712986320424</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1712986418461</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712986418461</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1712986505525</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712986505525</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Removed packages(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713024557954</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713024557954</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Worked on the items inheritance(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713028710597</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713028710598</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Worked on the items inheritance(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713050649012</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713050649012</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Finished working on items for now, waiting to test(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713052494677</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713052494677</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Edit Map class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713149512830</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713149512830</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Create Spells.java class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713150718405</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713150718405</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add readSpells method by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713151663291</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713151663291</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update Puzzle Class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713155214441</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713155214441</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Monsters.txt update(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713188311212</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713188311212</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Monsters.txt update(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713188957789</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713188957789</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Changed ID to string update(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713201281833</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713201281833</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Changed character method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713201907866</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713201907866</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Changed character method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713203386663</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1713203386663</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add getRoom() method by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713245258689</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713245258689</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Create Player class and pickup() method by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713245317370</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1713245317370</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added the look command that for now will display the item IDs. Changed the navigation system to use if statements instead of switch case and renamed it to checkCommand.">
+      <option name="closed" value="true" />
+      <created>1713297229242</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713297229242</updated>
+    </task>
+    <task id="LOCAL-00023" summary="rearranged the roomParsing to make it less confusing.">
+      <option name="closed" value="true" />
+      <created>1713301801831</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713301801831</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Chenged the map class to only create the map and put all parsing back into their respective classes (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713324126920</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1713324126920</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Changed the map class to only create the map and put all parsing back into their respective classes (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713325675792</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1713325675792</updated>
+    </task>
+    <task id="LOCAL-00026" summary="rearanged most of the stuff for more clarification, will continue and explain tomorrow(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713334991794</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1713334991794</updated>
+    </task>
+    <task id="LOCAL-00027" summary="rearanged most of the stuff for more clarification, will continue and explain tomorrow(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713335118564</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1713335118564</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Changed main back to run method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713357003356</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1713357003356</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Changed main back to run method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713357637873</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1713357637873</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Changed main back to run method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713358009218</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1713358009218</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Changed main back to run method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713370430799</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1713370430799</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Changed main back to run method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713370447393</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1713370447393</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Changed main back to run method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713374774418</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1713374774418</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Changed main back to run method(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713378830609</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1713378830609</updated>
+    </task>
+    <task id="LOCAL-00035" summary="added display stats and moved mainCharacter to game constructor to simplify the runGame method">
+      <option name="closed" value="true" />
+      <created>1713395158569</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1713395158569</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Method to read levels from file by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713480616562</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1713480616562</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Working on the player's levels by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713481033150</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1713481033150</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Working on the player's levels by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713482812919</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1713482812920</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Add inventory() in Game class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713487208490</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1713487208490</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Update Puzzle class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713500655867</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1713500655867</updated>
+    </task>
+    <task id="LOCAL-00041" summary="fixed the attack method, will work on it and player level more today (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713552721543</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1713552721543</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Add displayPuzzle() to Game class by Thuy Vy">
+      <option name="closed" value="true" />
+      <created>1713659537594</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1713659537594</updated>
+    </task>
+    <task id="LOCAL-00043" summary="completely finished the items and now about to test(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713662160459</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1713662160459</updated>
+    </task>
+    <task id="LOCAL-00044" summary="completely finished the items and now about to test(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713662187162</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1713662187162</updated>
+    </task>
+    <task id="LOCAL-00045" summary="completely finished the items and now about to test(Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713663835079</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1713663835079</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,8 +496,35 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Finished working on items for now, waiting to test(Lincoln Bruce)" />
+    <MESSAGE value="Edit Map class by Thuy Vy" />
+    <MESSAGE value="Create Spells.java class by Thuy Vy" />
+    <MESSAGE value="Add readSpells method by Thuy Vy" />
+    <MESSAGE value="Update Puzzle Class by Thuy Vy" />
+    <MESSAGE value="Monsters.txt update(Lincoln Bruce)" />
+    <MESSAGE value="Changed ID to string update(Lincoln Bruce)" />
+    <MESSAGE value="Changed character method(Lincoln Bruce)" />
+    <MESSAGE value="Add getRoom() method by Thuy Vy" />
+    <MESSAGE value="Create Player class and pickup() method by Thuy Vy" />
+    <MESSAGE value="added the look command that for now will display the item IDs. Changed the navigation system to use if statements instead of switch case and renamed it to checkCommand." />
+    <MESSAGE value="rearranged the roomParsing to make it less confusing." />
+    <MESSAGE value="Chenged the map class to only create the map and put all parsing back into their respective classes (Lincoln Bruce)" />
+    <MESSAGE value="Changed the map class to only create the map and put all parsing back into their respective classes (Lincoln Bruce)" />
+    <MESSAGE value="rearanged most of the stuff for more clarification, will continue and explain tomorrow(Lincoln Bruce)" />
+    <MESSAGE value="Changed main back to run method(Lincoln Bruce)" />
+    <MESSAGE value="added display stats and moved mainCharacter to game constructor to simplify the runGame method" />
+    <MESSAGE value="Start working on the attack method (Lincoln Bruce)" />
+    <MESSAGE value="Method to read levels from file by Thuy Vy" />
+    <MESSAGE value="Working on the player's levels by Thuy Vy" />
+    <MESSAGE value="Add inventory() in Game class by Thuy Vy" />
+    <MESSAGE value="Update Puzzle class by Thuy Vy" />
+    <MESSAGE value="fixed the attack method, will work on it and player level more today (Lincoln Bruce)" />
+    <MESSAGE value="Add displayPuzzle() to Game class by Thuy Vy" />
     <MESSAGE value="completely finished the items and now about to test(Lincoln Bruce)" />
-    <MESSAGE value="(Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="(Lincoln Bruce)" />
+    <option name="LAST_COMMIT_MESSAGE" value="completely finished the items and now about to test(Lincoln Bruce)" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
