@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -538,7 +539,7 @@ public class Player implements Serializable {
 
     // Method to level up the player
     // Lincoln Bruce
-    public void levelUp() {
+    public void levelUp(ArrayList<Spells> spells) {
         if (playerExp >= playerMaxExp && playerLevel < 5) {
             if (playerLevel == 1 && playerExp >= 100) {
                 playerLevel = 2;
@@ -552,6 +553,7 @@ public class Player implements Serializable {
                 setSpeed(getSpeed() + 3);
                 setDexterity(getDexterity() + 8);
                 setDefense(getDefense() + 3);
+                playerSpells.add(spells.get(1));
                 System.out.println("You leveled up to level 2!");
             } else if (playerLevel == 2 && playerExp >= 300) {
                 playerLevel = 3;
@@ -565,6 +567,7 @@ public class Player implements Serializable {
                 setSpeed(getSpeed() + 3);
                 setDexterity(getDexterity() + 5);
                 setDefense(getDefense() + 3);
+                playerSpells.add(spells.get(2));
                 System.out.println("You leveled up to level 3!");
             } else if (playerLevel == 3 && playerExp >= 600) {
                 playerLevel = 4;
@@ -578,6 +581,7 @@ public class Player implements Serializable {
                 setSpeed(getSpeed() + 3);
                 setDexterity(getDexterity() + 5);
                 setDefense(getDefense() + 3);
+                playerSpells.add(spells.get(3));
                 System.out.println("You leveled up to level 4!");
             } else if (playerLevel == 4 && playerExp >= 1000) {
                 playerLevel = 5;
@@ -589,6 +593,7 @@ public class Player implements Serializable {
                 setSpeed(getSpeed() + 4);
                 setDexterity(getDexterity() + 5);
                 setDefense(getDefense() + 3);
+                playerSpells.add(spells.get(4));
                 System.out.println("You leveled up to level 5!");
                 System.out.println("You have reached the maximum level!");
             }
