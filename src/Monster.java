@@ -25,6 +25,7 @@ public class Monster implements Serializable {
     private String monsterID;
     private int hitRate;
     private int AvoidRate;
+    private int maxHealth;
 
     //Constructor and Initialization of attributes
     //Lincoln Bruce
@@ -40,6 +41,7 @@ public class Monster implements Serializable {
         this.monsterID = monsterID;
         this.hitRate = 4 * dexterity;
         this.AvoidRate = 4 * speed;
+        this.maxHealth = health;
 
     }
 
@@ -131,6 +133,14 @@ public class Monster implements Serializable {
 
     public void setAvoidRate(int AvoidRate) {
         this.AvoidRate = AvoidRate;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     //toString method

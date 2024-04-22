@@ -16,7 +16,6 @@ public class Game implements Serializable {
 
     private int currentRoom;
     private transient Scanner scan;
-    private boolean gameOver;
     private transient Scanner scanner;
     private final Player mainCharacter;
 
@@ -38,14 +37,28 @@ public class Game implements Serializable {
     private static final ArrayList<Spells> listOfSpells = new ArrayList<>();
 
 
+    //Method to initialize the game
     //Ginette Wilson
     public Game() {
         loadGameElements();// Initialize the game map
-        System.out.println(listOfRooms.get(1).getRoomInventory());
-        gameOver = false; // Game over flag
+        System.out.println("Welcome to the Arcane Odyssey");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        loadGameStory();
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         scanner = new Scanner(System.in); // Scanner for user input
         currentRoom = 0;
         mainCharacter = new Player(25, 10, 10, 7, 20, 5, listOfRooms.get(0));
+        loadInventory(listOfItems, mainCharacter);
+    }
+
+    // Method to initialize the player inventory
+    // Lincoln Bruce
+    public void loadInventory(ArrayList<Item> listOfItems, Player mainCharacter) {
+        for (Item item : listOfItems) {
+            if (item.getItemName().equalsIgnoreCase("Spellbook")) {
+                mainCharacter.getPlayerInventory().add(item);
+            }
+        }
     }
 
     //Method to load game elements
@@ -107,7 +120,6 @@ public class Game implements Serializable {
         currentRooms.setHasBeenVisited(true);
         System.out.println(currentRooms.getRoomName() + ": " + currentRooms.getDescription());
         String command = scan.next();
-//        System.out.println(mainCharacter.getPlayerSpells().get(0));
         while (!command.equalsIgnoreCase("save")) {
             System.out.println("~~~~~~~~~~");
             System.out.println("Please enter a navigation command north,east,south,west to move around");
@@ -135,7 +147,6 @@ public class Game implements Serializable {
     }
 
     public void shop(Rooms rooms) {
-        mainCharacter.setPlayerCoins(100);
         System.out.println("Would you like to shop or sell?");
         scan = new Scanner(System.in);
         String command = scan.nextLine();
@@ -192,6 +203,8 @@ public class Game implements Serializable {
         }
         if (command.equalsIgnoreCase("look")) {
             displayItems(rooms);
+            displayMonsters(rooms);
+            displayPuzzles(rooms);
             return currentRoom;
         }
         if (command.equalsIgnoreCase("solve")) {
@@ -279,6 +292,10 @@ public class Game implements Serializable {
             return currentRoom;
 
         }
+        if (command.equalsIgnoreCase("puzzle")) {
+            interactPuzzle(rooms);
+            return currentRoom;
+        }
         if (command.equalsIgnoreCase("Eye of truth")) {
             eyeOfTruth(rooms);
             return currentRoom;
@@ -324,9 +341,44 @@ public class Game implements Serializable {
         }
     }//end displayItems
 
-    // Method to display puzzle
+    // Method to display monsters in the room
+    // Lincoln Bruce
+    public void displayMonsters(Rooms currentRoom) {
+        if (!currentRoom.getRoomMonsters().isEmpty()) {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Monsters in this room: ");
+            for (Monster monster : currentRoom.getRoomMonsters()) {
+                System.out.println("[" + monster.getName() + "]");
+            }
+            System.out.println("Enter 'fight' to fight the monster.");
+        }
+        else {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("There are no monsters in this room.");
+        }
+    }
+
+    // Method to display puzzles in room
+    // Lincoln Bruce
+    public void displayPuzzles(Rooms currentRoom) {
+        if (!currentRoom.getRoomPuzzle().isEmpty()) {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("Puzzles in this room: ");
+            for (Puzzle puzzle : currentRoom.getRoomPuzzle()) {
+                System.out.println("[" + puzzle.getName() + "]");
+            }
+            System.out.println("Enter 'puzzle' to interact with the puzzle.");
+        }
+        else {
+            System.out.println("~~~~~~~~~~");
+            System.out.println("There are no puzzles in this room.");
+        }
+        System.out.println("~~~~~~~~~~");
+    }
+
+    // Method to interact with puzzle
     // Thuy Vy Pham
-    public void displayPuzzle(Rooms currentRoom) {
+    public void interactPuzzle(Rooms currentRoom) {
         System.out.println("~~~~~ Puzzle ~~~~~");
         System.out.println("You have encountered a puzzle in this room.");
         System.out.println("~~~~~~~~~~");
@@ -456,8 +508,8 @@ public class Game implements Serializable {
         }
     }
 
-    //method to use healing items
-    //Ginette
+    // Method to use healing items
+    // Ginette Wilson - Lincoln Bruce
     public void consume(String itemName, Player player) {
         for (Item item : player.getPlayerInventory()) {
             if (item.getItemName().equalsIgnoreCase(itemName)) {
@@ -470,6 +522,9 @@ public class Game implements Serializable {
                         System.out.println(itemName + " has been used.");
                         // Recover player's health
                         player.setHealth(player.getHealth() + healedHealth);
+                        if (player.getHealth()>player.getMaxHealth()) {
+                            player.setHealth(player.getMaxHealth());
+                        }
                         System.out.println("You have been healed for " + healedHealth + " HP.");
                         return;
                     } else if (((Consumable) item).getHealedMana() == 900) {
@@ -479,6 +534,9 @@ public class Game implements Serializable {
                         System.out.println(itemName + " has been used.");
                         // Recover player's mana
                         player.setMana(player.getMana() + healedMana);
+                        if (player.getMana()>player.getMaxMana()) {
+                            player.setMana(player.getMaxMana());
+                        }
                         System.out.println("You have been healed for " + healedMana + " MP.");
                         return;
                     } else if (((Consumable) item).getHealedHealth() == 500) {
@@ -500,6 +558,12 @@ public class Game implements Serializable {
                         // Recover player's health and mana
                         player.setHealth(player.getHealth() + healedHealth);
                         player.setMana(player.getMana() + healedMana);
+                        if (player.getHealth() > player.getMaxHealth()) {
+                            player.setHealth(player.getMaxHealth());
+                        }
+                        if (player.getMana() > player.getMaxMana()) {
+                            player.setMana(player.getMaxMana());
+                        }
                         System.out.println("You have been healed for " + healedHealth + " HP and " + healedMana + " MP.");
                         return;
                     }
@@ -566,25 +630,37 @@ public class Game implements Serializable {
                     if (mainCharacter.getHealth() <= 0) {
                         System.out.println("You have been defeated by the " + monsterName);
                         mainCharacter.setInBattle(false);
+                        gameOver();
                         break;
                     } else if (monster.getHealth() <= 0) {
-                        System.out.println("You have defeated the " + monsterName);
-                        System.out.println("~~~~~~~~~~");
-                        mainCharacter.setPlayerExp(mainCharacter.getPlayerExp() + monster.getExpDrop());
-                        System.out.println("You have gained " + monster.getExpDrop() + " experience points.");
-                        System.out.println("~~~~~~~~~~");
-                        mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() + monster.getGoldDrop());
-                        System.out.println("You have gained " + monster.getGoldDrop() + " coins.");
-                        System.out.println("~~~~~~~~~~");
-                        mainCharacter.levelUp(listOfSpells);
-                        mainCharacter.setInBattle(false);
-                        break;
+                        if (monster.getName().equalsIgnoreCase("Dragon")) {
+                            gameWin();
+                        }
+                        else {
+                            System.out.println("You have defeated the " + monsterName);
+                            System.out.println("~~~~~~~~~~");
+                            mainCharacter.setPlayerExp(mainCharacter.getPlayerExp() + monster.getExpDrop());
+                            System.out.println("You have gained " + monster.getExpDrop() + " experience points.");
+                            System.out.println("~~~~~~~~~~");
+                            mainCharacter.setPlayerCoins(mainCharacter.getPlayerCoins() + monster.getGoldDrop());
+                            System.out.println("You have gained " + monster.getGoldDrop() + " coins.");
+                            System.out.println("~~~~~~~~~~");
+                            mainCharacter.levelUp(listOfSpells);
+                            mainCharacter.setInBattle(false);
+                            break;
+                        }
                     } else {
-                        System.out.println("Choose an action: attack, consume, or escape");
+                        System.out.println("Choose an action: attack, consume, spells, throw or escape");
                         String action = scanner.nextLine();
                         if (action.equalsIgnoreCase("attack")) {
-                            dealDamage(monster);
-                            dealDamage2(monster);
+                            if (mainCharacter.getSpeed() > monster.getSpeed()) {
+                                dealDamage(monster);
+                                dealDamage2(monster);
+                            }
+                            else {
+                                dealDamage2(monster);
+                                dealDamage(monster);
+                            }
                         }
                         else if (action.equalsIgnoreCase("examine")) {
                             examine(currentRoom);
@@ -615,11 +691,14 @@ public class Game implements Serializable {
     // Method for the player to deal damage to a monster
     public void dealDamage(Monster monster) {
         mainCharacter.setHitRate((4 * mainCharacter.getDexterity() + mainCharacter.getBaseHitRate()) - monster.getAvoidRate());
-        if (mainCharacter.getHitRate() > 50) {
+        // initialize a random number between 1 and 100
+        int randomNum = new Random().nextInt(100);
+        if (randomNum < mainCharacter.getHitRate()) {
             monster.setHealth(monster.getHealth() - mainCharacter.getMagic());
             System.out.println("You dealt " + mainCharacter.getMagic() + " damage to the monster.");
             System.out.println("~~~~~~~~~~");
-            System.out.println(mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
+            System.out.println(monster.getName() + " HP: " + monster.getHealth() + "/" + monster.getMaxHealth());
+            mainCharacter.ringOfRegeneration(mainCharacter.getPlayerInventory());
         } else {
             System.out.println("You missed the monster.");
         }
@@ -628,11 +707,21 @@ public class Game implements Serializable {
     //Method for the monster to deal damage to the player
     public void dealDamage2(Monster monster) {
         monster.setHitRate((4 * monster.getDexterity()) - mainCharacter.getAvoidRate());
-        if (monster.getHitRate() > 50) {
-            mainCharacter.setHealth(mainCharacter.getHealth() - monster.getAttack());
-            System.out.println("The monster dealt " + monster.getAttack() + " damage to you.");
-            System.out.println("~~~~~~~~~~");
-            System.out.println(monster.getHealth() + "/" + monster.getHealth());
+        // initialize a random number between 1 and 100
+        int randomNum = new Random().nextInt(100);
+        if (randomNum < monster.getHitRate()) {
+            if (mainCharacter.getDefense() > monster.getAttack()) {
+                mainCharacter.setHealth(mainCharacter.getHealth() - 1);
+                System.out.println("The monster dealt 1 damage to you.");
+                System.out.println("~~~~~~~~~~");
+                System.out.println("Player HP: " + mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
+            }
+            else {
+                mainCharacter.setHealth(mainCharacter.getDefense() - monster.getAttack());
+                System.out.println("The monster dealt " + monster.getAttack() + " damage to you.");
+                System.out.println("~~~~~~~~~~");
+                System.out.println("Player HP: " + mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
+            }
         } else {
             System.out.println("The monster missed you.");
         }
@@ -755,6 +844,47 @@ public class Game implements Serializable {
         }
         else{
             System.out.println("You cannot use this spell or you have ran of out mana");
+        }
+    }
+
+    // Method to load game story
+    //Ginette Wilson
+    public void loadGameStory() {
+        System.out.println("In the mystical world of Arcane Realms, where magic reigns supreme,\n You takes on the role of a young and promising wizard apprentice, recently accepted\n" +
+                "into the Wizard City's Academy of Magical Arts. As you embark on this journey, \n you uncover dark secrets hidden within the walls of the academy" );
+        System.out.println("Mysterious disappearances, ancient artifacts,\n" +
+                "and whispers of a looming threat begin to surface, threatening the delicate balance of power\n" +
+                "in Arcane Realms.");
+        System.out.println("A sinister force, long thought to be mere legend, awakens from its slumber, seeking to plunge\n" +
+                "the world into eternal darkness.");
+    }
+
+    // Method for game over
+    // Lincoln Bruce
+    public void gameOver() {
+        System.out.println("Game Over");
+        System.out.println("You have been defeated");
+        System.out.println("Would you like to play again?");
+        String playAgain = scanner.nextLine();
+        if (playAgain.equalsIgnoreCase("yes")) {
+            RunGame();
+        } else {
+            System.out.println("Thank you for playing");
+            System.exit(0);
+        }
+    }
+
+    // Method for winning the game
+    // Lincoln Bruce
+    public void gameWin() {
+        System.out.println("You defeated the beast causing chaos to the lands!");
+        System.out.println("Would you like to play again?");
+        String playAgain = scanner.nextLine();
+        if (playAgain.equalsIgnoreCase("yes")) {
+            RunGame();
+        } else {
+            System.out.println("Thank you for playing");
+            System.exit(0);
         }
     }
 
