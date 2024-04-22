@@ -36,7 +36,7 @@ public class Puzzle implements Serializable {
         this.failMessage = failMessage;
         this.hint = hint;
         this.isSolved = false;
-        this.attemptsLeft = 5;
+        this.attemptsLeft = 6;
         this.solution = solution;
         this.itemSolution = itemSolution;
         this.itemReward = itemReward;

@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="tuning (Lincoln Bruce)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Puzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Puzzle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Spells.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spells.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,15 +122,7 @@
       <workItem from="1713333668176" duration="19383000" />
       <workItem from="1713468430024" duration="1771000" />
       <workItem from="1713662427452" duration="1420000" />
-      <workItem from="1713803230816" duration="9719000" />
-    </task>
-    <task id="LOCAL-00001" summary="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1712691368453</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1712691368453</updated>
+      <workItem from="1713803230816" duration="11443000" />
     </task>
     <task id="LOCAL-00002" summary="Modified the Monster.java and Monsters.txt to add the room ID.(Lincoln Bruce)">
       <option name="closed" value="true" />
@@ -512,7 +508,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713817114744</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="tuning (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713817294537</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1713817294538</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

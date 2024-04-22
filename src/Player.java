@@ -404,13 +404,11 @@ public class Player implements Serializable {
                 }
             }
             while (!currentRoom.getRoomPuzzle().get(0).isSolved()) {
-                Scanner scanner = new Scanner(System.in);
-                solution = scanner.nextLine();
                 if (solution.equalsIgnoreCase("exit")) {
                     System.out.println("Exiting puzzle... You can return to solve it later.");
                     break;
                 }
-                else if (solution.equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getSolution().trim())) {
+                else if (solution.equalsIgnoreCase(currentRoom.getRoomPuzzle().get(0).getSolution())) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getSolvedMessage());
                     rewardPlayer(currentRoom, listOfItems, roomPuzzle);
                     currentRoom.getRoomPuzzle().get(0).setSolved(true);
@@ -424,7 +422,7 @@ public class Player implements Serializable {
                     break;
                 } else if (solution.equalsIgnoreCase("eot") || solution.equalsIgnoreCase("Eye of Truth")) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getHint());
-                } else if (currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() == 0) {
+                } else if (currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() == 1) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getFailMessage());
                     malusPlayer(currentRoom, roomPuzzle);
                     currentRoom.getRoomPuzzle().get(0).setSolved(true);
@@ -433,6 +431,7 @@ public class Player implements Serializable {
                 } else {
                     currentRoom.getRoomPuzzle().get(0).setAttemptsLeft(currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() - 1);
                     System.out.println("Incorrect. Try again! You have: " + currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() + " attempts left.");
+                    solution = new Scanner(System.in).nextLine();
                 }
             }
         } else {
