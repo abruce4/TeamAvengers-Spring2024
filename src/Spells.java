@@ -40,6 +40,12 @@ public class Spells implements Serializable {
         this.description = description;
     }
 
+    //to string
+    @Override
+    public String toString() {
+        return name;
+    }
+
     //Read Spells from file
     //Thuy Vy Pham
     public static void readSpells(String filePath, ArrayList<Spells> listOfSpells) {

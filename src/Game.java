@@ -280,6 +280,10 @@ public class Game implements Serializable {
             mainCharacter.inventory();
             return currentRoom;
         }
+        if (command.equalsIgnoreCase("grimoire")) {
+            grimoire();
+            return currentRoom;
+        }
         if (command.equalsIgnoreCase("help")) {
             helpCommand();
             return currentRoom;
@@ -302,6 +306,20 @@ public class Game implements Serializable {
         }
 
         return -1;
+    }
+
+    //Method to display grimoire
+    //Lincoln Bruce
+    public void grimoire() {
+        System.out.println("~~~~~~~~~~");
+        System.out.println("Grimoire");
+        for (Spells spell : listOfSpells) {
+            System.out.println("Name: " + spell.getName());
+            System.out.println("Description: " + spell.getDescription());
+            System.out.println("Magic Cost: " + spell.getManaCost());
+            System.out.println("Level Needed: " + spell.getLevelNeeded());
+            System.out.println("~~~~~~~~~~");
+        }
     }
 
 
@@ -655,11 +673,15 @@ public class Game implements Serializable {
                         if (action.equalsIgnoreCase("attack")) {
                             if (mainCharacter.getSpeed() > monster.getSpeed()) {
                                 dealDamage(monster);
-                                dealDamage2(monster);
+                                if (monster.getHealth() > 0) {
+                                    dealDamage2(monster);
+                                }
                             }
                             else {
                                 dealDamage2(monster);
-                                dealDamage(monster);
+                                if (mainCharacter.getHealth() > 0) {
+                                    dealDamage(monster);
+                                }
                             }
                         }
                         else if (action.equalsIgnoreCase("examine")) {
@@ -669,7 +691,11 @@ public class Game implements Serializable {
                             System.out.println("Which item would you like to consume?");
                             String itemToConsume = scanner.nextLine();
                             consume(itemToConsume, mainCharacter);
-                        } else if (action.equalsIgnoreCase("escape")) {
+                        }
+                        else if (action.equalsIgnoreCase("inventory")) {
+                            mainCharacter.inventory();
+                        }
+                        else if (action.equalsIgnoreCase("escape")) {
                             mainCharacter.escape(currentRoom, mainCharacter.getInBattle());
                         } else if (action.equalsIgnoreCase("throw")) {
                             System.out.println("Which item would you like to throw?");
@@ -696,9 +722,17 @@ public class Game implements Serializable {
         if (randomNum < mainCharacter.getHitRate()) {
             monster.setHealth(monster.getHealth() - mainCharacter.getMagic());
             System.out.println("You dealt " + mainCharacter.getMagic() + " damage to the monster.");
-            System.out.println("~~~~~~~~~~");
-            System.out.println(monster.getName() + " HP: " + monster.getHealth() + "/" + monster.getMaxHealth());
-            mainCharacter.ringOfRegeneration(mainCharacter.getPlayerInventory());
+            if (monster.getHealth() < 0) {
+                monster.setHealth(0);
+                System.out.println(monster.getName() + " HP: " + monster.getHealth() + "/" + monster.getMaxHealth());
+                mainCharacter.ringOfRegeneration(mainCharacter.getPlayerInventory());
+                System.out.println("~~~~~~~~~~");
+            }
+            else {
+                System.out.println(monster.getName() + " HP: " + monster.getHealth() + "/" + monster.getMaxHealth());
+                mainCharacter.ringOfRegeneration(mainCharacter.getPlayerInventory());
+                System.out.println("~~~~~~~~~~");
+            }
         } else {
             System.out.println("You missed the monster.");
         }
@@ -713,14 +747,22 @@ public class Game implements Serializable {
             if (mainCharacter.getDefense() > monster.getAttack()) {
                 mainCharacter.setHealth(mainCharacter.getHealth() - 1);
                 System.out.println("The monster dealt 1 damage to you.");
-                System.out.println("~~~~~~~~~~");
                 System.out.println("Player HP: " + mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
+                System.out.println("~~~~~~~~~~");
             }
             else {
-                mainCharacter.setHealth(mainCharacter.getDefense() - monster.getAttack());
-                System.out.println("The monster dealt " + monster.getAttack() + " damage to you.");
-                System.out.println("~~~~~~~~~~");
-                System.out.println("Player HP: " + mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
+                int damage = monster.getAttack() - mainCharacter.getDefense();
+                mainCharacter.setHealth(mainCharacter.getHealth() - damage);
+                System.out.println("The monster dealt " + damage + " damage to you.");
+                if (mainCharacter.getHealth() < 0) {
+                    mainCharacter.setHealth(0);
+                    System.out.println("Player HP: " + mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
+                    System.out.println("~~~~~~~~~~");
+                }
+                else {
+                    System.out.println("Player HP: " + mainCharacter.getHealth() + "/" + mainCharacter.getMaxHealth());
+                    System.out.println("~~~~~~~~~~");
+                }
             }
         } else {
             System.out.println("The monster missed you.");
@@ -760,7 +802,7 @@ public class Game implements Serializable {
                 if (mainCharacter.getPlayerLevel() >= spell.getLevelNeeded() & spell.getName().equalsIgnoreCase(spellName) & mainCharacter.getMana() > spell.getManaCost()) {
                     monster.setHealth(monster.getHealth() - spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
-                    System.out.println("You have dealt" + spell.getEffects() + " damage");
+                    System.out.println("You have dealt " + spell.getEffects() + " damage");
                     System.out.println("Remaining mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
                     dealDamage2(monster);
                     return;
@@ -785,7 +827,7 @@ public class Game implements Serializable {
                     mainCharacter.setDefense(mainCharacter.getDefense() + spell.getEffects());
                     mainCharacter.setDefense(mainCharacter.getDefense() - spell.getEffects());
                     mainCharacter.setMana(mainCharacter.getMana() - spell.getManaCost());
-                    System.out.println("You have dealt" + spell.getEffects() + " damage");
+                    System.out.println("You have dealt " + spell.getEffects() + " damage");
                     System.out.println("Remaining mana: " + mainCharacter.getMana() + "/" + mainCharacter.getMaxMana());
                     dealDamage2(monster);
                     return;
