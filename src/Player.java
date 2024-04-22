@@ -422,6 +422,7 @@ public class Player implements Serializable {
                     break;
                 } else if (solution.equalsIgnoreCase("eot") || solution.equalsIgnoreCase("Eye of Truth")) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getHint());
+                    solution = new Scanner(System.in).nextLine();
                 } else if (currentRoom.getRoomPuzzle().get(0).getAttemptsLeft() == 1) {
                     System.out.println(currentRoom.getRoomPuzzle().get(0).getFailMessage());
                     malusPlayer(currentRoom, roomPuzzle);
