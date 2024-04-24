@@ -71,6 +71,7 @@ Player Commands:
 * inventory: List all items currently in the player's inventory.
 * stats: Display the current stats of the player.
 * consume [item]: Use a consumable item to restore health or mana.
+* grimoire: Display all spells available to the player.
 * fight [monster]: Engage in combat with a monster present in the room.
 * teleport [room name]: Teleport to any previously visited room.
 * help: Display a list of all possible commands.

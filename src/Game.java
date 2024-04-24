@@ -797,6 +797,13 @@ public class Game implements Serializable {
         System.out.println("(consume)--consume an item");
         System.out.println("(fight)--fight a monster");
         System.out.println("(teleport)--teleport to a room");
+        System.out.println("(examine)--examine a monster");
+        System.out.println("(puzzle)--interact with a puzzle");
+        System.out.println("(Eye of truth)--get a hint for a puzzle");
+        System.out.println("(spells)--cast a spell");
+        System.out.println("(throw)--throw an item");
+        System.out.println("(grimoire)--view all spells");
+        System.out.println("(quit)--quit the game");
     }
 
 
