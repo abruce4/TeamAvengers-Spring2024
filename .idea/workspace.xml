@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="completely finished the items and now about to test(Lincoln Bruce)">
+    <list default="true" id="e5df700f-7446-4147-a3d8-5f63a9c4a9fc" name="Changes" comment="tuning (Lincoln Bruce)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TeamAvengers-Spring2024/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Spells.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spells.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +35,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/abruce4/TeamAvengers-Spring2024.git",
-    "accountId": "e8178b44-5732-4f8e-8e0d-8a67283beaf5"
+    "accountId": "9df9926f-d1f4-4076-a30b-3b6f333cfc94"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -117,30 +121,7 @@
       <workItem from="1713333668176" duration="19383000" />
       <workItem from="1713468430024" duration="1771000" />
       <workItem from="1713662427452" duration="1420000" />
-    </task>
-    <task id="LOCAL-00001" summary="Created the Monsters.txt and the Monster.java class with its attribute, constructors and the method to read from the file.(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1712691368453</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1712691368453</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Modified the Monster.java and Monsters.txt to add the room ID.(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1712785910437</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1712785910437</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
-      <option name="closed" value="true" />
-      <created>1712986031488</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1712986031488</updated>
+      <workItem from="1713803230816" duration="14523000" />
     </task>
     <task id="LOCAL-00004" summary="Organized the classes and files into packages and added to the items package(Lincoln Bruce)">
       <option name="closed" value="true" />
@@ -478,7 +459,63 @@
       <option name="project" value="LOCAL" />
       <updated>1713663835079</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="added back the spells">
+      <option name="closed" value="true" />
+      <created>1713748782684</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1713748782684</updated>
+    </task>
+    <task id="LOCAL-00047" summary="added back the spells">
+      <option name="closed" value="true" />
+      <created>1713754789614</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1713754789614</updated>
+    </task>
+    <task id="LOCAL-00048" summary="tuning (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713813557384</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1713813557384</updated>
+    </task>
+    <task id="LOCAL-00049" summary="tuning (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713817114744</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1713817114744</updated>
+    </task>
+    <task id="LOCAL-00050" summary="tuning (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713817294537</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1713817294538</updated>
+    </task>
+    <task id="LOCAL-00051" summary="tuning (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713819281163</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1713819281163</updated>
+    </task>
+    <task id="LOCAL-00052" summary="tuning (Lincoln Bruce)">
+      <option name="closed" value="true" />
+      <created>1713819362999</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1713819362999</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,8 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished working on items for now, waiting to test(Lincoln Bruce)" />
-    <MESSAGE value="Edit Map class by Thuy Vy" />
     <MESSAGE value="Create Spells.java class by Thuy Vy" />
     <MESSAGE value="Add readSpells method by Thuy Vy" />
     <MESSAGE value="Update Puzzle Class by Thuy Vy" />
@@ -521,7 +556,9 @@
     <MESSAGE value="fixed the attack method, will work on it and player level more today (Lincoln Bruce)" />
     <MESSAGE value="Add displayPuzzle() to Game class by Thuy Vy" />
     <MESSAGE value="completely finished the items and now about to test(Lincoln Bruce)" />
-    <option name="LAST_COMMIT_MESSAGE" value="completely finished the items and now about to test(Lincoln Bruce)" />
+    <MESSAGE value="added back the spells" />
+    <MESSAGE value="tuning (Lincoln Bruce)" />
+    <option name="LAST_COMMIT_MESSAGE" value="tuning (Lincoln Bruce)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

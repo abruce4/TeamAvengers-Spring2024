@@ -19,7 +19,7 @@ SOL013-Consumable-Potion of Greater Vitality-This potion gives you health beyond
 SOL014-Decoration-Lockpick Set-A set of delicate tools used for picking locks. Using the lockpick set allows to attempt to open locked doors or chests, granting access to hidden areas or valuable treasures.-0
 SOL015-Decoration-Broken Portable Mirror-A small, broken mirror left in the lost city. It has aged for at least a decade.-15
 SOD011-Decoration-Schools of Defense Photo-This photo reveals the faces of all the first students to join the school of defense.-10
-SOD012-Decoration-Death’s Whispers Skull-Once this item is discovered, you finally learn the truth of whom the beast truly is.-0-7
+SOD012-Decoration-Death Whispers Skull-Once this item is discovered, you finally learn the truth of whom the beast truly is.-0-7
 SOD013-Aura-Necrotic Shroud-A black silk shroud that is said to have been woven from the threads of the underworld.-50-0-5-5
 SOD014-Decoration-Grimoire of Legends-A book containing stories and legends about death, the afterlife, and mythical creatures.-0
 A1-Throwable-Fire Potion-Throw this at a monster to burn them!-10-13-0
